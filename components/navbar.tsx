@@ -4,7 +4,7 @@ import Container from "@/components/ui/container";
 import Logo from "@/components/ui/logo";
 import MainNav from "@/components/main-nav";
 
-const currentUser = true;
+const currentUser = false;
 
 const Navbar = () => {
   return (
@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="w-full bg-[#E0F5F0] flex justify-center items-center hover:cursor-pointer">
         <Link
           href="/"
-          className="text-[17px] flex justify-center items-center h-[3rem] text-black font-semibold"
+          className="text-[17px] flex justify-center items-center h-[2.5rem] text-black font-semibold"
         >
           🐾 Pawfect Pet-Friendly Plants
         </Link>

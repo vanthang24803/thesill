@@ -1,14 +1,21 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+
+import useLogginModal from "@/hooks/use-loggin";
+import useLoginModal from "@/hooks/use-login";
 
 interface MainNavProps {
   currentUser: boolean;
 }
 
 const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
+
+  const logginModal = useLogginModal();
+  const loginModal = useLoginModal();
+
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -29,7 +36,7 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
       {/* MAP */}
       <div
         className="hidden lg:flex flex-row gap-2 hover:cursor-pointer"
-        onClick={() => {}}
+        onClick={() => router.push("/locations")}
       >
         <Image height={24} width={24} src="/images/navbar/map.svg" alt="map" />
         <div className="text-[13px]">
@@ -61,7 +68,7 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
       <>
         {currentUser ? (
           <>
-            <div className="cursor-pointer" onClick={() => {}}>
+            <div className="cursor-pointer" onClick={logginModal.onOpen}>
               <div className="block lg:hidden lg:gap-x-6 ">
                 <Image
                   alt="login"
@@ -79,7 +86,7 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
           </>
         ) : (
           <>
-            <div className="cursor-pointer" onClick={() => {}}>
+            <div className="cursor-pointer" onClick={loginModal.onOpen}>
               <div className="block lg:hidden lg:gap-x-4 ">
                 <Image
                   alt="login"
