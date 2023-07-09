@@ -47,12 +47,13 @@ const Loggin = () => {
           The Sill customer since 2023
         </span>
 
-        <div className="flex flex-col mt-12 space-y-4"
-            onClick={logginModal.onClose}
+        <div
+          className="flex flex-col mt-12 space-y-4"
+          onClick={logginModal.onClose}
         >
           {label.map((item) => (
             <div className="flex justify-between items-center  hover:cursor-pointer">
-              <Link href={item.href} className="spac">
+              <Link href={item.href} className="" key={item.title}>
                 <span className="font-medium text-[17px]">{item.title}</span>
                 <br />
                 <span className="md:text-[14px] text-[12px] italic font-light">
@@ -78,7 +79,7 @@ const Loggin = () => {
         <div className="flex flex-row space-x-4 mt-8 font-medium">
           <span>Not, {lastname}?</span>
           <span
-            onClick={() => signOut}
+            onClick={() => signOut()}
             className="underline hover:cursor-pointer"
           >
             Log out

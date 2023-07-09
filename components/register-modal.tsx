@@ -88,7 +88,7 @@ const Register = () => {
             type="password"
             id="password"
             placeholder="Password"
-            {...register("pass", { required: "Required" })}
+            {...register("password", { required: "Required" })}
           />
           <Button
             type="submit"
