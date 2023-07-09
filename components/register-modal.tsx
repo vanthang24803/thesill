@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import useRegisterModal from "@/hooks/use-register";
 import useLoginModal from "@/hooks/use-login";
@@ -8,18 +8,54 @@ import useLoginModal from "@/hooks/use-login";
 import Modal from "@/components/ui/modal-left";
 import { Input } from "@/components/ui/input";
 import Button from "@/components/ui/button";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Register = () => {
-  const register = useRegisterModal();
+  const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
 
+  const [loading, setLoading] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValues>({
+    defaultValues: {
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+    },
+  });
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    setLoading(true);
+
+    axios
+      .post("/api/register", data)
+      .then(() => {
+        toast.success("Registered!");
+        registerModal.onClose();
+        loginModal.onOpen();
+      })
+      .catch((error) => {
+        toast.error(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
   const hanleClose = useCallback(() => {
-    register.onClose();
+    registerModal.onClose();
     loginModal.onOpen();
-  }, [register, loginModal]);
+  }, [registerModal, loginModal]);
 
   return (
-    <Modal isOpen={register.isOpen} onClose={register.onClose}>
+    <Modal isOpen={registerModal.isOpen} onClose={registerModal.onClose}>
       <div className="flex flex-col">
         <span className="text-2xl font-medium py-3">
           Create Your Sill Account
@@ -30,18 +66,45 @@ const Register = () => {
         </span>
 
         <form className="mt-6 flex flex-col space-y-4">
-          <Input type="text" name="firstName" placeholder="First Name" />
-          <Input type="text" name="lastName" placeholder="Last Name" />
-          <Input type="text" name="email" placeholder="Email" />
-          <Input type="password" name="password" placeholder="Password" />
-          <Button type="submit" onClick={() => {}}>
+          <Input
+            type="text"
+            id="firstname"
+            placeholder="First Name"
+            {...register("firstname", { required: "Required" })}
+          />
+          <Input
+            type="text"
+            id="lastname"
+            placeholder="Last Name"
+            {...register("lastname", { required: "Required" })}
+          />
+          <Input
+            type="email"
+            id="email"
+            placeholder="Email"
+            {...register("email", { required: "Required" })}
+          />
+          <Input
+            type="password"
+            id="password"
+            placeholder="Password"
+            {...register("pass", { required: "Required" })}
+          />
+          <Button
+            type="submit"
+            onClick={handleSubmit(onSubmit)}
+            disabled={loading}
+          >
             Submit
           </Button>
         </form>
 
         <div className="mt-6 flex flex-row space-x-4 font-medium">
           <span>Already have an account? </span>
-          <span className="underline hover:cursor-pointer font-semibold" onClick={hanleClose}>
+          <span
+            className="underline hover:cursor-pointer font-semibold"
+            onClick={hanleClose}
+          >
             Login
           </span>
         </div>
