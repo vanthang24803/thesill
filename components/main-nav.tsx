@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { SafeUser } from "@/types";
 
 import useLogginModal from "@/hooks/use-loggin";
 import useLoginModal from "@/hooks/use-login";
-import { SafeUser } from "@/types";
+import useSearchModal from "@/hooks/use-search";
 
 interface MainNavProps {
    currentUser?: SafeUser | null;
@@ -16,6 +17,7 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
 
   const logginModal = useLogginModal();
   const loginModal = useLoginModal();
+  const searchModal = useSearchModal();
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -49,7 +51,7 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
       {/* SEARCH */}
       <div
         className="flex flex-row gap-2 hover:cursor-pointer"
-        onClick={() => {}}
+        onClick={searchModal.onOpen}
       >
         <Image
           height={24}
@@ -78,7 +80,7 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
                 />
               </div>
               <div className="hidden lg:block text-[13px] gap-x-4">
-                <span className="font-semibold">Hello {currentUser?.lastname}</span>
+                <span className="font-semibold">Hello, {currentUser?.lastname}</span>
                 <br />
                 <span className="italic text-neutral-500">My Account</span>
               </div>

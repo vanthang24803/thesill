@@ -5,6 +5,7 @@ import Loggin from "@/components/loggin-modal";
 import Login from "@/components/login-modal";
 import Register from "@/components/register-modal";
 import { SafeUser } from "@/types";
+import Search from "@/components/search-modal";
 
 interface ModalProviderProps {
   currentUser?: SafeUser | null;
@@ -26,6 +27,7 @@ const ModalProvider: React.FC<ModalProviderProps> = ({ currentUser }) => {
       <Loggin currentUser={currentUser} />
       <Login />
       <Register />
+      <Search />
     </>
   );
 };

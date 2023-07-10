@@ -26,7 +26,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   return (
     <div
       className={`fixed left-0 top-0 h-screen w-full translate-x-0  transition-all ease-in-out
-       ${showModal ? "z-30 bg-[rgba(0,0,0,0.2)]" : "z-0 bg-white"}
+       ${showModal ? "z-30 bg-[rgba(0,0,0,0.2)]" : "-z-50 bg-white"}
       `}
     >
       <div
