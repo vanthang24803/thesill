@@ -6,9 +6,10 @@ import { useRouter } from "next/navigation";
 
 import useLogginModal from "@/hooks/use-loggin";
 import useLoginModal from "@/hooks/use-login";
+import { SafeUser } from "@/types";
 
 interface MainNavProps {
-  currentUser: boolean;
+   currentUser?: SafeUser | null;
 }
 
 const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
@@ -28,7 +29,6 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
     return null;
   }
 
-  const lastname = "May";
   const lengthCart = "0";
 
   return (
@@ -78,7 +78,7 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
                 />
               </div>
               <div className="hidden lg:block text-[13px] gap-x-4">
-                <span className="font-semibold">Hello, {lastname}</span>
+                <span className="font-semibold">Hello {currentUser?.lastname}</span>
                 <br />
                 <span className="italic text-neutral-500">My Account</span>
               </div>

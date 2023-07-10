@@ -8,8 +8,8 @@ import useLogginModal from "@/hooks/use-loggin";
 
 import Modal from "@/components/ui/modal-left";
 import Button from "@/components/ui/button";
+import { SafeUser } from "@/types";
 
-const lastname: string = "May";
 
 const label = [
   {
@@ -34,14 +34,18 @@ const label = [
   },
 ];
 
-const Loggin = () => {
+interface LogginProps {
+  currentUser?: SafeUser | null;
+}
+
+const Loggin : React.FC<LogginProps> = ({currentUser}) => {
   const router = useRouter();
   const logginModal = useLogginModal();
   return (
     <Modal isOpen={logginModal.isOpen} onClose={logginModal.onClose}>
       <div className="flex flex-col">
         <span className="text-2xl font-medium py-4">
-          Welcome Back, {lastname}
+          Welcome Back, {currentUser?.lastname}
         </span>
         <span className="text-sm font-medium">
           The Sill customer since 2023
@@ -52,8 +56,11 @@ const Loggin = () => {
           onClick={logginModal.onClose}
         >
           {label.map((item) => (
-            <div className="flex justify-between items-center  hover:cursor-pointer">
-              <Link href={item.href} className="" key={item.title}>
+            <div
+              className="flex justify-between items-center  hover:cursor-pointer"
+              key={item.title}
+            >
+              <Link href={item.href}>
                 <span className="font-medium text-[17px]">{item.title}</span>
                 <br />
                 <span className="md:text-[14px] text-[12px] italic font-light">
@@ -77,7 +84,7 @@ const Loggin = () => {
         </Button>
 
         <div className="flex flex-row space-x-4 mt-8 font-medium">
-          <span>Not, {lastname}?</span>
+          <span>Not {currentUser?.lastname}?</span>
           <span
             onClick={() => signOut()}
             className="underline hover:cursor-pointer"

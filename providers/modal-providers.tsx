@@ -1,11 +1,16 @@
 "use client";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Loggin from "@/components/loggin-modal";
 import Login from "@/components/login-modal";
 import Register from "@/components/register-modal";
+import { SafeUser } from "@/types";
 
-const ModalProvider = () => {
+interface ModalProviderProps {
+  currentUser?: SafeUser | null;
+}
+
+const ModalProvider: React.FC<ModalProviderProps> = ({ currentUser }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -18,7 +23,7 @@ const ModalProvider = () => {
 
   return (
     <>
-      <Loggin />
+      <Loggin currentUser={currentUser} />
       <Login />
       <Register />
     </>

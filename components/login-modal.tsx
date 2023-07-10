@@ -39,7 +39,7 @@ const Login = () => {
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const logging = useLogginModal();
-  
+
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const {
@@ -140,7 +140,10 @@ const Login = () => {
           onClick={loginModal.onClose}
         >
           {label.map((item) => (
-            <div className="flex justify-between items-center  hover:cursor-pointer">
+            <div
+              className="flex justify-between items-center  hover:cursor-pointer"
+              key={item.title}
+            >
               <Link href={item.href} className="" key={item.title}>
                 <span className="font-medium text-[17px]">{item.title}</span>
                 <br />

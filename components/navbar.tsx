@@ -3,10 +3,16 @@ import Link from "next/link";
 import Container from "@/components/ui/container";
 import Logo from "@/components/ui/logo";
 import MainNav from "@/components/main-nav";
+import { SafeUser } from "@/types";
 
-const currentUser = false;
+interface NavbarProps {
+  currentUser?: SafeUser | null;
+}
 
-const Navbar = () => {
+
+const Navbar : React.FC<NavbarProps> = ({
+  currentUser
+}) => {
   return (
     <nav className="fixed w-full bg-white z-10 border-b">
       <div className="w-full bg-[#009A7B] flex justify-center items-center hover:cursor-pointer">
