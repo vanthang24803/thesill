@@ -4,11 +4,11 @@ import Container from "@/components/ui/container";
 import Logo from "@/components/ui/logo";
 import MainNav from "@/components/main-nav";
 import { SafeUser } from "@/types";
+import Navigation from "./navigation";
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
 }
-
 
 const Navbar : React.FC<NavbarProps> = ({
   currentUser
@@ -30,8 +30,8 @@ const Navbar : React.FC<NavbarProps> = ({
             <MainNav currentUser={currentUser} />
           </div>
         </Container>
-      </div>
-
+      </div> 
+        <Navigation />
       <div className="w-full bg-[#E0F5F0] flex justify-center items-center hover:cursor-pointer">
         <Link
           href="/"
