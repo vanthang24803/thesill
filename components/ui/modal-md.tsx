@@ -38,7 +38,7 @@ const Modal: React.FC<ModalProps> = ({
       `}
     >
       <div
-        className={`ml-auto bg-[#f9f8f7] h-full lg:w-1/4 md:w-[85%] w-[90%] translate duration-500 overflow-auto
+        className={`ml-auto bg-[#f9f8f7] h-full lg:w-1/3 md:w-[85%] w-[90%] translate duration-500 overflow-auto
       ${showModal ? "translate-x-0" : "translate-x-full"}
       ${showModal ? "opacity-100" : "opacity-0"}
     `}

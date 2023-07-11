@@ -10,23 +10,27 @@ import useMenuModal from "@/hooks/use-menu-mobile";
 import useLoginModal from "@/hooks/use-login";
 import useLogginModal from "@/hooks/use-loggin";
 
-
 import Modal from "@/components/ui/modal-md";
 import { Input } from "@/components/ui/input";
 import Button from "@/components/ui/button";
-
+import useNavModalModal from "@/hooks/use-store-menu";
+import usePlantModal from "@/hooks/use-plant-menu";
+import usePlanterModal from "@/hooks/use-planter-menu";
+import usePlantCareModal from "@/hooks/use-plant-care-mobile";
 
 interface MenuMobileProps {
   currentUser?: SafeUser | null;
 }
 
-const MenuMobile : React.FC<MenuMobileProps> = ({
-  currentUser,
-}) => {
+const MenuMobile: React.FC<MenuMobileProps> = ({ currentUser }) => {
   const router = useRouter();
   const menuModal = useMenuModal();
   const loginModal = useLoginModal();
   const logginModal = useLogginModal();
+  const navModal = useNavModalModal();
+  const plantModal = usePlantModal();
+  const planterModal = usePlanterModal();
+  const plantCareModal = usePlantCareModal();
 
   const [data, setData] = useState("");
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,7 +61,8 @@ const MenuMobile : React.FC<MenuMobileProps> = ({
         </div>
 
         {/* Navigation Mobile */}
-        <div className="flex flex-col space-y-3 md:space-y-4 overflow-auto cursor-pointer"
+        <div
+          className="flex flex-col space-y-3 md:space-y-4 overflow-auto cursor-pointer"
           onClick={menuModal.onClose}
         >
           {/* DEALS */}
@@ -71,7 +76,7 @@ const MenuMobile : React.FC<MenuMobileProps> = ({
           {/* STORE */}
           <div
             className="border-b py-2 font-medium flex items-center justify-between space-x-1 w-full"
-            onClick={() => {}}
+            onClick={navModal.onOpen}
           >
             <span className="text-lg">Stores</span>
             <MoveRight size={18} />
@@ -79,7 +84,7 @@ const MenuMobile : React.FC<MenuMobileProps> = ({
           {/* PLANTS*/}
           <div
             className="border-b py-2 font-medium flex items-center justify-between space-x-1 w-full"
-            onClick={() => {}}
+            onClick={plantModal.onOpen}
           >
             <span className="text-lg">Plants</span>
             <MoveRight size={18} />
@@ -87,7 +92,7 @@ const MenuMobile : React.FC<MenuMobileProps> = ({
           {/* PLANTERS */}
           <div
             className="border-b py-2 font-medium flex items-center justify-between space-x-1 w-full"
-            onClick={() => {}}
+            onClick={planterModal.onOpen}
           >
             <span className="text-lg">Planters</span>
             <MoveRight size={18} />
@@ -95,7 +100,7 @@ const MenuMobile : React.FC<MenuMobileProps> = ({
           {/* PLANT CARE */}
           <div
             className="border-b py-2 font-medium flex items-center justify-between space-x-1 w-full"
-            onClick={() => {}}
+            onClick={plantCareModal.onOpen}
           >
             <span className="text-lg">Plant Care</span>
             <MoveRight size={18} />
@@ -151,8 +156,7 @@ const MenuMobile : React.FC<MenuMobileProps> = ({
         </div>
 
         {/* BUTTON NAVIGATION */}
-        <div className="flex items-center space-x-2 md:mt-10 mt-4 mb-6"
-        >
+        <div className="flex items-center space-x-2 md:mt-10 mt-4 mb-6">
           {currentUser ? (
             <Button
               className="basis-1/2 md:basis-1/4 lg:basis-1/2"

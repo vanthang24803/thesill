@@ -58,7 +58,7 @@ const Loggin : React.FC<LogginProps> = ({currentUser}) => {
           {label.map((item) => (
             <div
               className="flex justify-between items-center  hover:cursor-pointer"
-              key={item.title}
+              key={item.href}
             >
               <Link href={item.href}>
                 <span className="font-medium text-[17px]">{item.title}</span>

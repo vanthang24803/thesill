@@ -9,6 +9,10 @@ import Search from "@/components/search-modal";
 
 import Resources from "@/components/nav-resources";
 import MenuMobile from "@/components/nav-menu";
+import StoreMenu from "@/components/navigation/menu-store";
+import PlantMenu from "@/components/navigation/menu-plant";
+import PlanterMenu from "@/components/navigation/menu-planter";
+import PlantCareMenu from "@/components/navigation/menu-plant-care";
 
 interface ModalProviderProps {
   currentUser?: SafeUser | null;
@@ -33,6 +37,10 @@ const ModalProvider: React.FC<ModalProviderProps> = ({ currentUser }) => {
       <Search />
       <Resources />
       <MenuMobile currentUser={currentUser} />
+      <StoreMenu />
+      <PlantMenu />
+      <PlanterMenu  />
+      <PlantCareMenu />
     </>
   );
 };
