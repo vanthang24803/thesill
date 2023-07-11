@@ -107,7 +107,7 @@ const DecorMenu = () => {
       <div className="mt-8 overflow-auto">
         <div className="flex flex-col gap-y-6">
           {home.map((loaction) => (
-            <div>
+            <div key={loaction.title}>
               <span className="text-2xl font-medium">{loaction.title}</span>
               <div className="mt-4">
                 {loaction.menu.map((index) => (

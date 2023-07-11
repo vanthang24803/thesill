@@ -107,7 +107,7 @@ const PlanterMenu = () => {
         <div className="overflow-auto mt-6">
           <div className="flex flex-col gap-y-6">
             {plants.map((plant) => (
-              <div>
+              <div key={plant.title}>
                 <span className="text-2xl font-medium">{plant.title}</span>
                 <div className="mt-4">
                   {plant.menu.map((index) => (

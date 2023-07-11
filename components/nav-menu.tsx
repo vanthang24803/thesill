@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Search } from "lucide-react";
 import { MoveRight } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -44,6 +44,18 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ currentUser }) => {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData(e.target.value);
   };
+
+  const isUser = useCallback(() => {
+    menuModal.onClose();
+    logginModal.onOpen();
+  } , [logginModal, menuModal]);
+
+  
+  const notUser = useCallback(() => {
+    menuModal.onClose();
+    loginModal.onOpen();
+  }, [loginModal, menuModal]);
+
   return (
     <Modal isOpen={menuModal.isOpen} onClose={menuModal.onClose} title="Shop">
       <div className="bg-[#f9f8f7] overflow-auto">
@@ -168,19 +180,19 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ currentUser }) => {
           {currentUser ? (
             <Button
               className="basis-1/2 md:basis-1/4 lg:basis-1/2"
-              onClick={logginModal.onOpen}
+              onClick={isUser}
             >
               My Account
             </Button>
           ) : (
             <Button
               className="basis-1/2 md:basis-1/4 lg:basis-1/2"
-              onClick={loginModal.onOpen}
+              onClick={notUser}
             >
               My Account
             </Button>
           )}
-          <Button className="basis-1/2 md:basis-1/4 lg:basis-1/2 bg-white text-[#009A7B]">
+          <Button className="basis-1/2 md:basis-1/4 lg:basis-1/2 bg-white text-[#009A7B]" onClick={() => router.push("/locations")}>
             Store Locator
           </Button>
         </div>

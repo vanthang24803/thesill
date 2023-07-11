@@ -110,7 +110,7 @@ const StoreMenu = () => {
           {data.map((item) => (
             <Link
               href="/locations"
-              key={item.title}
+              key={item.image}
               className="overflow-auto md:w-1/3 flex flex-row md:flex-col mx-2"
             >
               <img src={item.image} className="h-full w-full object-cover" />
@@ -125,7 +125,7 @@ const StoreMenu = () => {
       <div className="overflow-auto">
         <div className="flex flex-col gap-y-6">
           {loactions.map((loaction) => (
-            <div>
+            <div key={loaction.title}>
               <span className="text-2xl font-medium">{loaction.title}</span>
               <div className="mt-4">
                 {loaction.menu.map((index) => (

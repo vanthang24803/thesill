@@ -6,6 +6,18 @@ import { Menu } from "lucide-react";
 import useResourcesModal from "@/hooks/use-resources";
 import useMenuModal from "@/hooks/use-menu-mobile";
 
+import Store from "@/components/navigation/pc-store";
+import Plant from "@/components/navigation/pc-plant";
+import Planter from "@/components/navigation/pc-planter";
+import PlantCare from "@/components/navigation/pc-plant-care";
+import Gift from "@/components/navigation/pc-gift";
+import Decor from "@/components/navigation/pc-decor";
+import Faux from "@/components/navigation/pc-faux";
+import Flower from "@/components/navigation/pc-flower";
+import Deals from "@/components/navigation/pc-deals";
+import Subscription from "@/components/navigation/pc-subcription";
+import Workshop from "@/components/navigation/pc-workshop";
+
 // DATA
 export const summerSale = {
   dropdown: false,
@@ -496,13 +508,29 @@ const Navigation = () => {
   return (
     <div className="py-2  bg-[#f9f8f7] lg:bg-inherit">
       {/* Navigation PC */}
-      <div className="hidden lg:block">Hello</div>
+      <div className="hidden lg:block">
+        <div className="w-2 h-2 bg-red-500 relative rounded-full left-[18%]"></div>
+        <div className="flex flex-row items-center justify-between overflow-x-auto lg:mx-44 font-medium">
+          <Deals />
+          <Store />
+          <Plant />
+          <Planter />
+          <PlantCare />
+          <Gift />
+          <Decor />
+          <Faux />
+          <Flower />
+          <Subscription />
+          <Workshop />
+        </div>
+      </div>
 
       {/* Navigation Mobile */}
       <div className="lg:hidden flex w-full">
         <>
-          <div className="flex basis-1/2 items-center justify-center gap-x-2 font-semibold"
-          onClick={menuModal.onOpen}
+          <div
+            className="flex basis-1/2 items-center justify-center gap-x-2 font-semibold"
+            onClick={menuModal.onOpen}
           >
             <Menu size={24} className="space-x-3 hidden md:block" />
             <Menu size={18} className="space-x-3 block md:hidden" />
@@ -511,7 +539,8 @@ const Navigation = () => {
         </>
 
         <>
-          <div className="flex basis-1/2 items-center justify-center space-x-2 border-l-[1px] border-neutral-500 font-semibold"
+          <div
+            className="flex basis-1/2 items-center justify-center space-x-2 border-l-[1px] border-neutral-500 font-semibold"
             onClick={resourcesModal.onOpen}
           >
             <Image
