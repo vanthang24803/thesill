@@ -84,6 +84,7 @@ const PlantCareMenu = () => {
           {data.map((item) => (
             <Link
               href={item.href}
+              key={item.image}
               className="overflow-auto md:w-1/3 flex flex-row md:flex-col mx-2"
             >
               <img src={item.image} className="h-full w-full object-cover" />
@@ -105,6 +106,7 @@ const PlantCareMenu = () => {
                     <Link
                       onClick={plantCareModal.onClose}
                       href={index.link}
+                      key={index.name}
                       className="flex flex-row my-4 py-2 md:py-3 border-b-[2px] border-neutral-200/70 font-light"
                     >
                       {index.name}

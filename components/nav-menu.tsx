@@ -9,14 +9,18 @@ import { SafeUser } from "@/types";
 import useMenuModal from "@/hooks/use-menu-mobile";
 import useLoginModal from "@/hooks/use-login";
 import useLogginModal from "@/hooks/use-loggin";
-
-import Modal from "@/components/ui/modal-md";
-import { Input } from "@/components/ui/input";
-import Button from "@/components/ui/button";
 import useNavModalModal from "@/hooks/use-store-menu";
 import usePlantModal from "@/hooks/use-plant-menu";
 import usePlanterModal from "@/hooks/use-planter-menu";
 import usePlantCareModal from "@/hooks/use-plant-care-mobile";
+import useGiftModal from "@/hooks/use-gift-menu";
+import useDecorModal from "@/hooks/use-decor-menu";
+import useFlowerModal from "@/hooks/use-flower-menu";
+import useFauxModal from "@/hooks/use-faux-menu";
+
+import Modal from "@/components/ui/modal-md";
+import { Input } from "@/components/ui/input";
+import Button from "@/components/ui/button";
 
 interface MenuMobileProps {
   currentUser?: SafeUser | null;
@@ -31,6 +35,10 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ currentUser }) => {
   const plantModal = usePlantModal();
   const planterModal = usePlanterModal();
   const plantCareModal = usePlantCareModal();
+  const giftModal = useGiftModal();
+  const decorModal = useDecorModal();
+  const fauxModal = useFauxModal();
+  const flowerModal = useFlowerModal();
 
   const [data, setData] = useState("");
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -108,7 +116,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ currentUser }) => {
           {/* GIFT IDEAS */}
           <div
             className="border-b py-2 font-medium flex items-center justify-between space-x-1 w-full"
-            onClick={() => {}}
+            onClick={giftModal.onOpen}
           >
             <span className="text-lg">Gift Ideas</span>
             <MoveRight size={18} />
@@ -116,7 +124,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ currentUser }) => {
           {/* HOME & DECOR */}
           <div
             className="border-b py-2 font-medium flex items-center justify-between space-x-1 w-full"
-            onClick={() => {}}
+            onClick={decorModal.onOpen}
           >
             <span className="text-lg">Home & Decor</span>
             <MoveRight size={18} />
@@ -124,7 +132,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ currentUser }) => {
           {/* FAUX */}
           <div
             className="border-b py-2 font-medium flex items-center justify-between space-x-1 w-full"
-            onClick={() => {}}
+            onClick={fauxModal.onOpen}
           >
             <span className="text-lg">Faux</span>
             <MoveRight size={18} />
@@ -132,7 +140,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ currentUser }) => {
           {/* FLOWERS & BOUQUETS */}
           <div
             className="border-b py-2 font-medium flex items-center justify-between space-x-1 w-full"
-            onClick={() => {}}
+            onClick={flowerModal.onOpen}
           >
             <span className="text-lg">Flowers & Bouquets</span>
             <MoveRight size={18} />

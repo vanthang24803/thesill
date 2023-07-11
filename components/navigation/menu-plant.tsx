@@ -140,6 +140,7 @@ const PlantMenu = () => {
           {data.map((item) => (
             <Link
               href={item.href}
+              key={item.image}
               className="overflow-auto md:w-1/4 flex flex-row md:flex-col px-2"
             >
               <img src={item.image} className="w-full h-[15vh] object-cover" />
@@ -162,6 +163,7 @@ const PlantMenu = () => {
                   <Link
                     onClick={() => {}}
                     href={index.link}
+                    key={index.link}
                     className="flex flex-row my-4 py-2 md:py-3 border-b-[2px] border-neutral-200/70 font-light"
                   >
                     {index.name}

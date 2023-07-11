@@ -13,6 +13,10 @@ import StoreMenu from "@/components/navigation/menu-store";
 import PlantMenu from "@/components/navigation/menu-plant";
 import PlanterMenu from "@/components/navigation/menu-planter";
 import PlantCareMenu from "@/components/navigation/menu-plant-care";
+import GiftMenu from "@/components/navigation/menu-gift";
+import DecorMenu from "@/components/navigation/menu-home-decor";
+import FauxMenu from "@/components/navigation/menu-faux";
+import FlowerMenu from "@/components/navigation/menu-flower";
 
 interface ModalProviderProps {
   currentUser?: SafeUser | null;
@@ -32,15 +36,19 @@ const ModalProvider: React.FC<ModalProviderProps> = ({ currentUser }) => {
   return (
     <>
       <Loggin currentUser={currentUser} />
+      <MenuMobile currentUser={currentUser} />
       <Login />
       <Register />
       <Search />
       <Resources />
-      <MenuMobile currentUser={currentUser} />
       <StoreMenu />
       <PlantMenu />
-      <PlanterMenu  />
+      <PlanterMenu />
       <PlantCareMenu />
+      <GiftMenu />
+      <DecorMenu />
+      <FauxMenu />
+      <FlowerMenu />
     </>
   );
 };

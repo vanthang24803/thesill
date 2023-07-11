@@ -110,6 +110,7 @@ const StoreMenu = () => {
           {data.map((item) => (
             <Link
               href="/locations"
+              key={item.title}
               className="overflow-auto md:w-1/3 flex flex-row md:flex-col mx-2"
             >
               <img src={item.image} className="h-full w-full object-cover" />
@@ -130,6 +131,7 @@ const StoreMenu = () => {
                 {loaction.menu.map((index) => (
                   <Link
                     onClick={() => {}}
+                    key={index.name}
                     href={index.link}
                     className="flex flex-row my-4 py-2 md:py-3 border-b-[2px] border-neutral-200/70 font-light"
                   >
