@@ -6,7 +6,7 @@ import { MoveRight } from "lucide-react";
 
 import useLogginModal from "@/hooks/use-loggin";
 
-import Modal from "@/components/ui/modal-left";
+import Modal from "@/components/ui/modal-sm";
 import Button from "@/components/ui/button";
 import { SafeUser } from "@/types";
 

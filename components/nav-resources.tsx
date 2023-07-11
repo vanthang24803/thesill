@@ -5,7 +5,7 @@ import useResourcesModal from "@/hooks/use-resources";
 
 import Link from "next/link";
 import Image from "next/image";
-import Modal from "@/components/ui/modal-full";
+import Modal from "@/components/ui/modal-lg";
 
 const plants = [
   {

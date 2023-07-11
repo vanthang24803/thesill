@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 import useSearchModal from "@/hooks/use-search";
 
-import Modal from "@/components/ui/modal-left";
+import Modal from "@/components/ui/modal-sm";
 import Container from "@/components/ui/container";
 import { Input } from "@/components/ui/input";
 

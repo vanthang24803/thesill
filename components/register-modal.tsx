@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 import useRegisterModal from "@/hooks/use-register";
 import useLoginModal from "@/hooks/use-login";
 
-import Modal from "@/components/ui/modal-left";
+import Modal from "@/components/ui/modal-sm";
 import { Input } from "@/components/ui/input";
 import Button from "@/components/ui/button";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";

@@ -7,7 +7,7 @@ import useRegisterModal from "@/hooks/use-register";
 
 import { MoveRight } from "lucide-react";
 
-import Modal from "@/components/ui/modal-left";
+import Modal from "@/components/ui/modal-sm";
 import { Input } from "@/components/ui/input";
 import Button from "@/components/ui/button";
 import { useCallback, useState } from "react";

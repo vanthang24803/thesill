@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Menu } from "lucide-react";
 
 import useResourcesModal from "@/hooks/use-resources";
+import useMenuModal from "@/hooks/use-menu-mobile";
 
 // DATA
 export const summerSale = {
@@ -490,7 +491,7 @@ export const workshop = {
 const Navigation = () => {
 
   const resourcesModal = useResourcesModal();
-  
+  const menuModal = useMenuModal();
 
   return (
     <div className="py-2  bg-[#f9f8f7] lg:bg-inherit">
@@ -500,7 +501,9 @@ const Navigation = () => {
       {/* Navigation Mobile */}
       <div className="lg:hidden flex w-full">
         <>
-          <div className="flex basis-1/2 items-center justify-center gap-x-2 font-semibold">
+          <div className="flex basis-1/2 items-center justify-center gap-x-2 font-semibold"
+          onClick={menuModal.onOpen}
+          >
             <Menu size={24} className="space-x-3 hidden md:block" />
             <Menu size={18} className="space-x-3 block md:hidden" />
             <span className="space-x-3 text-base">Shop</span>
