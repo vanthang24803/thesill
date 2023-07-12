@@ -14,7 +14,7 @@ const Navbar : React.FC<NavbarProps> = ({
   currentUser
 }) => {
   return (
-    <nav className="fixed w-full bg-white z-10 border-b">
+    <nav className="w-full bg-white z-10 border-b">
       <div className="w-full bg-[#009A7B] flex justify-center items-center hover:cursor-pointer">
         <Link
           href="/"
