@@ -22,11 +22,11 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
 
   return (
     <>
-      {data.category.name === head ? (
+      {data.category.name === head && (
         <div onClick={handleClick} className="group cursor-pointer">
           {/* Image & actions */}
 
-          <div className="aspect-square bg-gray-100 relative">
+          <div className="aspect-square relative">
             <Image
               src={data.images?.[0]?.url}
               alt="products"
@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
             {data.benefit.name !== "FREE Shipping" && (
               <>
                 {data.sale !== "1" ? (
-                  <div className="w-[145px] absolute top-5 h-[30px] bg-[#4bd8c8]">
+                  <div className="w-[140px] absolute top-5 h-[30px] bg-[#4bd8c8]">
                     <div className="flex items-center justify-center space-x-4 mt-[4px] text-center text-sm text-white">
                       <Star size={12} />
                       <p>{data.benefit.name}</p>
@@ -69,9 +69,7 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
             </span>
           </div>
         </div>
-      ) : (
-       <></>
-      )}
+      ) }
     </>
   );
 };
