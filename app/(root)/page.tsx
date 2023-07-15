@@ -7,8 +7,12 @@ import BillBody from "./components/bill-body";
 import Collection from "./components/collection";
 import Infomation from "./components/infomation";
 
+
 export default async function Home() {
   const ProductList = dynamic(() => import("@/components/product-list-home"));
+  const SwipperLg = dynamic(() => import("./components/swipper-lg"));
+  const SwipperMd = dynamic(() => import("./components/swipper-md"));
+  const SwipperSm = dynamic(() => import("./components/swipper-sm"));
   const products = await getProducts({ isFeatured: true });
   const billboard = await getBillboard("f691c614-adf0-48d2-87d4-e4ec887e07e4");
   return (
@@ -66,6 +70,19 @@ export default async function Home() {
         <Infomation />
 
         {/* Swipper */}
+        <div className="mt-8 mb-6">
+          <div className="hidden lg:block">
+            <SwipperLg />
+          </div>
+
+          <div className="hidden md:block lg:hidden">
+            <SwipperMd />
+          </div>
+
+          <div className="block md:hidden">
+            <SwipperSm />
+          </div>
+        </div>
       </Body>
     </>
   );
