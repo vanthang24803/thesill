@@ -70,7 +70,7 @@ export default async function Home() {
         <Infomation />
 
         {/* Swipper */}
-        <div className="mt-8 mb-6">
+        <div className="md:my-16 my-12">
           <div className="hidden lg:block">
             <SwipperLg />
           </div>

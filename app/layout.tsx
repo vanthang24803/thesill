@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/navbar";
 import ToastProvider from "@/providers/toast-provider";
 import getCurrentUser from "@/actions/getCurrentUser";
+import Footer from "@/components/footer";
 
 const font = Lora({ subsets: ["latin"] });
 
@@ -30,7 +31,8 @@ export default async function RootLayout({
         <Navbar currentUser={currentUser} />
         <ToastProvider />
         <ModalProvider currentUser={currentUser} />
-        {children}
+        <main>{children}</main>
+        <Footer />        
       </body>
     </html>
   );
