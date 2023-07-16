@@ -1,10 +1,14 @@
 "use client";
 
-import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+import { Plus } from "lucide-react";
+import { Minus } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import { Input } from "./ui/input";
 import Button from "./ui/button";
+import exp from "constants";
 
 const navigations = [
   {
@@ -127,6 +131,12 @@ const social = [
 ];
 
 const Footer = () => {
+  const [custormer, setCustormer] = useState(false);
+  const [resource, setResource] = useState(false);
+  const [sill, setSill] = useState(false);
+  const [explore, setExplore] = useState(false);
+  const [policies, setPolicies] = useState(false);
+
   return (
     <footer className="bg-[#F9F8F7] lg:px-10 lg:pt-10 pb-3 px-6 pt-6">
       <div className="border-b-2 border-neutral-300 pb-10 flex items-center md:space-x-8 space-x-4">
@@ -175,7 +185,7 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        <div className="md:basis-1/3">
+        <div className="md:basis-1/3 mb-4">
           <span className="lg:text-4xl text-3xl font-semibold">
             Get the Dirt.
           </span>
@@ -185,7 +195,7 @@ const Footer = () => {
           </p>
           <form className="space-y-3 mb-8">
             <Input placeholder="Enter your email here..." required />
-            <Button onClick={() => {}}>Subscribe</Button>
+            <Button type="submit">Subscribe</Button>
           </form>
 
           <div className="flex items-center space-x-4">
@@ -200,10 +210,105 @@ const Footer = () => {
             ))}
           </div>
         </div>
+        <div className="flex flex-col md:hidden mt-8">
+          <div className="flex items-center justify-between border-b border-neutral-300 pb-4 w-full">
+            <span className="text-xl font-medium focus:text-[#009A7B]">
+              Customer Service
+            </span>
+            {custormer ? (
+              <Minus size={20} onClick={() => setCustormer(!custormer)} />
+            ) : (
+              <Plus size={20} onClick={() => setCustormer(!custormer)} />
+            )}
+          </div>
+          {custormer && (
+            <div className="flex flex-col space-y-4 mt-4">
+              <Link href="/">FAQ</Link>
+              <Link href="/">Shipping & Heading</Link>
+              <Link href="/">30-Day Guarantee</Link>
+              <Link href="/">Contact Us</Link>
+            </div>
+          )}
+          <div className="flex items-center justify-between border-b border-neutral-300 pb-4 pt-8 w-full">
+            <span className="text-xl font-medium focus:text-[#009A7B]">
+              Resources
+            </span>
+            {resource ? (
+              <Minus size={20} onClick={() => setResource(!resource)} />
+            ) : (
+              <Plus size={20} onClick={() => setResource(!resource)} />
+            )}
+          </div>
+          {resource && (
+            <div className="flex flex-col space-y-4 mt-4">
+              <Link href="/">Find Your Plant 🌱</Link>
+              <Link href="/">Plant Care Library</Link>
+              <Link href="/">Blog</Link>
+              <Link href="/">Free Online Cource</Link>
+            </div>
+          )}
+          <div className="flex items-center justify-between border-b border-neutral-300 pb-4 pt-8 w-full">
+            <span className="text-xl font-medium focus:text-[#009A7B]">
+              My Sill
+            </span>
+            {sill ? (
+              <Minus size={20} onClick={() => setSill(!sill)} />
+            ) : (
+              <Plus size={20} onClick={() => setSill(!sill)} />
+            )}
+          </div>
+          {sill && (
+            <div className="flex flex-col space-y-4 mt-4">
+              <Link href="/">My Account</Link>
+              <Link href="/">WorkShops</Link>
+              <Link href="/">Rewards Program</Link>
+              <Link href="/">Track My Order</Link>
+            </div>
+          )}
+
+          <div className="flex items-center justify-between border-b border-neutral-300 pb-4 pt-8 w-full">
+            <span className="text-xl font-medium focus:text-[#009A7B]">
+              Expore
+            </span>
+            {explore ? (
+              <Minus size={20} onClick={() => setExplore(!explore)} />
+            ) : (
+              <Plus size={20} onClick={() => setExplore(!explore)} />
+            )}
+          </div>
+          {explore && (
+            <div className="flex flex-col space-y-4 mt-4">
+              <Link href="/">Our Story</Link>
+              <Link href="/locations">Locations</Link>
+              <Link href="/">Careers</Link>
+              <Link href="/">Corporate Gifting</Link>
+            </div>
+          )}
+
+          <div className="flex items-center justify-between border-b border-neutral-300 pb-4 pt-8 w-full">
+            <span className="text-xl font-medium focus:text-[#009A7B]">
+              Policies
+            </span>
+            {policies ? (
+              <Minus size={20} onClick={() => setPolicies(!policies)} />
+            ) : (
+              <Plus size={20} onClick={() => setPolicies(!policies)} />
+            )}
+          </div>
+          {policies && (
+            <div className="flex flex-col space-y-4 mt-4">
+              <Link href="/">Affiliate Program</Link>
+              <Link href="/">Terms of Us</Link>
+              <Link href="/">Privacy Policy</Link>
+              <Link href="/">Accessiblity</Link>
+              <Link href="/">Do Not Sell My Info</Link>
+            </div>
+          )}
+        </div>
       </div>
 
-      <div className="mt-8">
-        <div className="border-b-2 border-neutral-600 flex items-center justify-between md:text-4xl text-3xl font-semibold pb-1">
+      <div className="mt-12">
+        <div className="border-b-2 border-neutral-600 flex items-center justify-between md:text-4xl text-3xl font-semibold pb-3">
           <p>The</p>
           <p>Sill</p>
         </div>
