@@ -6,9 +6,8 @@ import { useState } from "react";
 import { Plus } from "lucide-react";
 import { Minus } from "lucide-react";
 import { MoveRight } from "lucide-react";
-import { Input } from "./ui/input";
-import Button from "./ui/button";
-import exp from "constants";
+import { Input } from "@/components/ui/input";
+import Button from "@/components/ui/button";
 
 const navigations = [
   {

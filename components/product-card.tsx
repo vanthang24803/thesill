@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 import { Product } from "@/types";
 import Currency from "./ui/currency";
+import Button from "./ui/button";
 
 interface ProductCard {
   data: Product;
@@ -25,7 +26,6 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
       {data.category.name === head && (
         <div onClick={handleClick} className="group cursor-pointer">
           {/* Image & actions */}
-
           <div className="aspect-square relative">
             <Image
               src={data.images?.[0]?.url}
@@ -33,6 +33,15 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
               fill
               className="object-cover h-full"
             />
+            <div className="hidden group-hover:block transition absolute w-full px-6 bottom-5">
+              <Button
+                className="hover:opacity-100 border-none h-12 bg-[#05b894]
+               hover:bg-[#009A7b] font-medium"
+                onClick={handleClick}
+              >
+                View Details
+              </Button>
+            </div>
             {/* Banner Sale */}
             {data.benefit.name !== "FREE Shipping" && (
               <>
@@ -55,6 +64,17 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
             )}
           </div>
           {/* Description */}
+          <div className="hidden lg:block opacity-0 group-hover:opacity-100 transition absolute bg-white h-[12vh] w-1/5 mt-2">
+            <div className="w-full flex flex-col space-y-3">
+              <div
+                className="w-10 h-10 rounded-full border-[1px] border-neutral-300"
+                style={{ backgroundColor: data.color.value }}
+              ></div>
+              <p className="lg:text-2xl md:text-xl text-2xl w-full">
+                {data.name}
+              </p>
+            </div>
+          </div>
           <div className="mt-8">
             <p className="lg:text-2xl md:text-xl text-2xl">{data.name}</p>
             <p className="lg:text-lg md:text-[14px] text-lg italic text-neutral-500">
@@ -69,7 +89,7 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
             </span>
           </div>
         </div>
-      ) }
+      )}
     </>
   );
 };
