@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 const BillBody = () => {
     const router = useRouter();
   return (
-    <div className="mt-8 w-full lg:h-[90vh] md:flex">
+    <div className="mt-8 w-full lg:h-[90vh] md:flex mb-6">
       <div className="basis-1/2 md:block hidden lg:px-12 lg:py-36 py-8 px-4">
         <div className="flex flex-col space-y-6">
           <span className="lg:text-5xl text-4xl font-medium">
@@ -39,7 +39,7 @@ const BillBody = () => {
 
       <img
         src="https://cdn.sanity.io/images/y346iw48/production/8930b752d090834855b620b40733ea3c5b929537-800x1035.jpg?w=1000&auto=format"
-        className="md:basis-1/2 md:w-1/2 lg:w-full"
+        className="md:basis-1/2 md:w-1/2 lg:w-full lg:h-[90vh]"
       />
 
       <div className="block md:hidden mt-8">

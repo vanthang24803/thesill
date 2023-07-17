@@ -1,5 +1,6 @@
 import { Product } from "@/types";
-import ProductCard from "./product-card";
+
+import ProductCard from "@/components/product-card-category";
 
 interface ProductListProps {
   title: string;

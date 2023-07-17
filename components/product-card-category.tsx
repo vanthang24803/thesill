@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { MouseEventHandler } from "react";
-import { Expand, ShoppingCart, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import { Product } from "@/types";

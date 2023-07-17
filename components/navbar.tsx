@@ -1,8 +1,8 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 import Container from "@/components/ui/container";
 import Logo from "@/components/ui/logo";
-import MainNav from "@/components/main-nav";
 import { SafeUser } from "@/types";
 import Navigation from "./navigation";
 
@@ -13,6 +13,7 @@ interface NavbarProps {
 const Navbar : React.FC<NavbarProps> = ({
   currentUser
 }) => {
+  const MainNav =  dynamic( () => import("@/components/main-nav"));
   return (
     <nav className="w-full bg-white z-10 border-b">
       <div className="w-full bg-[#009A7B] flex justify-center items-center hover:cursor-pointer">

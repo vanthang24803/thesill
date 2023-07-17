@@ -9,12 +9,12 @@ import Infomation from "./components/infomation";
 
 
 export default async function Home() {
-  const ProductList = dynamic(() => import("@/components/product-list-home"));
+  const ProductList = dynamic(() => import("@/components/product-list-category"));
   const SwipperLg = dynamic(() => import("./components/swipper-lg"));
   const SwipperMd = dynamic(() => import("./components/swipper-md"));
   const SwipperSm = dynamic(() => import("./components/swipper-sm"));
   const products = await getProducts({ isFeatured: true });
-  const billboard = await getBillboard("f691c614-adf0-48d2-87d4-e4ec887e07e4");
+  const billboard = await getBillboard("9fdd89cf-72ea-4c73-b8aa-178cd89dd73e");
   return (
     <>
       <Billboard

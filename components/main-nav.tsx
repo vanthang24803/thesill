@@ -5,8 +5,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { SafeUser } from "@/types";
 
-import { Search } from "lucide-react";
-
 import useLogginModal from "@/hooks/use-loggin";
 import useLoginModal from "@/hooks/use-login";
 import useSearchModal from "@/hooks/use-search";
