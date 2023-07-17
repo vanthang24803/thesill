@@ -5,7 +5,7 @@ const collection = [
     name: "All Plants & Trees",
     imageUrl:
       "https://cdn.sanity.io/images/y346iw48/production/1dd326f722ac9e574a5c00719feed7c85470450a-1200x1553.jpg?auto=format",
-    href: "/",
+    href: "/categories/plants",
   },
   {
     name: "Pet-Priendly Plants",

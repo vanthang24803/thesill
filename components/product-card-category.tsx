@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Star } from "lucide-react";
+import { BadgePercent } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import { Product } from "@/types";
@@ -44,7 +45,7 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
             {/* Banner Sale */}
             {data.benefit.name !== "FREE Shipping" && (
               <>
-                {data.sale !== "1" ? (
+                {data.sale == "1" ? (
                   <div className="w-[140px] absolute top-5 h-[30px] bg-[#4bd8c8]">
                     <div className="flex items-center justify-center space-x-4 mt-[4px] text-center text-sm text-white">
                       <Star size={12} />
@@ -54,7 +55,7 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
                 ) : (
                   <div className="px-8 absolute top-5 h-[30px] bg-red-500">
                     <div className="flex items-center justify-center space-x-4 mt-[4px] text-center text-sm text-white">
-                      <Star size={12} />
+                      <BadgePercent size={14} />
                       <p>{data.sale}% Off</p>
                     </div>
                   </div>
