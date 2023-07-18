@@ -4,8 +4,8 @@ import router from "next/router";
 import Button from "./ui/button";
 
 interface BodyFooterProps {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 }
 
 const BodyFooter: React.FC<BodyFooterProps> = ({ title, description }) => {
