@@ -6,7 +6,6 @@ import Collection from "./components/collection";
 import ProductList from "@/components/product-list-category";
 import ProductListPage from "./components/product-list-page";
 import Button from "@/components/ui/button";
-import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import ProductListSrcoll from "./components/product-list-scroll";
 import BodyFooter from "@/components/body-footer";
