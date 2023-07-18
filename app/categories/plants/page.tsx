@@ -9,6 +9,7 @@ import Button from "@/components/ui/button";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import ProductListSrcoll from "./components/product-list-scroll";
+import BodyFooter from "@/components/body-footer";
 
 const Plants = async () => {
   const products = await getProducts({ isFeatured: true });
@@ -65,14 +66,15 @@ const Plants = async () => {
 
         {/* Best For Beginners */}
         <ProductList
-          title="Most Popular Plants"
+          title="Best For Beginners"
           items={products}
-          heading="Most Popular Plants"
+          heading="Best For Beginners"
         />
 
+        {/*  Shop The Space */}
         <h3 className="text-3xl md:text-4xl lg:font-normal lg:text-5xl font-medium mb-10">
-              Shop The Space
-            </h3>
+          Shop The Space
+        </h3>
         <div className="flex md:flex-row flex-col">
           <div className="md:basis-2/3">
             <img
@@ -82,13 +84,32 @@ const Plants = async () => {
           </div>
           <div className="md:basis-1/3">
             <ProductListSrcoll
-              title="Most Popular Plants"
+              title="Shop the Space"
               items={products}
-              heading="Most Popular Plants"
+              heading="Shop the Space"
             />
           </div>
         </div>
+
+        {/* Pet-Friendly Picks */}
+        <ProductList
+          title="Pet-Friendly Picks"
+          items={products}
+          heading="Pet-Friendly Picks"
+        />
+
+        {/* Expertly Paired */}
+
+        <ProductList
+          title="Expertly Paired"
+          items={products}
+          heading="Expertly Paired"
+        />
       </Body>
+        <BodyFooter
+          title="Buy Plants that Make You Happy | The Sill"
+          description={`At The Sill, we live off the mantra that, "Plants Make You Happy." Find live plants that will make you happy! Buy large plants, small plants or pet-friendly plants online today!`}
+        />
     </>
   );
 };

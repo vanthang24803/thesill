@@ -117,8 +117,8 @@ const Swipper = () => {
             <SwiperSlide key={item.imgUrl}>
               <img
                 src={item.imgUrl}
-                alt=""
-                className="lg:w-[95%] md:w-[95%] h-[40vh] object-cover"
+                alt="image"
+                className="lg:w-[95%] md:w-[95%] h-[40vh] object-cover hover:cursor-pointer"
               />
             </SwiperSlide>
           ))}

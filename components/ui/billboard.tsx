@@ -50,7 +50,7 @@ const Billboard: React.FC<BillboardProps> = ({
       <img
         src={data?.imageUrl}
         alt=""
-        className="basis-1/2 lg:h-[70vh] md:h-[32vh] object-fill"
+        className="basis-1/2 lg:h-[70vh] md:w-1/2 object-fill"
       />
       <div className="flex-col flex md:hidden bg-[#e8f8fa] p-6">
         <span className="text-4xl font-medium">
