@@ -66,10 +66,14 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
           {/* Description */}
           <div className="hidden lg:block opacity-0 group-hover:opacity-100 transition absolute bg-white h-[12vh] w-1/5 mt-2">
             <div className="w-full flex flex-col space-y-3">
-              <div
-                className="w-10 h-10 rounded-full border-[1px] border-neutral-300"
-                style={{ backgroundColor: data.color.value }}
-              ></div>
+              {data.color.name !== "null" ? (
+                <div
+                  className="w-10 h-10 rounded-full border-[1px] border-neutral-300"
+                  style={{ backgroundColor: data.color.value }}
+                ></div>
+              ) : (
+                <div className="mt-5"></div>
+              )}
               <p className="lg:text-2xl md:text-xl text-2xl w-full">
                 {data.name}
               </p>
