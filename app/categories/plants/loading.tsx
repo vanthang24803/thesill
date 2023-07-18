@@ -12,11 +12,11 @@ export default function Loading() {
          <div className="mt-8">
            <Skeleton className="lg:w-1/2 w-full lg:h-[7vh] h-[5vh]" />
            <div className="mt-8 grid lg:grid-cols-6 md:grid-cols-3 grid-cols-1 gap-4">
-             {Array(6)
+             {Array(4)
                .fill(0)
                .map((index) => (
                  <div className="flex flex-col" key={index}>
-                   <Skeleton className="h-[35vh] md:h-[30vh] lg:h-[35vh]" />
+                   <Skeleton className="h-[40vh] md:h-[35vh] lg:h-[40vh]" />
                    <Skeleton className="mt-2 w-full h-8" />
                  </div>
                ))}
