@@ -1,18 +1,25 @@
+import dynamic from "next/dynamic";
 import getBillboard from "@/actions/get-billboard";
 import getProducts from "@/actions/get-products";
 import Billboard from "@/components/ui/billboard";
 import Body from "@/components/ui/body";
 import Collection from "./components/collection";
-import ProductList from "@/components/product-list-category";
-import ProductListPage from "./components/product-list-page";
 import Button from "@/components/ui/button";
 import Link from "next/link";
-import ProductListSrcoll from "./components/product-list-scroll";
 import BodyFooter from "@/components/body-footer";
 
 const Plants = async () => {
   const products = await getProducts({ isFeatured: true });
   const billboard = await getBillboard("67996431-bf9b-4ecb-9703-80562a867e8e");
+    const ProductList = dynamic(
+      () => import("@/components/product-list-category")
+    );
+    const ProductListPage = dynamic(
+      () => import("./components/product-list-page")
+    );
+     const ProductListSrcoll = dynamic(
+    () => import("./components/product-list-scroll")
+  );
   return (
     <>
       <Billboard

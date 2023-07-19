@@ -33,7 +33,7 @@ const Billboard: React.FC<BillboardProps> = ({
           </span>
           <div className="lg:mt-8 md:mt-8 flex space-x-4 ">
             <Button
-              className="lg:w-1/3 md:w-1/2 md:h-[5vh] lg:h-[8vh]"
+              className="lg:w-1/3 w-1/2 md:h-[5vh] lg:h-[8vh]"
               onClick={() => router.push(href)}
             >
               {main}

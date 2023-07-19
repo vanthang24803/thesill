@@ -1,16 +1,17 @@
+import dynamic from "next/dynamic";
 import getBillboard from "@/actions/get-billboard";
 import getProducts from "@/actions/get-products";
 import BodyFooter from "@/components/body-footer";
 import ProductList from "@/components/product-list-category";
 import Billboard from "@/components/ui/billboard";
 import Body from "@/components/ui/body";
-import Button from "@/components/ui/button";
-import Link from "next/link";
-import ProductListPage from "../plants/components/product-list-page";
 
 const PlantCare = async () => {
   const billboard = await getBillboard("d5d8adfa-f3f5-4483-ad22-50e062101f5e");
   const products = await getProducts({ isFeatured: true });
+  const ProductListPage = dynamic(
+    () => import("../plants/components/product-list-page")
+  );
   return (
     <>
       <Billboard
