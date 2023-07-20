@@ -8,7 +8,7 @@ import Body from "@/components/ui/body";
 import Help from "./components/help";
 
 const Gift = async () => {
-  const billboard = await getBillboard("faddb8fd-bc86-44c2-bf0f-3a299ad1558a");
+  const billboard = await getBillboard("aa408fcd-bb29-4d07-aa6a-43f4a86db70c");
   const products = await getProducts({ isFeatured: true });
   const ProductListPage = dynamic(
     () => import("../plants/components/product-list-page")

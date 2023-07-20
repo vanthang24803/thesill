@@ -30,7 +30,7 @@ const label = [
   {
     title: "Account Settings",
     desc: "Update email address or reset password",
-    href: "/accounts",
+    href: "/account",
   },
 ];
 
@@ -69,6 +69,7 @@ const Loggin : React.FC<LogginProps> = ({currentUser}) => {
               </Link>
 
               <MoveRight
+                onClick={() => router.push(item.href)}
                 size={20}
                 className="hover:translate-x-2 transition-all ease-in-out"
               />
@@ -76,12 +77,14 @@ const Loggin : React.FC<LogginProps> = ({currentUser}) => {
           ))}
         </div>
 
-        <Button
-          className="lg:mt-10  mt-12"
-          onClick={() => router.push("/account")}
-        >
-          Go To My Account
-        </Button>
+        <div onClick={logginModal.onClose}>
+          <Button
+            className="lg:mt-10  mt-12"
+            onClick={() => router.push("/account")}
+          >
+            Go To My Account
+          </Button>
+        </div>
 
         <div className="flex flex-row space-x-4 mt-8 font-medium">
           <span>Not {currentUser?.lastname}?</span>
