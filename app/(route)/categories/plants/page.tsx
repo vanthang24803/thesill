@@ -4,8 +4,6 @@ import getProducts from "@/actions/get-products";
 import Billboard from "@/components/ui/billboard";
 import Body from "@/components/ui/body";
 import Collection from "./components/collection";
-import Button from "@/components/ui/button";
-import Link from "next/link";
 import BodyFooter from "@/components/body-footer";
 
 const Plants = async () => {
@@ -48,11 +46,6 @@ const Plants = async () => {
               src="https://cdn.sanity.io/images/y346iw48/production/c25cbf47d663f4eae06031ee5d9f5e7fc3d3dddf-1200x1553.jpg?w=1000&q=100&auto=format"
               className="object-fill lg:pr-8 h-full md:h-[80%] lg:h-full"
             />
-            <div className="hidden absolute w-[220px] lg:top-[385vh] top-[285vh] lg:left-12 md:flex items-center">
-              <Link href="/">
-                <Button>Shop Large Plants</Button>
-              </Link>
-            </div>
           </div>
           <div className="lg:basis-1/2">
             <ProductListPage

@@ -7,7 +7,7 @@ import Body from "@/components/ui/body";
 import Infomation from "./components/infomation";
 
 const Faux = async () => {
-    const products = await getProducts({ isFeatured: true });
+  const products = await getProducts({ isFeatured: true });
   const billboard = await getBillboard("b25973bd-ce2e-44e6-9573-f578ea2a1ee3");
   const ProductList = dynamic(
     () => import("@/components/product-list-category")
@@ -49,7 +49,7 @@ const Faux = async () => {
         <Infomation />
       </Body>
     </>
-  ); 
+  );
 };
 
 export default Faux;

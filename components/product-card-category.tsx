@@ -66,7 +66,7 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
             <div className="w-full flex flex-col space-y-3">
               {data.color.name !== "null" ? (
                 <div
-                  className="w-10 h-10 rounded-full border-[1px] border-neutral-300"
+                  className="w-8 h-8 rounded-full border-[1px] border-neutral-300"
                   style={{ backgroundColor: data.color.value }}
                 ></div>
               ) : (
