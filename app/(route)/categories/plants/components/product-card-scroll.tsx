@@ -1,8 +1,6 @@
 "use client";
 
-import Image from "next/image";
 import { MoveRight, Star } from "lucide-react";
-import { BadgePercent } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import { Product } from "@/types";
@@ -28,11 +26,10 @@ const ProductCardScroll: React.FC<ProductCard> = ({ data, head }) => {
         <div onClick={handleClick} className="group cursor-pointer">
           {/* Image & actions */}
           <div className="aspect-square relative">
-            <Image
+            <img
               src={data.images?.[0]?.url}
               alt="products"
-              fill
-              className="object-cover h-full"
+              className="object-cover w-full"
             />
             <div className="hidden group-hover:block transition absolute w-full px-6 bottom-5">
               <Button
@@ -56,8 +53,13 @@ const ProductCardScroll: React.FC<ProductCard> = ({ data, head }) => {
             </span>
           </div>
           <div className="flex items-center space-x-4 hover:text-[#009a7b] hover:italic group hover:font-medium">
-            <Link href="/" className="text-lg">Shop Now</Link>
-            <MoveRight size={18} className="group-hover:translate-x-2 transition ease-in-out" />
+            <Link href="/" className="text-lg">
+              Shop Now
+            </Link>
+            <MoveRight
+              size={18}
+              className="group-hover:translate-x-2 transition ease-in-out"
+            />
           </div>
         </div>
       )}

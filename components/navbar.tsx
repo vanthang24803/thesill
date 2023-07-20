@@ -31,14 +31,14 @@ const Navbar : React.FC<NavbarProps> = ({
             <MainNav currentUser={currentUser} />
           </div>
         </Container>
-      </div> 
-        <Navigation />
+      </div>
+      <Navigation />
       <div className="w-full bg-[#E0F5F0] flex justify-center items-center hover:cursor-pointer">
         <Link
           href="/"
           className="text-[17px] flex justify-center items-center h-[2.5rem] text-black font-semibold"
         >
-          🐾 Pawfect Pet-Friendly Plants
+          🔥 New Arrivals, Comin’ In Hot! 🔥
         </Link>
       </div>
     </nav>

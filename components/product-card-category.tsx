@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Star } from "lucide-react";
 import { BadgePercent } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -27,11 +26,10 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
         <div onClick={handleClick} className="group cursor-pointer">
           {/* Image & actions */}
           <div className="aspect-square relative">
-            <Image
+            <img
               src={data.images?.[0]?.url}
               alt="products"
-              fill
-              className="object-cover h-full"
+              className="object-cover w-full"
             />
             <div className="hidden group-hover:block transition absolute w-full px-6 bottom-5">
               <Button
@@ -81,9 +79,11 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
           </div>
           <div className="mt-8">
             <p className="lg:text-2xl md:text-xl text-2xl">{data.name}</p>
-            <p className="lg:text-lg md:text-[14px] text-lg italic text-neutral-500">
-              Choose your planter style & color
-            </p>
+            {data.color.name !== "null" && (
+              <p className="lg:text-lg md:text-[14px] text-lg italic text-neutral-500">
+                Choose your planter style & color
+              </p>
+            )}
           </div>
           {/* Price & Reiew */}
           <div className="flex items-center justify-between my-4 font-normal">

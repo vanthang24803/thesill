@@ -16,11 +16,17 @@ export interface Product {
   price: string;
   sale: string;
   isFeatured: boolean;
+  find : Find;
   size: Size;
   lights: Light;
   benefit: Benefit;
   color: Color;
   images: Image[];
+}
+
+export interface Find {
+  id: string;
+  name: string;
 }
 
 export interface Image {

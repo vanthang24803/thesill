@@ -274,7 +274,7 @@ export const palntCare = {
 export const faux = {
   dropdown: true,
   label: "Faux",
-  href: "/categories/Faux",
+  href: "/categories/faux",
   children: [
     {
       title: "Faux",
