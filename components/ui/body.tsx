@@ -5,7 +5,7 @@ interface BodyProps {
 }
 
 const Body: React.FC<BodyProps> = ({ children }) => {
-  return <div className="mx-auto lg:mx-8  py-8 px-4 ">{children}</div>;
+  return <div className="mx-auto lg:mx-8 p-4">{children}</div>;
 };
 
 export default Body;

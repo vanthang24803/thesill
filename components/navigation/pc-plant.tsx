@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Plant = () => {
   return (
-    <div className="group delay-100 transition duration-300">
+    <div className="group delay-100 transition duration-300 z-50">
       <Link href={plants.href} className="hover:text-[#009a7b] hover:italic">
         {plants.label}
       </Link>

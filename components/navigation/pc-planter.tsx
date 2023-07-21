@@ -6,7 +6,7 @@ import { MoveRight } from "lucide-react";
 
 const Planter = () => {
   return (
-    <div className="group delay-100 transition duration-300">
+    <div className="group delay-100 transition duration-300 z-50">
       <Link href={planter.href} className="hover:text-[#009a7b] hover:italic">
         {planter.label}
       </Link>

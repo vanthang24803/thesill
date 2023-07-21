@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Flower = () => {
   return (
-    <div className="group delay-100 transition duration-300">
+    <div className="group delay-100 transition duration-300 z-50">
       <Link href={flower.href} className="hover:text-[#009a7b] hover:italic">
         {flower.label}
       </Link>
@@ -18,7 +18,7 @@ const Flower = () => {
               <div className="flex flex-col font-thin gap-y-2 ">
                 {item.subtitle.map((index) => (
                   <Link
-                  key={index.name}
+                    key={index.name}
                     href={index.link}
                     className="hover:italic text-[15px] font-thin hover:text-[#009a7b] hover:font-medium"
                   >
