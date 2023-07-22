@@ -7,7 +7,8 @@ import { Info, Minus, Plus } from "lucide-react";
 import Currency from "@/components/ui/currency";
 import { CreditCard } from "lucide-react";
 import Button from "@/components/ui/button";
-
+import Bonus from "./bonus";
+import Description from "./description";
 
 interface InfomationProps {
   product: Product;
@@ -23,11 +24,12 @@ const Infomation: React.FC<InfomationProps> = ({ product }) => {
     if (count > 1) {
       setCount(count - 1);
     }
-  };3
+  };
+  3;
   const priceSale =
     Number(product.price) -
     (Number(product.price) * Number(product.sale)) / 100;
- 
+
   return (
     <div className="flex flex-col">
       {/* Price */}
@@ -181,7 +183,12 @@ const Infomation: React.FC<InfomationProps> = ({ product }) => {
         </div>
       </>
 
-     
+      {/* Bonus */}
+      {(product.find.name === "Plants" || product.find.name === "Planter") && (
+        <Bonus />
+      )}
+
+      <Description product={product} />
     </div>
   );
 };

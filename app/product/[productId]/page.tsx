@@ -23,16 +23,18 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
   return (
     <Body>
       <div className="flex items-center space-x-2 mt-4">
-        <Link href="/" className="text-neutral-500 hover:cursor-pointer">Home</Link>
+        <Link href="/" className="text-neutral-500 hover:cursor-pointer">
+          Home
+        </Link>
         <span className="font-medium"> / {product.category.name}</span>
       </div>
 
       {/* Image and Info */}
-      <div className="lg:flex hidden mt-6 lg:space-x-8">
+      <div className="lg:flex hidden mt-6 ">
         <div className="lg:basis-1/2">
           <SliceLg product={product} />
         </div>
-        <div className="lg:basis-1/2">
+        <div className="lg:basis-1/2 lg:ml-14 lg:h-[120vh] overflow-auto no-scrollbar">
           <Infomation product={product} />
         </div>
       </div>
