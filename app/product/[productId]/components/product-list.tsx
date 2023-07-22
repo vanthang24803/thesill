@@ -1,0 +1,25 @@
+import { Product } from "@/types";
+import ProductCard from "./product-card";
+
+interface ProductListProps {
+  title: string;
+  items: Product[];
+}
+
+const ProductList: React.FC<ProductListProps> = ({ title, items }) => {
+  return (
+    <div className="space-y-4 mt-8 lg:mt-0">
+      <h3 className="text-3xl md:text-4xl lg:font-normal lg:text-5xl font-medium mb-10">
+        {title}
+      </h3>
+      {items.length === 0 && <>No Found...</>}
+      <div className="lg:flex  lg:items-center lg:justify-between  grid grid-cols-1 md:grid-cols-2 gap-4">
+        {items.map((item) => (
+          <ProductCard key={item.id} data={item} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ProductList;
