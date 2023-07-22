@@ -13,7 +13,7 @@ const ProductList: React.FC<ProductListProps> = ({ title, items }) => {
         {title}
       </h3>
       {items.length === 0 && <>No Found...</>}
-      <div className="lg:flex  lg:items-center lg:justify-between  grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="lg:grid-cols-4  grid grid-cols-1 md:grid-cols-2 gap-4">
         {items.map((item) => (
           <ProductCard key={item.id} data={item} />
         ))}

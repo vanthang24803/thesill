@@ -8,6 +8,7 @@ import { SafeUser } from "@/types";
 import useLogginModal from "@/hooks/use-loggin";
 import useLoginModal from "@/hooks/use-login";
 import useSearchModal from "@/hooks/use-search";
+import useCart from "@/hooks/use-cart";
 
 interface MainNavProps {
    currentUser?: SafeUser | null;
@@ -18,7 +19,8 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
   const logginModal = useLogginModal();
   const loginModal = useLoginModal();
   const searchModal = useSearchModal();
-
+  const cartModal = useCart();
+  
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -30,8 +32,6 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
   if (!isMounted) {
     return null;
   }
-
-  const lengthCart = "0";
 
   return (
     <div className="flex justify-between items-center lg:space-x-10 md: space-x-12">
@@ -110,7 +110,7 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
       {/* CART */}
       <div
         className="flex flex-row gap-2 hover:cursor-pointer"
-        onClick={() => {}}
+        onClick={cartModal.onOpen}
       >
         <Image
           height={24}
@@ -118,8 +118,8 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
           src="/images/navbar/cart.svg"
           alt="cart"
         />
-        <div className="text-[13px]">
-          <span className="text-center">({lengthCart})</span>
+        <div className="text-[14px]">
+          <span className="text-center"> ({cartModal.items.length})</span>
         </div>
       </div>
     </div>

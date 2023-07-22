@@ -17,6 +17,7 @@ import GiftMenu from "@/components/navigation/menu-gift";
 import DecorMenu from "@/components/navigation/menu-home-decor";
 import FauxMenu from "@/components/navigation/menu-faux";
 import FlowerMenu from "@/components/navigation/menu-flower";
+import Cart from "@/components/cart/cart-modal";
 
 interface ModalProviderProps {
   currentUser?: SafeUser | null;
@@ -49,6 +50,7 @@ const ModalProvider: React.FC<ModalProviderProps> = ({ currentUser }) => {
       <DecorMenu />
       <FauxMenu />
       <FlowerMenu />
+      <Cart />
     </>
   );
 };

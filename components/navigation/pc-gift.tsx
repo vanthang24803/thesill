@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Gift = () => {
   return (
-    <div className="group delay-100 transition duration-300 z-50">
+    <div className="group delay-100 transition duration-300 z-20">
       <Link href={gitfs.href} className="hover:text-[#009a7b] hover:italic">
         {gitfs.label}
       </Link>

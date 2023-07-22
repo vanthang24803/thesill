@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Faux = () => {
   return (
-    <div className="group delay-100 transition duration-300 z-50">
+    <div className="group delay-100 transition duration-300 z-20">
       <Link href={faux.href} className="hover:text-[#009a7b] hover:italic">
         {faux.label}
       </Link>

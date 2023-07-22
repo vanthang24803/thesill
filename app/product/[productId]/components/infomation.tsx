@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import { Product } from "@/types";
 import { Info, Minus, Plus } from "lucide-react";
 import Currency from "@/components/ui/currency";
@@ -9,13 +9,20 @@ import { CreditCard } from "lucide-react";
 import Button from "@/components/ui/button";
 import Bonus from "./bonus";
 import Description from "./description";
+import useCart from "@/hooks/use-cart";
 
 interface InfomationProps {
   product: Product;
 }
 
 const Infomation: React.FC<InfomationProps> = ({ product }) => {
+  const cart = useCart();
   const [count, setCount] = useState(1);
+
+  const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.stopPropagation();
+    cart.addItem(product, count);
+  };
   const handlePlusCount = () => {
     setCount(count + 1);
   };
@@ -25,7 +32,6 @@ const Infomation: React.FC<InfomationProps> = ({ product }) => {
       setCount(count - 1);
     }
   };
-  3;
   const priceSale =
     Number(product.price) -
     (Number(product.price) * Number(product.sale)) / 100;
@@ -146,12 +152,12 @@ const Infomation: React.FC<InfomationProps> = ({ product }) => {
               <Plus size={8} />
             </div>
           </div>
-          <Button className="h-[6vh] mt-6" onClick={() => {}}>
-            Add To Cat
+          <Button className="h-[6vh] mt-6" onClick={onAddToCart}>
+            Add To Cart
           </Button>
         </div>
         <div className="mt-8 hidden lg:flex items-center space-x-6">
-          <Button className="h-[7vh] w-full" onClick={() => {}}>
+          <Button className="h-[7vh] w-full" onClick={onAddToCart}>
             Add To Cart
           </Button>
           <div className="flex space-x-6 items-center hover:cursor-pointer">
