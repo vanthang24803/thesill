@@ -46,7 +46,7 @@ const CartItem: React.FC<CartItemProps> = ({ item, quantity }) => {
       <div className="flex flex-col space-y-3">
         <p className="font-semibold md:text-xl">{item.name}</p>
         <p className="text-neutral-500 italic md:text-sm text-[12px]">
-          {item.size.name} / {item.category.name} / {item.color.name}
+          {item.size.name} / {item.benefit.name} / {item.color.name}
         </p>
         <div className="flex space-x-4 items-center">
           {item.sale == "1" ? (
