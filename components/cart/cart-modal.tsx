@@ -2,6 +2,7 @@ import useCart from "@/hooks/use-cart";
 import Modal from "@/components/ui/modal-sm";
 import Button from "@/components/ui/button";
 import CartItem from "./cart-item";
+import Sumary from "./sumary";
 
 const Cart = () => {
   const cart = useCart();
@@ -36,12 +37,12 @@ const Cart = () => {
           </div>
         </>
       ) : (
-        <div className="overflow-auto h-[70vh] no-scrollbar">
+        <div className="">
           <p className="py-4 border-b text-[15px] border-neutral-300 font-medium">
             Our team preps, prunes, & packs every order—lots of care goes into
             every step.
           </p>
-          <div className="flex mt-6 flex-col space-y-3 hover:cursor-pointer overflow-auto">
+          <div className="flex my-6 flex-col space-y-3 hover:cursor-pointer overflow-auto lg:h-[45vh] md:h-[50vh] h-[55vh] no-scrollbar">
             {cart.items.map((item) => (
               <CartItem
                 item={item.product}
@@ -50,6 +51,7 @@ const Cart = () => {
               />
             ))}
           </div>
+          <Sumary />
         </div>
       )}
     </Modal>
