@@ -62,21 +62,23 @@ const ProductCard: React.FC<ProductCard> = ({ data, head }) => {
             )}
           </div>
           {/* Description */}
-          <div className="hidden lg:block opacity-0 group-hover:opacity-100 transition absolute bg-white h-[12vh] w-[23%] mt-2">
-            <div className="w-full flex flex-col space-y-3">
-              {data.color.name !== "null" ? (
-                <div
-                  className="w-8 h-8 rounded-full border-[1px] border-neutral-300"
-                  style={{ backgroundColor: data.color.value }}
-                ></div>
-              ) : (
-                <div className="mt-5"></div>
-              )}
-              <p className="lg:text-2xl md:text-xl text-2xl w-full">
-                {data.name}
-              </p>
+          {data.color.name != "null" && (
+            <div className="hidden lg:block opacity-0 group-hover:opacity-100 transition absolute bg-white h-[12vh] w-[23%] mt-2">
+              <div className="w-full flex flex-col space-y-3">
+                {data.color.name !== "null" ? (
+                  <div
+                    className="w-8 h-8 rounded-full border-[1px] border-neutral-300"
+                    style={{ backgroundColor: data.color.value }}
+                  ></div>
+                ) : (
+                  <div className="mt-5"></div>
+                )}
+                <p className="lg:text-2xl md:text-xl text-2xl w-full">
+                  {data.name}
+                </p>
+              </div>
             </div>
-          </div>
+          )}
           <div className="mt-8">
             <p className="lg:text-2xl md:text-xl text-2xl">{data.name}</p>
             {data.color.name !== "null" && (

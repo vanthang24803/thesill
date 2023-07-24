@@ -13,7 +13,7 @@ import { Filter, X, Dot, MoreHorizontal } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 import Button from "@/components/ui/button";
 import { Product } from "@/types";
-import ProductCard from "./card";
+import ProductCard from "@/components/product-card-category";
 
 interface ProductFind {
   items: Product[];
@@ -56,30 +56,30 @@ const ProductFind: React.FC<ProductFind> = ({ items }) => {
   };
 
   // Sort to Mobile
-    const handleSort = (value: string) => {
-      handleChange(value);
-      setCurrentSort(value);
-      if (value === "default") {
-        setValue("Most Popular");
-      } else if (value === "low") {
-        setValue("$ High To Low");
-      } else {
-        setValue("$ Low To High");
-      }
-      onClose();
-    };
+  const handleSort = (value: string) => {
+    handleChange(value);
+    setCurrentSort(value);
+    if (value === "default") {
+      setValue("Most Popular");
+    } else if (value === "low") {
+      setValue("$ High To Low");
+    } else {
+      setValue("$ Low To High");
+    }
+    onClose();
+  };
 
   return (
     <>
       <div>
         <div className="py-6 border-b flex flex-col space-y-4">
           <span className="lg:text-6xl font-medium md:text-5xl text-3xl text-[#00ab84]">
-            Plant Care
+            Grow Lights
           </span>
           <div className="lg:flex items-center justify-between hidden">
             <span className=" text-neutral-500">
-              One-stop-shop for plant care & gardening essentials from organic
-              potting mix to all-natural fertilizer and more.
+              Innovative grow light solutions for adding artificial light to
+              your home. Give your plant babies the TLC they deserve.
             </span>
             <Select onValueChange={handleChange}>
               <SelectTrigger className="flex items-center space-x-1 hover:text-[#008a7b] text-base font-medium border-none">
@@ -97,8 +97,8 @@ const ProductFind: React.FC<ProductFind> = ({ items }) => {
           <>
             <div className="flex lg:hidden flex-col space-y-4">
               <span className="text-sm text-neutral-500">
-                Thinking of taking your green thumb outdoors? Shop these
-                gardening supplies.
+                Innovative grow light solutions for adding artificial light to
+                your home. Give your plant babies the TLC they deserve.
               </span>
               <div className="border-t flex justify-between items-center space-x-6">
                 {/* FIlter */}
@@ -213,22 +213,23 @@ const ProductFind: React.FC<ProductFind> = ({ items }) => {
                       </span>
                     </div>
                     <div className="mt-4 flex flex-col pt-4 font-medium space-y-3">
-                      <span className="italic pb-2 border-b text-[#009a7b]  flex items-center ">
-                        <p>All Plant Care</p>
-                        <Dot size={40} />
-                      </span>
+                      <Link
+                        href="/collections/plant-care"
+                        className="pb-4 border-b"
+                      >
+                        All Plant Care
+                      </Link>
                       <Link
                         href="/collections/potting-supplies"
                         className="pb-4 border-b"
                       >
                         Potting Supplies
                       </Link>
-                      <Link
-                        href="/collections/grow-lights"
-                        className="pb-4 border-b"
-                      >
-                        Grow Light
-                      </Link>
+                      <span className="italic pb-2 border-b text-[#009a7b]  flex items-center ">
+                        <p>Grow Light</p>
+                        <Dot size={40} />
+                      </span>
+
                       <Link
                         href="/collections/gardening"
                         className="pb-4 border-b"
@@ -246,17 +247,17 @@ const ProductFind: React.FC<ProductFind> = ({ items }) => {
       {/* Products */}
       <div className="space-y-4 mt-8 lg:flex block">
         <div className="lg:basis-1/5 mt-12 lg:flex hidden flex-col hover:cursor-pointer space-y-2 text-[1.1rem]">
-          <span className="italic text-[#009a7b] font-medium flex items-center ">
-            <p>All Plant Care</p>
-            <Dot size={40} />
-          </span>
+          <Link href="/collections/plant-care">All Plant Care</Link>
           <Link href="/collections/potting-supplies">Potting Supplies</Link>
-          <Link href="/collections/grow-lights">Grow Light</Link>
+          <p className="italic text-[#009a7b] font-medium flex items-center ">
+            <p>Grow Light</p>
+            <Dot size={40} />
+          </p>
           <Link href="/collections/gardening">Gardening</Link>
         </div>
         <div className="lg:basis-4/5 lg:grid-cols-4  grid grid-cols-1 md:grid-cols-2 gap-4">
           {sortedProducts.map((item) => (
-            <ProductCard data={item} key={item.id} label="Plant Care" />
+            <ProductCard data={item} key={item.id} head="Easy Grow Lights" />
           ))}
         </div>
       </div>

@@ -21,6 +21,7 @@ interface ProductFind {
 const ProductFind: React.FC<ProductFind> = ({ items }) => {
   const [sortedProducts, setSortedProducts] = useState(items);
   const [open, setOpen] = useState(false);
+  const [value, setValue] = useState("Most Popular");
   const [currentSort, setCurrentSort] = useState("default");
 
   const onOpen = () => setOpen(true);
@@ -51,6 +52,13 @@ const ProductFind: React.FC<ProductFind> = ({ items }) => {
   const handleSort = (value: string) => {
     handleChange(value);
     setCurrentSort(value);
+    if (value === "default") {
+      setValue("Most Popular");
+    } else if (value === "low") {
+      setValue("$ High To Low");
+    } else {
+      setValue("$ Low To High");
+    }
     onClose();
   };
 
@@ -88,7 +96,7 @@ const ProductFind: React.FC<ProductFind> = ({ items }) => {
               </span>
               <div className="border-t" onClick={onOpen}>
                 <div className="mt-6 md:py-3 py-2 font-medium border flex items-center justify-center space-x-2">
-                  <span>Most Popular</span>
+                  <span>{value}</span>
                   <Filter size={22} />
                 </div>
               </div>
