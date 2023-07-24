@@ -16,7 +16,7 @@ const PlantCare = async () => {
     <>
       <Billboard
         main="Care Accessories"
-        href="/"
+        href="/collections/plant-care"
         subtitle="Plant Care Library"
         link="/"
         data={billboard}
