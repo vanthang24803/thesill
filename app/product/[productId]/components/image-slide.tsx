@@ -25,7 +25,7 @@ const ImageSlide: React.FC<ImageSlideProps> = ({ images }) => {
       <img
         src={images?.[index]?.url}
         alt="products"
-        className="object-cover w-full mt-8"
+        className="object-cover w-full mt-8 overflow-hidden"
       />
       <div className="absolute block md:hidden text-white left-1  top-[48%]">
         {index > 0 && <ChevronLeft size={70} onClick={handleMinusImg} />}

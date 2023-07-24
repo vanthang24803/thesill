@@ -1,34 +1,26 @@
 "use client";
-import Button from "@/components/ui/button";
-import useCart from "@/hooks/use-cart";
-import { useEffect, useState } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 
 const page = () => {
-    const [isClient, setIsClient] = useState(false);
-
-    useEffect(() => {
-      setIsClient(true);
-    }, []);
- 
-  const cart = useCart();
   return (
     <>
-      {isClient && (
-        <>
-          {cart.items.length}
-          <Button onClick={cart.removeAll}>remove</Button>
-          {cart.items.map((item) => (
-            <>
-              <img
-                src={item.product.images[0].url}
-                alt=""
-                key={item.product.id}
-              />
-              <p>{item.quantity}</p>
-            </>
-          ))}
-        </>
-      )}
+      <Select>
+        <SelectTrigger className="w-[160px]">
+          <SelectValue placeholder="Most Popular" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="all">Most Popular</SelectItem>
+          <SelectItem value="high">$ Low To High</SelectItem>
+          <SelectItem value="low">$ High To Low</SelectItem>
+        </SelectContent>
+      </Select>
     </>
   );
 };
