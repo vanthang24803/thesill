@@ -22,7 +22,7 @@ const Decor = async () => {
     <>
       <Billboard
         main="Shop Decor"
-        href="/"
+        href="/collections/home-decor"
         subtitle="Shop Bouquets"
         link=""
         data={billboard}
