@@ -254,7 +254,7 @@ const ProductFind: React.FC<ProductFind> = ({ items }) => {
             <Dot size={40} />
           </p>
         </div>
-        <div className="lg:basis-4/5 lg:grid-cols-4  grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="lg:basis-4/5 lg:grid-cols-4  grid grid-cols-1 md:grid-cols-2 gap-4 pb-8">
           {sortedProducts.map((item) => (
             <ProductCard data={item} key={item.id} head="Gardening Tools" />
           ))}

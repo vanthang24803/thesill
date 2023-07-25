@@ -14,6 +14,7 @@ import { Dialog } from "@headlessui/react";
 import Button from "@/components/ui/button";
 import { Product } from "@/types";
 import ProductCard from "./card";
+import FAQ from "./faq";
 
 interface ProductFind {
   items: Product[];
@@ -254,10 +255,13 @@ const ProductFind: React.FC<ProductFind> = ({ items }) => {
           <Link href="/collections/grow-lights">Grow Light</Link>
           <Link href="/collections/gardening">Gardening</Link>
         </div>
-        <div className="lg:basis-4/5 lg:grid-cols-4  grid grid-cols-1 md:grid-cols-2 gap-4">
-          {sortedProducts.map((item) => (
-            <ProductCard data={item} key={item.id} label="Plant Care" />
-          ))}
+        <div className="lg:basis-4/5">
+          <div className="lg:grid-cols-4  grid grid-cols-1 md:grid-cols-2 gap-4">
+            {sortedProducts.map((item) => (
+              <ProductCard data={item} key={item.id} label="Plant Care" />
+            ))}
+          </div>
+          <FAQ />
         </div>
       </div>
     </>
