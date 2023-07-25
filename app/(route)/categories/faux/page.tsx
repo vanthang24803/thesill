@@ -14,7 +14,7 @@ const Faux = async () => {
   );
   return (
     <>
-      <Billboard main="Shop All" href="/" data={billboard} />;
+      <Billboard main="Shop All" href="/collections/faux" data={billboard} />;
       <Body>
         {/* Best Saller Faux */}
         <ProductList

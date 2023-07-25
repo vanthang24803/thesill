@@ -211,11 +211,17 @@ const Footer = () => {
         </div>
         <div className="flex flex-col md:hidden mt-8">
           <div className="flex items-center justify-between border-b border-neutral-300 pb-4 w-full">
-            <span className="text-xl font-medium focus:text-[#009A7B]">
+            <span
+              className={`text-xl font-medium ${custormer && "text-[#009a7b]"}`}
+            >
               Customer Service
             </span>
             {custormer ? (
-              <Minus size={20} onClick={() => setCustormer(!custormer)} />
+              <Minus
+                size={20}
+                onClick={() => setCustormer(!custormer)}
+                className="text-[#009a7b]"
+              />
             ) : (
               <Plus size={20} onClick={() => setCustormer(!custormer)} />
             )}
@@ -229,11 +235,17 @@ const Footer = () => {
             </div>
           )}
           <div className="flex items-center justify-between border-b border-neutral-300 pb-4 pt-8 w-full">
-            <span className="text-xl font-medium focus:text-[#009A7B]">
+            <span
+              className={`text-xl font-medium ${resource && "text-[#009A7B]"}`}
+            >
               Resources
             </span>
             {resource ? (
-              <Minus size={20} onClick={() => setResource(!resource)} />
+              <Minus
+                size={20}
+                onClick={() => setResource(!resource)}
+                className="text-[#009a7b]"
+              />
             ) : (
               <Plus size={20} onClick={() => setResource(!resource)} />
             )}
@@ -247,11 +259,15 @@ const Footer = () => {
             </div>
           )}
           <div className="flex items-center justify-between border-b border-neutral-300 pb-4 pt-8 w-full">
-            <span className="text-xl font-medium focus:text-[#009A7B]">
+            <span className={`text-xl font-medium ${sill && "text-[#009A7B]"}`}>
               My Sill
             </span>
             {sill ? (
-              <Minus size={20} onClick={() => setSill(!sill)} />
+              <Minus
+                size={20}
+                onClick={() => setSill(!sill)}
+                className="text-[#009a7b]"
+              />
             ) : (
               <Plus size={20} onClick={() => setSill(!sill)} />
             )}
@@ -266,11 +282,17 @@ const Footer = () => {
           )}
 
           <div className="flex items-center justify-between border-b border-neutral-300 pb-4 pt-8 w-full">
-            <span className="text-xl font-medium focus:text-[#009A7B]">
+            <span
+              className={`text-xl font-medium ${explore && "text-[#009a7b]"}`}
+            >
               Expore
             </span>
             {explore ? (
-              <Minus size={20} onClick={() => setExplore(!explore)} />
+              <Minus
+                size={20}
+                onClick={() => setExplore(!explore)}
+                className="text-[#009a7b]"
+              />
             ) : (
               <Plus size={20} onClick={() => setExplore(!explore)} />
             )}
@@ -285,11 +307,17 @@ const Footer = () => {
           )}
 
           <div className="flex items-center justify-between border-b border-neutral-300 pb-4 pt-8 w-full">
-            <span className="text-xl font-medium focus:text-[#009A7B]">
+            <span
+              className={`text-xl font-medium ${policies && "text-[#009A7B]"}`}
+            >
               Policies
             </span>
             {policies ? (
-              <Minus size={20} onClick={() => setPolicies(!policies)} />
+              <Minus
+                size={20}
+                onClick={() => setPolicies(!policies)}
+                className="text-[#009a7b]"
+              />
             ) : (
               <Plus size={20} onClick={() => setPolicies(!policies)} />
             )}
