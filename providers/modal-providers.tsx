@@ -5,7 +5,7 @@ import { SafeUser } from "@/types";
 import Loggin from "@/components/loggin-modal";
 import Login from "@/components/login-modal";
 import Register from "@/components/register-modal";
-import Search from "@/components/search-modal";
+import Search from "@/components/search/search-modal";
 
 import Resources from "@/components/nav-resources";
 import MenuMobile from "@/components/nav-menu";
