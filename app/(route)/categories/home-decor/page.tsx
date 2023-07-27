@@ -13,7 +13,9 @@ const Decor = async () => {
   const ProductListPage = dynamic(
     () => import("../plants/components/product-list-page")
   );
-  const ProductList  = dynamic(() => import("@/components/product-list-category"))
+  const ProductList = dynamic(
+    () => import("@/components/product-list-category")
+  );
 
   const ProductListSrcoll = dynamic(
     () => import("../plants/components/product-list-scroll")
@@ -24,7 +26,7 @@ const Decor = async () => {
         main="Shop Decor"
         href="/collections/home-decor"
         subtitle="Shop Bouquets"
-        link=""
+        link="/collections/dried-bouquets"
         data={billboard}
       />
 
