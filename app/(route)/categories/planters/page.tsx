@@ -22,6 +22,13 @@ const Planters = async () => {
       />
 
       <Body>
+        {/* Isabella Planters (New!) */}
+        <ProductList
+          title="Isabella Planters (New!)"
+          items={products}
+          heading="Isabella Planters (New!)"
+        />
+
         {/* Tabletop Planters */}
         <ProductList
           title="Tabletop Planters"
