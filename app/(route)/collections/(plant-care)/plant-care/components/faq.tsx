@@ -13,7 +13,7 @@ const FAQ = () => {
   return (
     <div className="lg:mt-24 md:mt-16 mt-14 flex flex-col md:space-y-6 space-y-4 lg:w-3/4 w-full lg:mb-12 mb-6">
       <div className="lg:text-6xl md:text-4xl text-3xl text-[#00ab84] lg:pb-6 pb-4  border-b italic">
-        Faux & Preserved FAQ
+        Plant Care FAQ
       </div>
 
       <div

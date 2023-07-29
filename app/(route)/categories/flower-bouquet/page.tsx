@@ -16,9 +16,9 @@ const FLower = async () => {
     <>
       <Billboard
         main="Flowering Plants"
-        href="/"
+        href="/collections/orchids"
         subtitle="Dired Bouquets"
-        link="/"
+        link="/collections/dried-bouquets"
         data={billboard}
       />
 
