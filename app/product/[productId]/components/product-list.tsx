@@ -1,5 +1,6 @@
 import { Product } from "@/types";
-import ProductCard from "./product-card";
+
+import dynamic from "next/dynamic";
 
 interface ProductListProps {
   title: string;
@@ -7,6 +8,7 @@ interface ProductListProps {
 }
 
 const ProductList: React.FC<ProductListProps> = ({ title, items }) => {
+  const ProductCard = dynamic(() => import("./product-card"))
   return (
     <div className="space-y-4 mt-8 lg:mt-0">
       <h3 className="text-3xl md:text-4xl lg:font-normal lg:text-5xl font-medium mb-10">

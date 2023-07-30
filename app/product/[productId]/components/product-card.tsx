@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 
 import { Product } from "@/types";
 import Currency from "@/components/ui/currency";
-import Button from "@/components/ui/button";
 
 interface ProductCard {
   data: Product;

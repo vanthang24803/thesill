@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import getBillboard from "@/actions/get-billboard";
 import getProducts from "@/actions/get-products";
 import BodyFooter from "@/components/body-footer";
-import ProductList from "@/components/product-list-category";
 import Billboard from "@/components/ui/billboard";
 import Body from "@/components/ui/body";
 import Help from "./components/help";
@@ -10,6 +9,9 @@ import Help from "./components/help";
 const Gift = async () => {
   const billboard = await getBillboard("aa408fcd-bb29-4d07-aa6a-43f4a86db70c");
   const products = await getProducts({ isFeatured: true });
+  const ProductList = dynamic(
+    () => import("@/components/product-list-category")
+  );
   const ProductListPage = dynamic(
     () => import("../plants/components/product-list-page")
   );

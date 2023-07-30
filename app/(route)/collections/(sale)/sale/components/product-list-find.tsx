@@ -1,5 +1,5 @@
 "use client";
-
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import {
   Select,
@@ -12,13 +12,14 @@ import { Filter, X } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 import Button from "@/components/ui/button";
 import { Product } from "@/types";
-import ProductCard from "./card";
+
 
 interface ProductFind {
   items: Product[];
 }
 
 const ProductFind: React.FC<ProductFind> = ({ items }) => {
+  const ProductCard = dynamic(() => import("./card"));
   const [sortedProducts, setSortedProducts] = useState(items);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("Most Popular");

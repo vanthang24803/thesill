@@ -2,11 +2,9 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import getProduct from "@/actions/get-product";
 import getProducts from "@/actions/get-products";
+
 import Body from "@/components/ui/body";
-import SliceLg from "./components/slice-lg";
-import Infomation from "./components/infomation";
 import BillBody from "@/app/(root)/components/bill-body";
-import ImageSlide from "./components/image-slide";
 
 
 interface ProductPageProps {
@@ -23,7 +21,11 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
 
   const ProductList = dynamic(
     () => import("./components/product-list")
-  ); ;
+  ); 
+
+  const Infomation = dynamic(() => import("./components/infomation"));
+  const ImageSlide = dynamic(() => import("./components/image-slide"));
+  const SliceLg = dynamic(() => import("./components/slice-lg"));
 
   if (!product) {
     return null;

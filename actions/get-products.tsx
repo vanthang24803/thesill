@@ -7,7 +7,7 @@ interface Query {
   categoryId?: string;
   colorId?: string;
   sizeId?: string;
-  benefitId ? : string;
+  benefitId?: string;
   isFeatured?: boolean;
 }
 
@@ -17,13 +17,17 @@ const getProducts = async (query: Query): Promise<Product[]> => {
     query: {
       colorId: query.colorId,
       sizeId: query.sizeId,
-      benefitId : query.benefitId,
+      benefitId: query.benefitId,
       categoryId: query.categoryId,
       isFeatured: query.isFeatured,
     },
   });
 
-  const res = await fetch(url);
+  const res = await fetch(url, {
+    headers: {
+      "Cache-Control": "max-age=86400",
+    },
+  });
 
   return res.json();
 };

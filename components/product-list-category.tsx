@@ -1,6 +1,6 @@
-import { Product } from "@/types";
+import dynamic from "next/dynamic";
 
-import ProductCard from "@/components/product-card-category";
+import { Product } from "@/types";
 
 interface ProductListProps {
   title: string;
@@ -13,6 +13,9 @@ const ProductList: React.FC<ProductListProps> = ({
   items,
   heading
 }) => {
+  const ProductCard = dynamic(
+    () => import("@/components/product-card-category")
+  );
   return (
     <div className="space-y-4 my-12">
       <h3 className="text-3xl md:text-4xl lg:font-normal lg:text-5xl font-medium mb-10">

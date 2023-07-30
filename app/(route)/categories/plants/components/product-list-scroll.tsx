@@ -1,6 +1,6 @@
-import { Product } from "@/types";
+import dynamic from "next/dynamic";
 
-import ProductCardScroll from "./product-card-scroll";
+import { Product } from "@/types";
 
 interface ProductListProps {
   title: string;
@@ -9,6 +9,7 @@ interface ProductListProps {
 }
 
 const ProductListSrcoll: React.FC<ProductListProps> = ({ title, items, heading }) => {
+  const ProductCardScroll = dynamic(() => import("./product-card-scroll"));
   return (
     <div className="space-y-4 mt-8 md:mt-0">
       {items.length === 0 && <>No Found...</>}
