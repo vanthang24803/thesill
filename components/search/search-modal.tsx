@@ -28,7 +28,7 @@ const SearchNav = () => {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          `https://thesill-admin.vercel.app/api/25cfe183-6485-4e74-ac17-d260bc2458df/products?name=${value}`
+          `${process.env.NEXT_PUBLIC_API_URL}/products?name=${value}`
         );
         const data = await response.json();
         setProducts(data);
@@ -115,7 +115,7 @@ const SearchNav = () => {
                       alt="img"
                       className="lg:w-1/3 object-cover"
                     />
-                    <div className="flex flex-col space-y-3">
+                    <div className="flex flex-col space-y-3 lg:pb-0 pb-4">
                       <span className="text-lg font-medium">
                         {product.name}
                       </span>
