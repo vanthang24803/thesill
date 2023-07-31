@@ -1,28 +1,54 @@
 "use client";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
+import qs from "query-string";
+import { ChangeEventHandler, useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Search } from "lucide-react";
+
+import { Input } from "@/components/ui/input";
 
 
-const page = () => {
+const SearchInput = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const name = searchParams?.get("name");
+
+  const [value, setValue] = useState(name || "");
+
+
+  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setValue(e.target.value);
+  };
+
+ useEffect(() => {
+   const query = {
+     name: value,
+   };
+
+   const url = qs.stringifyUrl(
+     {
+       url: window.location.href,
+       query,
+     },
+     { skipNull: true, skipEmptyString: true }
+   );
+
+   router.push(url);
+ }, [value, router]);
+
+
   return (
-    <>
-      <Select>
-        <SelectTrigger className="w-[160px]">
-          <SelectValue placeholder="Most Popular" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="all">Most Popular</SelectItem>
-          <SelectItem value="high">$ Low To High</SelectItem>
-          <SelectItem value="low">$ High To Low</SelectItem>
-        </SelectContent>
-      </Select>
-    </>
+    <div className="relative">
+      <Search className="absolute h-4 w-4 top-3 left-4 text-muted-foreground" />
+      <Input
+        onChange={onChange}
+        value={value}
+        placeholder="Search..."
+        className="pl-10 bg-primary/10"
+      />
+    </div>
   );
 };
 
-export default page;
+
+export default SearchInput;
