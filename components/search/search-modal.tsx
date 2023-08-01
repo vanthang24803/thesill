@@ -6,7 +6,7 @@ import Modal from "@/components/ui/modal-sm";
 import Container from "@/components/ui/container";
 
 import { ChangeEventHandler, useEffect, useState } from "react";
-import { Move, MoveRight, Search } from "lucide-react";
+import { MoveRight, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 const SearchNav = () => {
@@ -104,7 +104,7 @@ const SearchNav = () => {
               <span className="font-thin italic text-[14px]">
                 Suggested Searches....
               </span>
-              <div className="flex flex-col space-y-2 overflow-auto h-[100vh]">
+              <div className="flex flex-col space-y-2 overflow-auto h-[80vh] lg:h-[75vh] pb-8">
                 {products.map((product) => (
                   <div
                     key={product.id}
@@ -115,7 +115,7 @@ const SearchNav = () => {
                       alt="img"
                       className="lg:w-1/3 object-cover"
                     />
-                    <div className="flex flex-col space-y-3 lg:pb-0 pb-4">
+                    <div className="flex flex-col space-y-3 pb-4">
                       <span className="text-lg font-medium">
                         {product.name}
                       </span>
@@ -162,6 +162,7 @@ const SearchNav = () => {
                         </span>
                         <MoveRight
                           size={20}
+                          onClick={() => router.push(`/product/${product.id}`)}
                           className="transition ease-in-out group-hover:translate-x-4 group-hover:text-[#009a7b]"
                         />
                       </div>
