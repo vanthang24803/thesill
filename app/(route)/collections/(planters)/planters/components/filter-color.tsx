@@ -8,7 +8,7 @@ interface FilterProductProps {
   data: Color[];
   name: string;
   valueKey: string;
-  onFilter: (id: string) => void;
+  onFilter: (id: string | null) => void;
 }
 
 const FilterColor: React.FC<FilterProductProps> = ({
@@ -27,6 +27,11 @@ const FilterColor: React.FC<FilterProductProps> = ({
   const selectedValue = searchParams?.get(valueKey);
 
   const onClick = (id: string) => {
+    if (selectedValue === id) {
+      onFilter(null);
+    } else {
+      onFilter(id);
+    }
     const current = qs.parse(searchParams?.toString() || "");
     const query = {
       ...current,
@@ -45,12 +50,11 @@ const FilterColor: React.FC<FilterProductProps> = ({
       { skipNull: true }
     );
 
-    onFilter(id);
     router.push(url);
   };
 
   return (
-    <div className="pb-4 border-b  mr-8">
+    <div className="pb-4 border-b mr-8">
       <div
         className={`flex items-center text-base justify-between transition ease-linear ${
           open && "text-[#009a7b] font-medium"

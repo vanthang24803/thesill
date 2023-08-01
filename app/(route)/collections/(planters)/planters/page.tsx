@@ -31,6 +31,7 @@ const Planters: React.FC<PlantersProps> = async ({ searchParams }) => {
         colors={colors}
         sizes={sizes}
         benefits={benefits}
+        searchParams={searchParams}
       />
     </Body>
   );

@@ -22,6 +22,11 @@ interface ProductFind {
   sizes: Size[];
   colors: Color[];
   benefits: Benefit[];
+  searchParams: {
+    colorId: string;
+    sizeId: string;
+    benefitId: string;
+  };
 }
 
 const ProductFind: React.FC<ProductFind> = ({
@@ -29,6 +34,7 @@ const ProductFind: React.FC<ProductFind> = ({
   sizes,
   colors,
   benefits,
+  searchParams,
 }) => {
   const [sortedProducts, setSortedProducts] = useState(items);
   const [open, setOpen] = useState(false);
@@ -36,7 +42,9 @@ const ProductFind: React.FC<ProductFind> = ({
   const [value, setValue] = useState("Most Popular");
   const [nav, setNav] = useState(false);
   const [currentSort, setCurrentSort] = useState("default");
-  const [selectedColorId, setSelectedColorId] = useState<string | null>(null);
+  const [selectedColorId, setSelectedColorId] = useState<string | null>(
+    searchParams.colorId
+  );
 
   // Open Filter
   const onOpen = () => setOpen(true);
@@ -89,13 +97,10 @@ const ProductFind: React.FC<ProductFind> = ({
   };
 
   // Filter Color
-
-  const filterProducts = (colorId: string) => {
+  const filterProducts = (colorId: string | null) => {
     setSelectedColorId(colorId);
     if (colorId) {
-      setSortedProducts(
-        sortedProducts.filter((item) => item.color.id === colorId)
-      );
+      setSortedProducts(items.filter((item) => item.color.id === colorId));
     } else {
       setSortedProducts(items);
     }
