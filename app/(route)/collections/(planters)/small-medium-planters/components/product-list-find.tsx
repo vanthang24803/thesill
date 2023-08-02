@@ -1,7 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Select,
   SelectContent,
@@ -15,25 +15,21 @@ import { Dialog } from "@headlessui/react";
 import Button from "@/components/ui/button";
 import { Benefit, Color, Product, Size } from "@/types";
 import ProductCard from "./card";
-import FAQ from "./faq";
-import FilterColor from "./filter-color";
-import FilterProduct from "./filter-product";
+import FilterColor from "../../planters/components/filter-color";
+import FilterProduct from "../../planters/components/filter-product";
 
 interface ProductFind {
   items: Product[];
-  sizes: Size[];
   colors: Color[];
   benefits: Benefit[];
   searchParams: {
     colorId: string;
-    sizeId: string;
     benefitId: string;
   };
 }
 
 const ProductFind: React.FC<ProductFind> = ({
   items,
-  sizes,
   colors,
   benefits,
   searchParams,
@@ -46,9 +42,6 @@ const ProductFind: React.FC<ProductFind> = ({
   const [currentSort, setCurrentSort] = useState("default");
   const [selectedColorId, setSelectedColorId] = useState<string | null>(
     searchParams.colorId
-  );
-  const [selectedSizeId, setSelectedSizeId] = useState<string | null>(
-    searchParams.sizeId
   );
 
   const [selectedBenefitId, setSelectedBenefitId] = useState<string | null>(
@@ -87,9 +80,6 @@ const ProductFind: React.FC<ProductFind> = ({
     if (selectedColorId) {
       tempArray = tempArray.filter((item) => item.color.id === selectedColorId);
     }
-    if (selectedSizeId) {
-      tempArray = tempArray.filter((item) => item.size.id === selectedSizeId);
-    }
     if (selectedBenefitId) {
       tempArray = tempArray.filter(
         (item) => item.benefit.id === selectedBenefitId
@@ -119,12 +109,6 @@ const ProductFind: React.FC<ProductFind> = ({
     handleChange(currentSort);
   };
 
-  // Size
-  const filterProductsBySize = (sizeId: string | null) => {
-    setSelectedSizeId(sizeId);
-    handleChange(currentSort);
-  };
-
   // Benefit
   const filterProductsByBenefit = (benefitId: string | null) => {
     setSelectedBenefitId(benefitId);
@@ -137,7 +121,6 @@ const ProductFind: React.FC<ProductFind> = ({
 
   const handleClearFilters = () => {
     setSelectedColorId(null);
-    setSelectedSizeId(null);
     setSelectedBenefitId(null);
     setSortedProducts(items);
     router.push(window.location.pathname);
@@ -148,12 +131,12 @@ const ProductFind: React.FC<ProductFind> = ({
       <div>
         <div className="py-6 border-b flex flex-col space-y-4">
           <span className="lg:text-6xl font-medium md:text-5xl text-3xl text-[#00ab84]">
-            Planters
+            Small & Medium Planters
           </span>
           <div className="lg:flex items-center justify-between hidden">
             <span className=" text-neutral-500">
-              Discover planters, propagation vessels, baskets, and more in a
-              wide range of styles, sizes, and colors.
+              Discover planters and cachepots sized for windowsills, tables, and
+              shelves.
             </span>
             <div className="lg:flex hidden items-center space-x-4">
               <div
@@ -263,12 +246,7 @@ const ProductFind: React.FC<ProductFind> = ({
                       data={colors}
                       onFilter={filterProducts}
                     />
-                    <FilterProduct
-                      valueKey="sizeId"
-                      name="Size"
-                      data={sizes}
-                      onFilter={filterProductsBySize}
-                    />
+
                     <FilterProduct
                       valueKey="benefitId"
                       name="Features"
@@ -313,16 +291,16 @@ const ProductFind: React.FC<ProductFind> = ({
                       </span>
                     </div>
                     <div className="mt-4 flex flex-col pt-4 font-medium space-y-3">
-                      <span className="italic pb-2 border-b text-[#009a7b]  flex items-center ">
-                        <p>Planter</p>
-                        <Dot size={40} />
-                      </span>
                       <Link
-                        href="/collections/small-medium-planters"
+                        href="/collections/planters"
                         className="pb-4 border-b"
                       >
-                        Small & Medium
+                        Planter
                       </Link>
+                      <span className="italic pb-2 border-b text-[#009a7b]  flex items-center ">
+                        <p> Small & Medium</p>
+                        <Dot size={40} />
+                      </span>
                       <Link
                         href="/collections/large-planters"
                         className="pb-4 border-b"
@@ -348,13 +326,11 @@ const ProductFind: React.FC<ProductFind> = ({
         <div className="space-y-4 mt-8 lg:flex block">
           <div className="lg:basis-1/5 mt-12 lg:flex hidden flex-col hover:cursor-pointer space-y-4 text-[1.1rem]">
             <div className="border-b flex flex-col space-y-2 pb-4 mr-8 text-base">
+              <Link href="/collections/planters">Planter</Link>
               <span className="italic text-[#009a7b] font-medium flex items-center ">
-                <p>Planter</p>
+                <p>Small & Medium</p>
                 <Dot size={40} />
               </span>
-              <Link href="/collections/small-medium-planters">
-                Small & Medium
-              </Link>
               <Link href="/collections/large-planters">Large Planters</Link>
               <Link href="/collections/drainage-planters">Has Drainage</Link>
             </div>
@@ -363,12 +339,6 @@ const ProductFind: React.FC<ProductFind> = ({
               name="Planter Color"
               data={colors}
               onFilter={filterProducts}
-            />
-            <FilterProduct
-              valueKey="sizeId"
-              name="Size"
-              data={sizes}
-              onFilter={filterProductsBySize}
             />
             <FilterProduct
               valueKey="benefitId"
@@ -386,20 +356,24 @@ const ProductFind: React.FC<ProductFind> = ({
           <div className="lg:basis-4/5">
             <div className="lg:grid-cols-4  grid grid-cols-1 md:grid-cols-2 gap-4">
               {sortedProducts.map((item) => (
-                <ProductCard data={item} key={item.id} label="Planter" />
+                <ProductCard data={item} key={item.id} />
               ))}
             </div>
-            <FAQ />
           </div>
         </div>
       ) : (
         <>
-          <div className="lg:grid-cols-4 mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
-            {sortedProducts.map((item) => (
-              <ProductCard data={item} key={item.id} label="Planter" />
-            ))}
-          </div>
-          <FAQ />
+          {sortedProducts.length == 0 ? (
+            <>No Results</>
+          ) : (
+            <>
+              <div className="lg:grid-cols-4 mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+                {sortedProducts.map((item) => (
+                  <ProductCard data={item} key={item.id} />
+                ))}
+              </div>
+            </>
+          )}
         </>
       )}
     </>

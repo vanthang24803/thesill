@@ -35,10 +35,10 @@ const Navbar : React.FC<NavbarProps> = ({
       <Navigation />
       <div className="w-full bg-[#E0F5F0] flex justify-center items-center hover:cursor-pointer">
         <Link
-          href="/"
+          href="/collections/sale"
           className="text-[17px] flex justify-center items-center h-[2.5rem] text-black font-semibold"
         >
-          🔥 New Arrivals, Comin’ In Hot! 🔥
+          ☀️The Best Summer Deals
         </Link>
       </div>
     </nav>

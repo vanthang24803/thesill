@@ -17,7 +17,7 @@ const Planters = async () => {
         main="Planters"
         href="/collections/planters"
         subtitle="Plant Stands"
-        link="/"
+        link="/collections/drainage-planters"
         data={billboard}
       />
 
