@@ -1,17 +1,19 @@
-import { Color } from "@/types";
+"use client";
 import qs from "query-string";
-import { useCallback, useState } from "react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Benefit, Size } from "@/types";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useState } from "react";
 
 interface FilterProductProps {
-  data: Color[];
+  data: (Size | Benefit)[];
   name: string;
   valueKey: string;
   onFilter: (id: string | null) => void;
 }
 
-const FilterColor: React.FC<FilterProductProps> = ({
+const FilterProduct: React.FC<FilterProductProps> = ({
   data,
   name,
   valueKey,
@@ -24,6 +26,7 @@ const FilterColor: React.FC<FilterProductProps> = ({
 
   const searchParams = useSearchParams();
   const router = useRouter();
+
   const selectedValue = searchParams?.get(valueKey);
 
   const onClick = (id: string) => {
@@ -66,27 +69,33 @@ const FilterColor: React.FC<FilterProductProps> = ({
       </div>
 
       {open && (
-        <div className="grid grid-cols-3 gap-4">
-          {data.map((color) => (
-            <div
-              key={color.id}
-              className="flex flex-col items-center justify-center space-y-2 mt-4"
-            >
-              <div
-                className={`w-10 h-10 border flex items-center rounded-full justify-center ${
-                  selectedValue === color.id && "border-neutral-600"
-                }`}
-                onClick={() => onClick(color.id)}
-              >
-                <div
-                  style={{ backgroundColor: color.value }}
-                  className="h-8 w-8 rounded-full flex items-center justify-center border"
-                ></div>
-              </div>
-              {color.name != "null" ? (
-                <span className="text-xs">{color.name}</span>
+        <div className="flex flex-col space-y-3">
+          {data.map((filter) => (
+            <div className="flex items-end space-x-2 mt-4" key={filter.id}>
+              <Checkbox
+                id={filter.id}
+                onClick={() => onClick(filter.id)}
+                checked={selectedValue === filter.id}
+              />
+
+              {filter.name != "null" ? (
+                <label
+                  htmlFor={filter.id}
+                  className={`text-sm ${
+                    selectedValue === filter.id ? "font-medium" : ""
+                  }`}
+                >
+                  {filter.name}
+                </label>
               ) : (
-                <span className="text-xs">Orther</span>
+                <label
+                  htmlFor={filter.id}
+                  className={`text-sm ${
+                    selectedValue === filter.id ? "font-medium" : ""
+                  }`}
+                >
+                  Orther
+                </label>
               )}
             </div>
           ))}
@@ -96,4 +105,4 @@ const FilterColor: React.FC<FilterProductProps> = ({
   );
 };
 
-export default FilterColor;
+export default FilterProduct;

@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Search } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
 
 
 const SearchInput = () => {
@@ -38,14 +39,19 @@ const SearchInput = () => {
 
 
   return (
-    <div className="relative">
-      <Search className="absolute h-4 w-4 top-3 left-4 text-muted-foreground" />
-      <Input
-        onChange={onChange}
-        value={value}
-        placeholder="Search..."
-        className="pl-10 bg-primary/10"
-      />
+    <div className="items-top flex space-x-2">
+      <Checkbox id="terms1" />
+      <div className="grid gap-1.5 leading-none">
+        <label
+          htmlFor="terms1"
+          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Accept terms and conditions
+        </label>
+        <p className="text-sm text-muted-foreground">
+          You agree to our Terms of Service and Privacy Policy.
+        </p>
+      </div>
     </div>
   );
 };

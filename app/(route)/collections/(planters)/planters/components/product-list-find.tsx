@@ -16,6 +16,9 @@ import { Benefit, Color, Product, Size } from "@/types";
 import ProductCard from "./card";
 import FAQ from "./faq";
 import FilterColor from "./filter-color";
+import FilterProduct from "./filter-product";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface ProductFind {
   items: Product[];
@@ -45,6 +48,13 @@ const ProductFind: React.FC<ProductFind> = ({
   const [selectedColorId, setSelectedColorId] = useState<string | null>(
     searchParams.colorId
   );
+  const [selectedSizeId, setSelectedSizeId] = useState<string | null>(
+    searchParams.sizeId
+  );
+
+  const [selectedBenefitId, setSelectedBenefitId] = useState<string | null>(
+    searchParams.benefitId
+  );
 
   // Open Filter
   const onOpen = () => setOpen(true);
@@ -58,11 +68,33 @@ const ProductFind: React.FC<ProductFind> = ({
   const openNav = () => setNav(true);
   const cloesNav = () => setNav(false);
 
-  // Sort to PC
+  // Sort to Mobile
+  const handleSort = (value: string) => {
+    handleChange(value);
+    setCurrentSort(value);
+    if (value === "default") {
+      setValue("Most Popular");
+    } else if (value === "low") {
+      setValue("$ High To Low");
+    } else {
+      setValue("$ Low To High");
+    }
+    onClose();
+  };
+
+  // Sort Profuct
   const handleChange = (value: string) => {
     let tempArray = JSON.parse(JSON.stringify(items)) as Product[];
     if (selectedColorId) {
       tempArray = tempArray.filter((item) => item.color.id === selectedColorId);
+    }
+    if (selectedSizeId) {
+      tempArray = tempArray.filter((item) => item.size.id === selectedSizeId);
+    }
+    if (selectedBenefitId) {
+      tempArray = tempArray.filter(
+        (item) => item.benefit.id === selectedBenefitId
+      );
     }
     if (value === "default") {
       setSortedProducts(tempArray);
@@ -82,28 +114,35 @@ const ProductFind: React.FC<ProductFind> = ({
     }
   };
 
-  // Sort to Mobile
-  const handleSort = (value: string) => {
-    handleChange(value);
-    setCurrentSort(value);
-    if (value === "default") {
-      setValue("Most Popular");
-    } else if (value === "low") {
-      setValue("$ High To Low");
-    } else {
-      setValue("$ Low To High");
-    }
-    onClose();
-  };
-
-  // Filter Color
+  // Color
   const filterProducts = (colorId: string | null) => {
     setSelectedColorId(colorId);
-    if (colorId) {
-      setSortedProducts(items.filter((item) => item.color.id === colorId));
-    } else {
-      setSortedProducts(items);
-    }
+    handleChange(currentSort);
+  };
+
+  // Size
+  const filterProductsBySize = (sizeId: string | null) => {
+    setSelectedSizeId(sizeId);
+    handleChange(currentSort);
+  };
+
+  // Benefit
+  const filterProductsByBenefit = (benefitId: string | null) => {
+    setSelectedBenefitId(benefitId);
+    handleChange(currentSort);
+  };
+
+  // Clear All Filter
+
+  const router = useRouter();
+
+  const handleClearFilters = () => {
+    console.log("Clearing filters...");
+    setSelectedColorId(null);
+    setSelectedSizeId(null);
+    setSelectedBenefitId(null);
+    setSortedProducts(items);
+    router.push(window.location.pathname);
   };
 
   return (
@@ -220,14 +259,31 @@ const ProductFind: React.FC<ProductFind> = ({
                       </div>
                     </div>
 
+                    <FilterColor
+                      valueKey="colorId"
+                      name="Planter Color"
+                      data={colors}
+                      onFilter={filterProducts}
+                    />
+                    <FilterProduct
+                      valueKey="sizeId"
+                      name="Size"
+                      data={sizes}
+                      onFilter={filterProductsBySize}
+                    />
+                    <FilterProduct
+                      valueKey="benefitId"
+                      name="Features"
+                      data={benefits}
+                      onFilter={filterProductsByBenefit}
+                    />
                     <div className="mt-8 flex justify-between ">
                       <Button onClick={onClose} className="w-1/3">
                         Close
                       </Button>
                       <Button
-                        onClick={onClose}
+                        onClick={handleClearFilters}
                         className="w-1/2 bg-white text-[#009a7b]"
-                        disabled
                       >
                         Clear All
                       </Button>
@@ -308,6 +364,24 @@ const ProductFind: React.FC<ProductFind> = ({
               data={colors}
               onFilter={filterProducts}
             />
+            <FilterProduct
+              valueKey="sizeId"
+              name="Size"
+              data={sizes}
+              onFilter={filterProductsBySize}
+            />
+            <FilterProduct
+              valueKey="benefitId"
+              name="Features"
+              data={benefits}
+              onFilter={filterProductsByBenefit}
+            />
+            <Button
+              onClick={handleClearFilters}
+              className="w-1/2 bg-white h-[7vh] text-[#009a7b]"
+            >
+              Clear All
+            </Button>
           </div>
           <div className="lg:basis-4/5">
             <div className="lg:grid-cols-4  grid grid-cols-1 md:grid-cols-2 gap-4">
