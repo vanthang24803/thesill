@@ -3,6 +3,12 @@ import getBillboard from "@/actions/get-billboard";
 import Billboard from "@/components/ui/billboard";
 
 import Body from "@/components/ui/body";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: `Subcriptions The Sill`,
+  description: "Buy a flower every day to make life more beautiful. 😊",
+};
 
 const Subscriptions = async () => {
   const billboard = await getBillboard("84030340-c74f-49b8-ae66-8ab6cdb6ea90");

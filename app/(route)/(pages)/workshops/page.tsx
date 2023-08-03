@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import getBillboard from "@/actions/get-billboard";
 import Billboard from "@/components/ui/billboard";
 import Body from "@/components/ui/body";
+import { Metadata } from "next";
 
 export const data = [
   {
@@ -114,6 +115,11 @@ export const data = [
     href: "/",
   },
 ];
+
+export const metadata: Metadata = {
+  title: `Workshops The Sill`,
+  description: "Buy a flower every day to make life more beautiful. 😊",
+};
 
 
 const WorkShops = async () => {

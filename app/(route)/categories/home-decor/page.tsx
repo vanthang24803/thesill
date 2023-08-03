@@ -6,6 +6,12 @@ import Collection from "./components/collection";
 import Billboard from "@/components/ui/billboard";
 import Body from "@/components/ui/body";
 import BodyFooter from "@/components/body-footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: `Home & Decor The Sill`,
+  description: "Buy a flower every day to make life more beautiful. 😊",
+};
 
 const Decor = async () => {
   const billboard = await getBillboard("753e5928-21eb-4fa3-b636-5face1fa35b0");

@@ -6,6 +6,13 @@ import getProducts from "@/actions/get-products";
 import Body from "@/components/ui/body";
 import BillBody from "@/app/(root)/components/bill-body";
 
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: `Product The Sill`,
+  description: "Buy a flower every day to make life more beautiful. 😊",
+};
+
 
 interface ProductPageProps {
   params: {

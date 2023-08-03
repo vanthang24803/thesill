@@ -5,6 +5,12 @@ import Billboard from "@/components/ui/billboard";
 import Body from "@/components/ui/body";
 import dynamic from "next/dynamic";
 import ProductListPage from "../plants/components/product-list-page";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: `Flower & Bouquet The Sill`,
+  description: "Buy a flower every day to make life more beautiful. 😊",
+};
 
 const FLower = async () => {
   const billboard = await getBillboard("72f437ba-75b6-4ce8-846b-0e90bc6de372");
