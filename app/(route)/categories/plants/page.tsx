@@ -22,9 +22,9 @@ const Plants = async () => {
     <>
       <Billboard
         main="Shop Online"
-        href="/"
+        href="/collections/live-plants"
         subtitle="Find A Store"
-        link="/"
+        link="/locations"
         data={billboard}
       />
 
@@ -105,10 +105,10 @@ const Plants = async () => {
           heading="Expertly Paired"
         />
       </Body>
-        <BodyFooter
-          title="Buy Plants that Make You Happy | The Sill"
-          description={`At The Sill, we live off the mantra that, "Plants Make You Happy." Find live plants that will make you happy! Buy large plants, small plants or pet-friendly plants online today!`}
-        />
+      <BodyFooter
+        title="Buy Plants that Make You Happy | The Sill"
+        description={`At The Sill, we live off the mantra that, "Plants Make You Happy." Find live plants that will make you happy! Buy large plants, small plants or pet-friendly plants online today!`}
+      />
     </>
   );
 };

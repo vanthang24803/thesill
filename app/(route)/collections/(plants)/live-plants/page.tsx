@@ -5,7 +5,7 @@ import getSizes from "@/actions/get-sizes";
 import Body from "@/components/ui/body";
 import getLights from "@/actions/get-lights";
 
-interface PlanterProps {
+interface PlantsProps {
   searchParams: {
     lightId: string;
     sizeId: string;
@@ -13,15 +13,15 @@ interface PlanterProps {
   };
 }
 
-const Planters: React.FC<PlanterProps> = async ({ searchParams }) => {
+const Plants: React.FC<PlantsProps> = async ({ searchParams }) => {
   const products = await getProducts({
     isFeatured: true,
     lightId: searchParams.lightId,
     sizeId: searchParams.sizeId,
     benefitId: searchParams.benefitId,
   });
-  const sizes = await getSizes();
   const lights = await getLights();
+  const sizes = await getSizes();
   const benefits = await getBenefits();
   const Product = dynamic(() => import("./components/product-list-find"));
   return (
@@ -29,12 +29,12 @@ const Planters: React.FC<PlanterProps> = async ({ searchParams }) => {
       <Product
         items={products}
         lights={lights}
-        benefits={benefits}
         sizes={sizes}
+        benefits={benefits}
         searchParams={searchParams}
       />
     </Body>
   );
 };
 
-export default Planters;
+export default Plants;

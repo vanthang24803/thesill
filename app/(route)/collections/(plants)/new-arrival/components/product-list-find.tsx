@@ -13,28 +13,21 @@ import Link from "next/link";
 import { Filter, X, Dot, MoreHorizontal } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 import Button from "@/components/ui/button";
-import { Benefit, Light, Product, Size } from "@/types";
-import ProductCard from "../../../(planters)/planters/components/card";
-import FAQ from "./faq";
-import FilterProduct from "../../../(planters)/planters/components/filter-product";
+import { Color, Product } from "@/types";
+import ProductCard from "./card";
+import FilterColor from "../../../(planters)/planters/components/filter-color";
 
 interface ProductFind {
   items: Product[];
-  sizes: Size[];
-  lights: Light[];
-  benefits: Benefit[];
+  colors: Color[];
   searchParams: {
-    lightId: string;
-    sizeId: string;
-    benefitId: string;
+    colorId: string;
   };
 }
 
 const ProductFind: React.FC<ProductFind> = ({
   items,
-  sizes,
-  lights,
-  benefits,
+  colors,
   searchParams,
 }) => {
   const [sortedProducts, setSortedProducts] = useState(items);
@@ -43,15 +36,8 @@ const ProductFind: React.FC<ProductFind> = ({
   const [value, setValue] = useState("Most Popular");
   const [nav, setNav] = useState(false);
   const [currentSort, setCurrentSort] = useState("default");
-  const [selectedLightId, setSelectedLightId] = useState<string | null>(
-    searchParams.lightId
-  );
-  const [selectedSizeId, setSelectedSizeId] = useState<string | null>(
-    searchParams.sizeId
-  );
-
-  const [selectedBenefitId, setSelectedBenefitId] = useState<string | null>(
-    searchParams.benefitId
+  const [selectedColorId, setSelectedColorId] = useState<string | null>(
+    searchParams.colorId
   );
 
   // Open Filter
@@ -83,17 +69,10 @@ const ProductFind: React.FC<ProductFind> = ({
   // Sort Profuct
   const handleChange = (value: string) => {
     let tempArray = JSON.parse(JSON.stringify(items)) as Product[];
-    if (selectedLightId) {
-      tempArray = tempArray.filter((item) => item.color.id === selectedLightId);
+    if (selectedColorId) {
+      tempArray = tempArray.filter((item) => item.color.id === selectedColorId);
     }
-    if (selectedSizeId) {
-      tempArray = tempArray.filter((item) => item.size.id === selectedSizeId);
-    }
-    if (selectedBenefitId) {
-      tempArray = tempArray.filter(
-        (item) => item.benefit.id === selectedBenefitId
-      );
-    }
+
     if (value === "default") {
       setSortedProducts(tempArray);
     } else {
@@ -112,21 +91,9 @@ const ProductFind: React.FC<ProductFind> = ({
     }
   };
 
-  // Light
-  const filterProductsByLight = (lightId: string | null) => {
-    setSelectedLightId(lightId);
-    handleChange(currentSort);
-  };
-
-  // Size
-  const filterProductsBySize = (sizeId: string | null) => {
-    setSelectedSizeId(sizeId);
-    handleChange(currentSort);
-  };
-
-  // Benefit
-  const filterProductsByBenefit = (benefitId: string | null) => {
-    setSelectedBenefitId(benefitId);
+  // Color
+  const filterProducts = (colorId: string | null) => {
+    setSelectedColorId(colorId);
     handleChange(currentSort);
   };
 
@@ -135,9 +102,7 @@ const ProductFind: React.FC<ProductFind> = ({
   const router = useRouter();
 
   const handleClearFilters = () => {
-    setSelectedLightId(null);
-    setSelectedSizeId(null);
-    setSelectedBenefitId(null);
+    setSelectedColorId(null);
     setSortedProducts(items);
     router.push(window.location.pathname);
   };
@@ -147,12 +112,12 @@ const ProductFind: React.FC<ProductFind> = ({
       <div>
         <div className="py-6 border-b flex flex-col space-y-4">
           <span className="lg:text-6xl font-medium md:text-5xl text-3xl text-[#00ab84]">
-            Live Plants
+            New Arrival
           </span>
           <div className="lg:flex items-center justify-between hidden">
             <span className=" text-neutral-500">
-              All our plants are guaranteed to arrive happy & healthy. It’s our
-              customer happiness guarantee!
+              All our cactus plants are guaranteed to arrive happy & healthy.
+              It’s our customer happiness guarantee!
             </span>
             <div className="lg:flex hidden items-center space-x-4">
               <div
@@ -179,8 +144,8 @@ const ProductFind: React.FC<ProductFind> = ({
           <>
             <div className="flex lg:hidden flex-col space-y-4">
               <span className="text-sm text-neutral-500">
-                All our plants are guaranteed to arrive happy & healthy. It’s
-                our customer happiness guarantee!
+                All our cactus plants are guaranteed to arrive happy & healthy.
+                It’s our customer happiness guarantee!
               </span>
               <div className="border-t flex justify-between items-center space-x-6">
                 {/* Filter */}
@@ -255,26 +220,14 @@ const ProductFind: React.FC<ProductFind> = ({
                         </div>
                       </div>
                     </div>
-                    <FilterProduct
-                      valueKey="sizeId"
-                      name="Size"
-                      data={sizes}
-                      onFilter={filterProductsBySize}
+
+                    <FilterColor
+                      valueKey="colorId"
+                      name="Planter Color"
+                      data={colors}
+                      onFilter={filterProducts}
                     />
 
-                    <FilterProduct
-                      valueKey="lightId"
-                      name="Light"
-                      data={lights}
-                      onFilter={filterProductsByLight}
-                    />
-
-                    <FilterProduct
-                      valueKey="benefitId"
-                      name="Features"
-                      data={benefits}
-                      onFilter={filterProductsByBenefit}
-                    />
                     <div className="mt-8 flex justify-between ">
                       <Button onClick={onClose} className="w-1/3">
                         Close
@@ -313,16 +266,16 @@ const ProductFind: React.FC<ProductFind> = ({
                       </span>
                     </div>
                     <div className="mt-4 flex flex-col pt-4 font-medium space-y-3">
+                      <Link
+                        href="/collections/live-plants"
+                        className="pb-4 border-b font-medium"
+                      >
+                        All Live Plants
+                      </Link>
                       <span className="italic pb-2 border-b text-[#009a7b]  flex items-center ">
-                        <p>All Live Plants</p>
+                        <p>New Arrival</p>
                         <Dot size={40} />
                       </span>
-                      <Link
-                        href="/collections/new-arrival"
-                        className="pb-4 border-b"
-                      >
-                        New Arrival
-                      </Link>
                       <Link
                         href="/collections/large-plants"
                         className="pb-4 border-b"
@@ -360,11 +313,11 @@ const ProductFind: React.FC<ProductFind> = ({
         <div className="space-y-4 mt-8 lg:flex block">
           <div className="lg:basis-1/5 mt-12 lg:flex hidden flex-col hover:cursor-pointer space-y-4 text-[1.1rem]">
             <div className="border-b flex flex-col space-y-2 pb-4 mr-8 text-base">
+              <Link href="/collections/live-plants">All Live Plants</Link>
               <span className="italic text-[#009a7b] font-medium flex items-center ">
-                <p>All Live Plants</p>
+                <p>New Arrival</p>
                 <Dot size={40} />
               </span>
-              <Link href="/collections/new-arrival">New Arrival</Link>
               <Link href="/collections/large-plants">Large Plant</Link>
               <Link href="/collections/plants-for-beginners">
                 Best For Beginners
@@ -376,25 +329,13 @@ const ProductFind: React.FC<ProductFind> = ({
                 Low-Light Tolerant
               </Link>
             </div>
-            <FilterProduct
-              valueKey="sizeId"
-              name="Size"
-              data={sizes}
-              onFilter={filterProductsBySize}
-            />
-            <FilterProduct
-              valueKey="lightId"
-              name="Light"
-              data={lights}
-              onFilter={filterProductsByLight}
+            <FilterColor
+              valueKey="colorId"
+              name="Planter Color"
+              data={colors}
+              onFilter={filterProducts}
             />
 
-            <FilterProduct
-              valueKey="benefitId"
-              name="Features"
-              data={benefits}
-              onFilter={filterProductsByBenefit}
-            />
             <Button
               onClick={handleClearFilters}
               className="w-1/2 bg-white h-[7vh] text-[#009a7b]"
@@ -405,20 +346,18 @@ const ProductFind: React.FC<ProductFind> = ({
           <div className="lg:basis-4/5">
             <div className="lg:grid-cols-4  grid grid-cols-1 md:grid-cols-2 gap-4">
               {sortedProducts.map((item) => (
-                <ProductCard data={item} key={item.id} label="Plants" />
+                <ProductCard data={item} key={item.id} />
               ))}
             </div>
-            <FAQ />
           </div>
         </div>
       ) : (
         <>
           <div className="lg:grid-cols-4 mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
             {sortedProducts.map((item) => (
-              <ProductCard data={item} key={item.id} label="Plants" />
+              <ProductCard data={item} key={item.id} />
             ))}
           </div>
-          <FAQ />
         </>
       )}
     </>

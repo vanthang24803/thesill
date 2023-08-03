@@ -8,12 +8,14 @@ const FAQ = () => {
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
   const [open4, setOpen4] = useState(false);
+  const [open5 , setOpen5] = useState(false);
+  const [open6, setOpen6] = useState(false);
  
 
   return (
     <div className="lg:mt-24 md:mt-16 mt-14 flex flex-col md:space-y-6 space-y-4 lg:w-3/4 w-full lg:mb-12 mb-6">
       <div className="lg:text-6xl md:text-4xl text-3xl text-[#00ab84] lg:pb-6 pb-4  border-b italic">
-        Planters FAQ
+        Live Plants FAQ
       </div>
 
       <div
@@ -23,7 +25,7 @@ const FAQ = () => {
         <span
           className={`md:text-base text-sm ${open1 && "text-[#009a7b] italic"}`}
         >
-          What is the difference between pots and planters?
+          What Are the Best Indoor Plants?
         </span>
         {open1 ? (
           <Minus className="text-[#009a7b]" size={26} />
@@ -34,12 +36,11 @@ const FAQ = () => {
       {open1 ? (
         <div className="border-b pb-4 flex flex-col space-y-3">
           <p>
-            Being confused about this is understandable! In most plant and
-            gardening circles, ‘pot’ and ‘planter’ are interchangeable terms. We
-            feel comfortable doing the same, so everything is easy to find and
-            on the same page. Technically, pots are smaller containers meant to
-            hold one plant, and planters are larger containers that house
-            multiple plants.
+            The best indoor plant is one that you love the appearance of, that
+            is well-suited to your home environment, and that you can care for
+            and maintain. There are hundreds of varieties of houseplants to
+            choose from, so rest assured that you will find one that works for
+            you and your home.
           </p>
         </div>
       ) : (
@@ -53,7 +54,7 @@ const FAQ = () => {
         <span
           className={`md:text-base text-sm ${open2 && "text-[#009a7b] italic"}`}
         >
-          Should you put plants directly into pots?
+          How May Houseplants Is Too Many
         </span>
         {open2 ? (
           <Minus className="text-[#009a7b]" size={26} />
@@ -64,21 +65,11 @@ const FAQ = () => {
       {open2 ? (
         <div className="border-b pb-4 flex flex-col space-y-3">
           <p>
-            When your plant first arrives at its new home, give it time to
-            acclimate. Place it where you’re planning on having it live and give
-            it two to three weeks to settle in. Your home is very different from
-            the nursery where it grew, and then it spent time in transit. This
-            ‘downtime’ will let it bounce back before you disturb it with the
-            repotting process. Remember, plants are fragile living things too!
-          </p>
-          <p>
-            Now, when you’re repotting your plants, you’ll want to take them out
-            of their current pots, shake out the old soil, and repot them with
-            fresh potting mix (and if you’re a new plant parent, learn more
-            about pots and plant health here). Use fresh potting mix whether
-            you’re just looking to refresh your plant’s soil or size up because
-            your plant needs a bigger home. To stay healthy, potted plants need
-            old soil replaced with new potting mix for fresh nutrients.
+            You can have as many houseplants as you like so long as you have
+            space to put them. It is only when you cannot take care of them or
+            enjoy them that you know you have too many. Some people prefer to
+            showcase just a few plants in their home while others have hundreds
+            of indoor plants.
           </p>
         </div>
       ) : (
@@ -92,7 +83,7 @@ const FAQ = () => {
         <span
           className={`md:text-base text-sm ${open3 && "text-[#009a7b] italic"}`}
         >
-          What do planters do?
+          When Should I Water My Plants?
         </span>
         {open3 ? (
           <Minus className="text-[#009a7b]" size={26} />
@@ -103,41 +94,12 @@ const FAQ = () => {
       {open3 ? (
         <div className="border-b pb-4 flex flex-col space-y-3">
           <p>
-            Unlike pots, planters tend to get used outdoors. Both types of plant
-            holders can have drainage holes to ensure plant health, though some
-            sellers use “pot” to indicate a lack of drainage. As discussed
-            above, planters generally hold an assortment of plants. Think of the
-            huge concrete tubs or wooden barrels stuffed with pansies or hens
-            and chicks. In the broadest sense, a planter is any container
-            holding a plant outside the ground.
+            How often you water your houseplants will depend on the type of
+            plant as well as the level of humidity in the home. Some plants
+            require watering every couple of days, while others can go for two
+            or three weeks. Generally, plants need to be watered more frequently
+            in the spring and summer.
           </p>
-          <p>Examples include:</p>
-          <div className="flex flex-col">
-            <div className="flex items-center space-x-2">
-              <Dot size={40} />
-              <p>Hanging baskets</p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Dot size={40} />
-              <p>Wooden or concrete tubs</p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Dot size={40} />
-              <p>Small clay or ceramic pots</p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Dot size={40} />
-              <p>Raised containers of metal or rattan</p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Dot size={40} />
-              <p>Resin or plastic pots</p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Dot size={40} />
-              <p>Cachepots (decorative planters)</p>
-            </div>
-          </div>
         </div>
       ) : (
         <div className="border-b"></div>
@@ -150,7 +112,7 @@ const FAQ = () => {
         <span
           className={`md:text-base text-sm ${open4 && "text-[#009a7b] italic"}`}
         >
-          How long can plants stay in pots?
+          What Is the Fastest Growing Indoor Plant?
         </span>
         {open4 ? (
           <Minus className="text-[#009a7b]" size={26} />
@@ -161,13 +123,69 @@ const FAQ = () => {
       {open4 ? (
         <div className="border-b pb-4 flex flex-col space-y-3">
           <p>
-            As long as your plant is getting what it needs from the soil and has
-            room to grow, it can stay in the same pot. Once it starts outgrowing
-            its pot, you’ll need to repot it into a larger pot. If your plant’s
-            current pot is 10 inches or smaller, you’ll want to repot it into a
-            pot that is 2 inches larger. If the pot is larger than 10 inches,
-            your new pot should be 2-3 inches bigger to give your plant room to
-            grow.
+            If you’re hoping to see your plant grow quickly, choose something
+            like a pothos, spider plant, or snake plant. When given the right
+            conditions, these plants can show substantial growth in just a few
+            weeks.
+          </p>
+        </div>
+      ) : (
+        <div className="border-b"></div>
+      )}
+
+      <div
+        className="md:text-lg text-base hover:cursor-pointer flex items-center justify-between"
+        onClick={() => setOpen5(!open5)}
+      >
+        <span
+          className={`md:text-base text-sm ${open5 && "text-[#009a7b] italic"}`}
+        >
+          What Is the Easiest House Plant to Take Care Of?
+        </span>
+        {open5 ? (
+          <Minus className="text-[#009a7b]" size={26} />
+        ) : (
+          <Plus size={26} />
+        )}
+      </div>
+      {open5 ? (
+        <div className="border-b pb-4 flex flex-col space-y-3">
+          <p>
+            Snake and{" "}
+            <a href="/" className="text-[#009a7b]">
+              ZZ plants
+            </a>{" "}
+            are two of the easiest plants to care for. Snake plants can tolerate
+            low light and drought. The easiest way to kill this plant is to
+            overcare for it! ZZ plants are a hardy, drought-tolerant houseplant
+            that only needs water every few weeks.
+          </p>
+        </div>
+      ) : (
+        <div className="border-b"></div>
+      )}
+
+      <div
+        className="md:text-lg text-base hover:cursor-pointer flex items-center justify-between"
+        onClick={() => setOpen6(!open6)}
+      >
+        <span
+          className={`md:text-base text-sm ${open6 && "text-[#009a7b] italic"}`}
+        >
+          What Is the Most Common House Plant?
+        </span>
+        {open6 ? (
+          <Minus className="text-[#009a7b]" size={26} />
+        ) : (
+          <Plus size={26} />
+        )}
+      </div>
+      {open6 ? (
+        <div className="border-b pb-4 flex flex-col space-y-3">
+          <p>
+            The snake plant and pothos are very popular indoor plants. Since
+            they are attractive and easy to care for, they make great choices
+            when gifting a plant to a friend or loved one.
           </p>
         </div>
       ) : (
@@ -175,14 +193,25 @@ const FAQ = () => {
       )}
 
       <div className="lg:text-4xl md:text-3xl text-2xl text-[#00ab84] italic">
-        Practically Perfect Pots & Planters
+        Spruce Up Your Home With Live Plants
       </div>
       <p>
-        Planters are an integral part of plant health, whether you just got your
-        first snake plant or are repotting your fifth parlor palm. The right
-        size planter will ensure your plant has room to grow and healthy soil to
-        help it grow strong. Let’s take a look at the difference between
-        planters and pots.
+        Adding live plants to your house is an ideal way to brighten up your
+        space and give it a homey feeling. Bring nature indoors with a selection
+        of houseplants to suit everyone’s style. Plants make your home look
+        great, clean the air, and boost your mood.
+      </p>
+      <p>
+        When choosing a live plant for your home, consider factors like size,
+        color, and overall design. You’ll also want to think about how much care
+        each plant requires – some are very low-maintenance while others need a
+        bit more attention.
+      </p>
+      <p>
+        Many plants need bright, indirect light to thrive but some grow very
+        well in low light environments. When deciding on which live plants to
+        buy, think about where they will go and how much sunlight they will be
+        exposed to.
       </p>
     </div>
   );

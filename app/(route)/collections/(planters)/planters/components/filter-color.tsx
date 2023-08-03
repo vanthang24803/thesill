@@ -70,7 +70,7 @@ const FilterColor: React.FC<FilterProductProps> = ({
           {data.map((color) => (
             <div
               key={color.id}
-              className="flex flex-col items-center justify-center space-y-2 mt-4"
+              className="flex flex-col items-center justify-center space-y-2 mt-6"
             >
               <div
                 className={`w-10 h-10 border flex items-center rounded-full justify-center ${
