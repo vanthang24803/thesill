@@ -15,7 +15,7 @@ import { Dialog } from "@headlessui/react";
 import Button from "@/components/ui/button";
 import { Color, Product } from "@/types";
 import ProductCard from "./card";
-import FilterColor from "../../../(planters)/planters/components/filter-color";
+import FilterColor from "@/components/filter/filter-color";
 
 interface ProductFind {
   items: Product[];

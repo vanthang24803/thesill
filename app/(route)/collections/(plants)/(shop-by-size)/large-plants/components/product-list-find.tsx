@@ -13,27 +13,20 @@ import Link from "next/link";
 import { Filter, X, Dot, MoreHorizontal } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 import Button from "@/components/ui/button";
-import { Benefit, Light, Product, Size } from "@/types";
-import ProductCard from "@/components/filter/card";
-import FAQ from "./faq";
+import { Benefit, Product } from "@/types";
+import ProductCard from "./card";
 import FilterProduct from "@/components/filter/filter-product";
 
 interface ProductFind {
   items: Product[];
-  sizes: Size[];
-  lights: Light[];
   benefits: Benefit[];
   searchParams: {
-    lightId: string;
-    sizeId: string;
     benefitId: string;
   };
 }
 
 const ProductFind: React.FC<ProductFind> = ({
   items,
-  sizes,
-  lights,
   benefits,
   searchParams,
 }) => {
@@ -43,12 +36,6 @@ const ProductFind: React.FC<ProductFind> = ({
   const [value, setValue] = useState("Most Popular");
   const [nav, setNav] = useState(false);
   const [currentSort, setCurrentSort] = useState("default");
-  const [selectedLightId, setSelectedLightId] = useState<string | null>(
-    searchParams.lightId
-  );
-  const [selectedSizeId, setSelectedSizeId] = useState<string | null>(
-    searchParams.sizeId
-  );
 
   const [selectedBenefitId, setSelectedBenefitId] = useState<string | null>(
     searchParams.benefitId
@@ -83,12 +70,6 @@ const ProductFind: React.FC<ProductFind> = ({
   // Sort Profuct
   const handleChange = (value: string) => {
     let tempArray = JSON.parse(JSON.stringify(items)) as Product[];
-    if (selectedLightId) {
-      tempArray = tempArray.filter((item) => item.color.id === selectedLightId);
-    }
-    if (selectedSizeId) {
-      tempArray = tempArray.filter((item) => item.size.id === selectedSizeId);
-    }
     if (selectedBenefitId) {
       tempArray = tempArray.filter(
         (item) => item.benefit.id === selectedBenefitId
@@ -112,18 +93,6 @@ const ProductFind: React.FC<ProductFind> = ({
     }
   };
 
-  // Light
-  const filterProductsByLight = (lightId: string | null) => {
-    setSelectedLightId(lightId);
-    handleChange(currentSort);
-  };
-
-  // Size
-  const filterProductsBySize = (sizeId: string | null) => {
-    setSelectedSizeId(sizeId);
-    handleChange(currentSort);
-  };
-
   // Benefit
   const filterProductsByBenefit = (benefitId: string | null) => {
     setSelectedBenefitId(benefitId);
@@ -135,8 +104,6 @@ const ProductFind: React.FC<ProductFind> = ({
   const router = useRouter();
 
   const handleClearFilters = () => {
-    setSelectedLightId(null);
-    setSelectedSizeId(null);
     setSelectedBenefitId(null);
     setSortedProducts(items);
     router.push(window.location.pathname);
@@ -147,12 +114,13 @@ const ProductFind: React.FC<ProductFind> = ({
       <div>
         <div className="py-6 border-b flex flex-col space-y-4">
           <span className="lg:text-6xl font-medium md:text-5xl text-3xl text-[#00ab84]">
-            Live Plants
+            Large Plants
           </span>
           <div className="lg:flex items-center justify-between hidden">
             <span className=" text-neutral-500">
-              All our plants are guaranteed to arrive happy & healthy. It’s our
-              customer happiness guarantee!
+              Get free shipping on all large houseplants, floor plants, and
+              indoor trees. Available in grow pots & planters 10 to 12 inches in
+              diameter.
             </span>
             <div className="lg:flex hidden items-center space-x-4">
               <div
@@ -179,8 +147,9 @@ const ProductFind: React.FC<ProductFind> = ({
           <>
             <div className="flex lg:hidden flex-col space-y-4">
               <span className="text-sm text-neutral-500">
-                All our plants are guaranteed to arrive happy & healthy. It’s
-                our customer happiness guarantee!
+                Get free shipping on all large houseplants, floor plants, and
+                indoor trees. Available in grow pots & planters 10 to 12 inches
+                in diameter.
               </span>
               <div className="border-t flex justify-between items-center space-x-6">
                 {/* Filter */}
@@ -197,7 +166,7 @@ const ProductFind: React.FC<ProductFind> = ({
                   className="mt-6 md:py-3 py-2 font-medium w-full border flex items-center justify-center space-x-2"
                   onClick={openNav}
                 >
-                  <span>More Plants</span>
+                  <span>More Size</span>
                   <MoreHorizontal size={22} />
                 </div>
               </div>
@@ -256,20 +225,6 @@ const ProductFind: React.FC<ProductFind> = ({
                       </div>
                     </div>
                     <FilterProduct
-                      valueKey="sizeId"
-                      name="Size"
-                      data={sizes}
-                      onFilter={filterProductsBySize}
-                    />
-
-                    <FilterProduct
-                      valueKey="lightId"
-                      name="Light"
-                      data={lights}
-                      onFilter={filterProductsByLight}
-                    />
-
-                    <FilterProduct
                       valueKey="benefitId"
                       name="Features"
                       data={benefits}
@@ -307,46 +262,34 @@ const ProductFind: React.FC<ProductFind> = ({
                   </div>
                   <div className="p-4">
                     <div className="flex flex-col space-y-2 pb-3 border-b">
-                      <span className="font-medium text-xl">Planter</span>
+                      <span className="font-medium text-xl">More Plant</span>
                       <span className="text-neutral-500 text-sm">
                         Browse collections
                       </span>
                     </div>
                     <div className="mt-4 flex flex-col pt-4 font-medium space-y-3">
+                      <Link
+                        href="/collections/live-plants"
+                        className="pb-4 border-b"
+                      >
+                        Shop By Size
+                      </Link>
+                      <Link
+                        href="/collections/small-plants"
+                        className="pb-4 border-b"
+                      >
+                        Small
+                      </Link>
+                      <Link
+                        href="/collections/medium-plants"
+                        className="pb-4 border-b"
+                      >
+                        Medium
+                      </Link>
                       <span className="italic pb-2 border-b text-[#009a7b]  flex items-center ">
-                        <p>All Live Plants</p>
+                        <p>Large</p>
                         <Dot size={40} />
                       </span>
-                      <Link
-                        href="/collections/new-arrival"
-                        className="pb-4 border-b"
-                      >
-                        New Arrival
-                      </Link>
-                      <Link
-                        href="/collections/large-plants"
-                        className="pb-4 border-b"
-                      >
-                        Large Plant
-                      </Link>
-                      <Link
-                        href="/collections/plants-for-beginners"
-                        className="pb-4 border-b"
-                      >
-                        Best For Beginners
-                      </Link>
-                      <Link
-                        href="/collections/pet-friendly-plants"
-                        className="pb-4 border-b"
-                      >
-                        Pet-Friendly Plants
-                      </Link>
-                      <Link
-                        href="/collections/low-light-plants"
-                        className="pb-4 border-b"
-                      >
-                        Low-Light Tolerant
-                      </Link>
                     </div>
                   </div>
                 </Dialog.Panel>
@@ -360,34 +303,14 @@ const ProductFind: React.FC<ProductFind> = ({
         <div className="space-y-4 mt-8 lg:flex block">
           <div className="lg:basis-1/5 mt-12 lg:flex hidden flex-col hover:cursor-pointer space-y-4 text-[1.1rem]">
             <div className="border-b flex flex-col space-y-2 pb-4 mr-8 text-base">
+              <Link href="/collections/large-plants">Shop By Size</Link>
+              <Link href="/collections/small-plants">Small</Link>
+              <Link href="/collections/medium-plants">Medium</Link>
               <span className="italic text-[#009a7b] font-medium flex items-center ">
-                <p>All Live Plants</p>
+                <p>Large</p>
                 <Dot size={40} />
               </span>
-              <Link href="/collections/new-arrival">New Arrival</Link>
-              <Link href="/collections/large-plants">Large Plant</Link>
-              <Link href="/collections/plants-for-beginners">
-                Best For Beginners
-              </Link>
-              <Link href="/collections/pet-friendly-plants">
-                Pet-Friendly Plants
-              </Link>
-              <Link href="/collections/low-light-plants">
-                Low-Light Tolerant
-              </Link>
             </div>
-            <FilterProduct
-              valueKey="sizeId"
-              name="Size"
-              data={sizes}
-              onFilter={filterProductsBySize}
-            />
-            <FilterProduct
-              valueKey="lightId"
-              name="Light"
-              data={lights}
-              onFilter={filterProductsByLight}
-            />
 
             <FilterProduct
               valueKey="benefitId"
@@ -405,20 +328,18 @@ const ProductFind: React.FC<ProductFind> = ({
           <div className="lg:basis-4/5">
             <div className="lg:grid-cols-4  grid grid-cols-1 md:grid-cols-2 gap-4">
               {sortedProducts.map((item) => (
-                <ProductCard data={item} key={item.id} label="Plants" />
+                <ProductCard data={item} key={item.id} />
               ))}
             </div>
-            <FAQ />
           </div>
         </div>
       ) : (
         <>
           <div className="lg:grid-cols-4 mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
             {sortedProducts.map((item) => (
-              <ProductCard data={item} key={item.id} label="Plants" />
+              <ProductCard data={item} key={item.id} />
             ))}
           </div>
-          <FAQ />
         </>
       )}
     </>

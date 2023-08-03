@@ -14,10 +14,10 @@ import { Filter, X, Dot, MoreHorizontal } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 import Button from "@/components/ui/button";
 import { Benefit, Color, Product, Size } from "@/types";
-import ProductCard from "./card";
+import ProductCard from "@/components/filter/card";
 import FAQ from "./faq";
-import FilterColor from "./filter-color";
-import FilterProduct from "./filter-product";
+import FilterColor from "@/components/filter/filter-color";
+import FilterProduct from "@/components/filter/filter-product";
 
 interface ProductFind {
   items: Product[];

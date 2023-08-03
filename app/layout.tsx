@@ -3,7 +3,6 @@ import "./globals.css";
 import { Lora } from "next/font/google";
 import dynamic from "next/dynamic";
 
-
 import Navbar from "@/components/navbar";
 import ToastProvider from "@/providers/toast-provider";
 import getCurrentUser from "@/actions/getCurrentUser";
@@ -32,7 +31,7 @@ export default async function RootLayout({
         <ToastProvider />
         <ModalProvider currentUser={currentUser} />
         <main>{children}</main>
-        <Footer />        
+        <Footer />
       </body>
     </html>
   );
