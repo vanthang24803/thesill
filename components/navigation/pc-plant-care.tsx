@@ -3,8 +3,10 @@
 import { palntCare } from "@/components/navigation";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const PlantCare = () => {
+  const router = useRouter();
   return (
     <div className="group delay-100 transition duration-300 z-20">
       <Link href={palntCare.href} className="hover:text-[#009a7b] hover:italic">
@@ -31,7 +33,11 @@ const PlantCare = () => {
         </div>
         <div className="flex justify-between items-center">
           {palntCare.desc.map((item) => (
-            <div className="flex flex-col" key={item.image}>
+            <div
+              className="flex flex-col"
+              key={item.image}
+              onClick={() => router.push(`/product/${item.click}`)}
+            >
               <img
                 src={item.image}
                 className="w-[50%] h-[50%] object-fill mb-4"

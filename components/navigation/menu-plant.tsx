@@ -49,7 +49,7 @@ const plants = [
       },
       {
         name: "New Arrivals",
-        link: "/collections/new-arrivals",
+        link: "/collections/new-arrival",
       },
     ],
   },
@@ -59,7 +59,7 @@ const plants = [
     menu: [
       {
         name: "Summer Sale",
-        link: "/sale",
+        link: "/collections/sale",
       },
       {
         name: "Easy-Care Plants",
@@ -89,10 +89,6 @@ const plants = [
       {
         name: "Large",
         link: "/collections/large-plants",
-      },
-      {
-        name: "Bundles",
-        link: "/collections/ready-to-ship",
       },
     ],
   },

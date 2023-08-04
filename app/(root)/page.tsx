@@ -21,7 +21,7 @@ export default async function Home() {
         main="Shop All"
         href="/locations"
         subtitle="New Arrivals"
-        link="/"
+        link="/collections/new-arrival"
         data={billboard}
       />
 

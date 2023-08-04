@@ -14,7 +14,7 @@ const data = [
     title: "View Collection",
     image:
       "https://cdn.sanity.io/images/y346iw48/production/0b8007aa28a7fb37800f81f0011f9e2e2b81bed3-2820x1953.jpg?auto=format",
-    href: "/categories/planters-stands-and-plant-pots",
+    href: "/collections/planters",
   },
 
   {
@@ -53,11 +53,11 @@ const plants = [
       },
       {
         name: "Large Planters",
-        link: "collections/large-planters",
+        link: "/collections/large-planters",
       },
       {
         name: "Plant Stands",
-        link: "collections/plant-stands",
+        link: "/collections/drainage-planters",
       },
     ],
   },

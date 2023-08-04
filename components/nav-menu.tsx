@@ -160,7 +160,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ currentUser }) => {
           {/* SUBCRIPTIONS */}
           <div
             className="border-b py-2 font-medium flex items-center justify-between space-x-1 w-full"
-            onClick={() => router.push("/")}
+            onClick={() => router.push("/subscriptions")}
           >
             <span className="text-lg">Supcriptions</span>
             <MoveRight size={18} />
@@ -168,7 +168,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ currentUser }) => {
           {/* WORKSHOPS */}
           <div
             className="border-b py-2 font-medium flex items-center justify-between space-x-1 w-full"
-            onClick={() => router.push("/")}
+            onClick={() => router.push("/workshops")}
           >
             <span className="text-lg">Workshops</span>
             <MoveRight size={18} />
@@ -192,7 +192,10 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ currentUser }) => {
               My Account
             </Button>
           )}
-          <Button className="basis-1/2 md:basis-1/4 lg:basis-1/2 bg-white text-[#009A7B]" onClick={() => router.push("/locations")}>
+          <Button
+            className="basis-1/2 md:basis-1/4 lg:basis-1/2 bg-white text-[#009A7B]"
+            onClick={() => router.push("/locations")}
+          >
             Store Locator
           </Button>
         </div>

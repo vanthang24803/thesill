@@ -27,11 +27,7 @@ const FilterColor: React.FC<FilterProductProps> = ({
   const selectedValue = searchParams?.get(valueKey);
 
   const onClick = (id: string) => {
-    if (selectedValue === id) {
-      onFilter(null);
-    } else {
-      onFilter(id);
-    }
+    onFilter(id);
     const current = qs.parse(searchParams?.toString() || "");
     const query = {
       ...current,

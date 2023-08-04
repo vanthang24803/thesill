@@ -1,13 +1,13 @@
 "use client";
 import qs from "query-string";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Benefit, Size } from "@/types";
+import { Benefit, Size, Light } from "@/types";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
 
 interface FilterProductProps {
-  data: (Size | Benefit)[];
+  data: (Size | Benefit | Light)[];
   name: string;
   valueKey: string;
   onFilter: (id: string | null) => void;
@@ -30,11 +30,7 @@ const FilterProduct: React.FC<FilterProductProps> = ({
   const selectedValue = searchParams?.get(valueKey);
 
   const onClick = (id: string) => {
-    if (selectedValue === id) {
-      onFilter(null);
-    } else {
-      onFilter(id);
-    }
+    onFilter(id);
     const current = qs.parse(searchParams?.toString() || "");
     const query = {
       ...current,

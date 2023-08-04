@@ -14,20 +14,20 @@ const data = [
     title: "Potting Mix",
     image:
       "https://cdn.sanity.io/images/y346iw48/production/cd32202e24807165b4bfef1000a6eda1e619ec2c-1200x1553.webp?auto=format",
-    href: "/products/potting-mix-plants",
+    href: "/product/c8e8d7b6-699f-4e3c-90c4-cfd4c1c318d8",
   },
   {
     title: "Moisture Meter",
     image:
       "https://cdn.sanity.io/images/y346iw48/production/82c28a4a313d855df5aabf70e7fd139a36e86bcd-1200x1552.jpg?auto=format",
-    href: "/products/3-in-1-soil-moisture-meter",
+    href: "/product/0ce3dead-1988-4302-8717-2bfbc48173f4",
   },
 
   {
-    title: "Coco Coir Poles",
+    title: "Seed Pop Trio",
     image:
       "https://cdn.sanity.io/images/y346iw48/production/f8a75e5c91bc94119f16e40c169b5be2ab1acb93-1200x1553.jpg?auto=format",
-    href: "/products/coco-coir-poles",
+    href: "/product/e699db60-4916-4176-8dac-705227763056",
   },
 ];
 
@@ -48,8 +48,8 @@ const plants = [
         link: "/collections/grow-lights",
       },
       {
-        name: "Virtual Plant Appointment",
-        link: "/products/virtual-plant-appointment",
+        name: "Gardenring",
+        link: "/collections/gardening",
       },
     ],
   },

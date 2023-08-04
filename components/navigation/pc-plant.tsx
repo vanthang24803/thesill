@@ -3,8 +3,10 @@
 import { plants } from "@/components/navigation";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Plant = () => {
+  const router = useRouter();
   return (
     <div className="group delay-100 transition duration-300 z-20">
       <Link href={plants.href} className="hover:text-[#009a7b] hover:italic">
@@ -36,7 +38,10 @@ const Plant = () => {
                 src={item.image}
                 className="w-[50%] h-[50%] object-fill mb-4"
               />
-              <div className="flex items-center gap-x-8 hover:italic hover:text-[#009a7b] hover:cursor-pointer">
+              <div
+                className="flex items-center gap-x-8 hover:italic hover:text-[#009a7b] hover:cursor-pointer"
+                onClick={() => router.push(item.click)}
+              >
                 <span className="text-[15px]">{item.arrow}</span>
                 <MoveRight
                   size={16}

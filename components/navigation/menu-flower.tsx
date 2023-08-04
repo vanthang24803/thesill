@@ -14,7 +14,7 @@ const data = [
     title: "View Collection",
     image:
       "https://cdn.sanity.io/images/y346iw48/production/eb99ab0ab95f34ec83a6a4c4365cba0d5fa6fade-1446x939.jpg?auto=format",
-    href: "/categories/blooming-plants-flower-bouquets",
+    href: "/categories/flower-bouquet",
   },
   {
     title: "Orchids",
@@ -37,7 +37,7 @@ const flowers = [
     menu: [
       {
         name: "Shop All",
-        link: "/collections/fresh-flowers-botanical-bouquets",
+        link: "/categories/flower-bouquet",
       },
       {
         name: "Orchids",
@@ -57,25 +57,21 @@ const flowers = [
         link: "/collections/dried-bouquets",
       },
       {
-        name: "Anthuriums",
-        link: "/collections/anthuriums",
-      },
-      {
-        name: "Bromeliads",
-        link: "/collections/bromeliads",
+        name: "Best Saller",
+        link: "/collections/orchids",
       },
     ],
   },
 ];
 
 const FlowerMenu = () => {
-    const flowrModal = useFlowerModal();
-    const menuModal = useMenuModal();
+  const flowrModal = useFlowerModal();
+  const menuModal = useMenuModal();
 
-     const handleBack = useCallback(() => {
-       flowrModal.onClose();
-       menuModal.onOpen();
-     }, [flowrModal, menuModal]);
+  const handleBack = useCallback(() => {
+    flowrModal.onClose();
+    menuModal.onOpen();
+  }, [flowrModal, menuModal]);
   return (
     <Modal
       isOpen={flowrModal.isOpen}
@@ -132,6 +128,6 @@ const FlowerMenu = () => {
       </div>
     </Modal>
   );
-}
+};
 
-export default FlowerMenu
+export default FlowerMenu;

@@ -98,11 +98,11 @@ export const plants = {
       subtitle: [
         {
           name: "Shop All",
-          link: "/collections/plants",
+          link: "/collections/live-plants",
         },
         {
           name: "New Arrivals",
-          link: "/collections/new-array",
+          link: "/collections/new-arrival",
         },
       ],
     },
@@ -111,19 +111,19 @@ export const plants = {
       subtitle: [
         {
           name: "Summer Sale",
-          link: "/collections/sales",
+          link: "/collections/sale",
         },
         {
           name: "Easy Care",
-          link: "/collections/beginners",
+          link: "/collections/plants-for-beginners",
         },
         {
           name: "Low Light Toterant",
-          link: "/collections/low-light",
+          link: "/collections/low-light-plants",
         },
         {
-          name: "Pet Family",
-          link: "/collections/pet-family",
+          name: "Pet Friendly",
+          link: "/collections/pet-friendly-plants",
         },
       ],
     },
@@ -163,10 +163,6 @@ export const plants = {
           name: "Large",
           link: "/collections/large-plants",
         },
-        {
-          name: "Bundles",
-          link: "/collections/budles-plants",
-        },
       ],
     },
   ],
@@ -175,6 +171,7 @@ export const plants = {
       image:
         "https://cdn.sanity.io/images/y346iw48/production/b6d2b7b7878a93e649c72d16b9214407ffc047dc-1200x1200.webp?w=300&h=300&w=1536&fm=webp&fit=crop",
       arrow: "Large Plants",
+      click: "/collections/large-plants",
     },
   ],
 };
@@ -193,15 +190,15 @@ export const planter = {
         },
         {
           name: "Small & Medium",
-          link: "/collections/small-and-medium-plants",
+          link: "/collections/small-medium-planters",
         },
         {
           name: "Large Planters",
-          link: "/collections/large-plants",
+          link: "/collections/large-planters",
         },
         {
           name: "Plant Stands",
-          link: "/collections/stands-plants",
+          link: "/collections/drainage-planters",
         },
       ],
     },
@@ -211,16 +208,19 @@ export const planter = {
       image:
         "https://cdn.sanity.io/images/y346iw48/production/c500287996609be78b329872714132dab09296ab-1200x1553.webp?w=300&h=300&w=1536&fm=webp&fit=crop",
       arrow: "Small & Medium",
+      click: "/collections/small-medium-planters",
     },
     {
       image:
         "https://cdn.sanity.io/images/y346iw48/production/0cf1260d2f1c1656353b43682a4c473a55d6c3ed-3600x4659.jpg?w=300&h=300&w=1536&fm=webp&fit=crop",
       arrow: "Large Planters",
+      click: "/collections/large-planters",
     },
     {
       image:
         "https://cdn.sanity.io/images/y346iw48/production/2d724cbf491a8d8ea6f403afbebbf40db79f5fa3-1200x1553.webp?w=300&h=300&w=1536&fm=webp&fit=crop",
-      arrow: "Large Stands",
+      arrow: "Planter Stand",
+      click: "/collections/drainage-planters",
     },
   ],
 };
@@ -243,11 +243,11 @@ export const palntCare = {
         },
         {
           name: "Grow Lights",
-          link: "/collections/grow-light",
+          link: "/collections/grow-lights",
         },
         {
-          name: "Virtual Plant Appointment",
-          link: "/collections/vitrual-plant",
+          name: "Gardenring",
+          link: "/collections/gardening",
         },
       ],
     },
@@ -257,16 +257,19 @@ export const palntCare = {
       image:
         "https://cdn.sanity.io/images/y346iw48/production/cd32202e24807165b4bfef1000a6eda1e619ec2c-1200x1553.webp?w=300&h=300&w=1536&fm=webp&fit=crop",
       arrow: "Potting Mix",
+      click: "ef971181-8c31-4977-bb88-e5c7eaac3409",
     },
     {
       image:
         "https://cdn.sanity.io/images/y346iw48/production/82c28a4a313d855df5aabf70e7fd139a36e86bcd-1200x1552.jpg?w=300&h=300&w=1536&fm=webp&fit=crop",
       arrow: "Moisture Meter",
+      click: "0ce3dead-1988-4302-8717-2bfbc48173f4",
     },
     {
       image:
         "https://cdn.sanity.io/images/y346iw48/production/f8a75e5c91bc94119f16e40c169b5be2ab1acb93-1200x1553.jpg?w=300&h=300&w=1536&fm=webp&fit=crop",
       arrow: "Coco Coir Pole",
+      click: "6ac01c78-ce48-43f9-b534-5e2819f0973b",
     },
   ],
 };
@@ -284,12 +287,12 @@ export const faux = {
           link: "/collections/faux",
         },
         {
-          name: "Large Faux Trees",
-          link: "/collections/large-faux-tree",
+          name: "Faux Trees",
+          link: "/categories/faux",
         },
         {
           name: "Faux Stem Sets",
-          link: "/collections/faux-stem-set",
+          link: "/categories/faux",
         },
       ],
     },
@@ -336,15 +339,15 @@ export const home = {
       subtitle: [
         {
           name: "Faux & Preserved",
-          link: "/collections/faux-preserved",
+          link: "/collections/faux",
         },
         {
           name: "Plant Stands & Hangers",
-          link: "/collections/plant-stands-hanger",
+          link: "/collections/live-plants",
         },
         {
           name: "Shelves",
-          link: "/collections/shelves",
+          link: "/categories/gift",
         },
       ],
     },
@@ -354,11 +357,13 @@ export const home = {
       image:
         "https://cdn.sanity.io/images/y346iw48/production/c8257956aab51479bfc601717451f35d4dd74ae7-1200x1552.webp?w=300&h=300&w=1536&fm=webp&fit=crop",
       arrow: "Eucalyptus",
+      click: "/",
     },
     {
       image:
         "https://cdn.sanity.io/images/y346iw48/production/348d0a54b0dace3757c54d7640edf3f0ccd2f999-300x300.webp?w=300&h=300&w=1536&fm=webp&fit=crop",
       arrow: "Langre Plants",
+      click: "/collections/large-plants",
     },
   ],
 };
@@ -393,12 +398,8 @@ export const flower = {
           link: "/collections/dried-bouquets",
         },
         {
-          name: "Anthuriums",
-          link: "/collections/anthuriums",
-        },
-        {
-          name: "Bromeliads",
-          link: "/collections/bromeliads",
+          name: "Best Saller",
+          link: "/collections/orchids",
         },
       ],
     },
@@ -408,11 +409,13 @@ export const flower = {
       image:
         "https://cdn.sanity.io/images/y346iw48/production/6fe260294f479e43d737fc737d19472d36fc3eb1-1536x2006.webp?w=300&h=300&w=1536&fm=webp&fit=crop",
       arrow: "Orchids",
+      click: "/collections/orchids",
     },
     {
       image:
         "https://cdn.sanity.io/images/y346iw48/production/824dba74c9ed71e358dbc70e8cb94d4202e95d5f-1200x1553.webp?w=300&h=300&w=1536&fm=webp&fit=crop",
       arrow: "Bouquets",
+      click: "/collections/dried-bouquets",
     },
   ],
 };

@@ -112,12 +112,12 @@ const ProductFind: React.FC<ProductFind> = ({
       <div>
         <div className="py-6 border-b flex flex-col space-y-4">
           <span className="lg:text-6xl font-medium md:text-5xl text-3xl text-[#00ab84]">
-            New Arrival
+            New Arrivals
           </span>
           <div className="lg:flex items-center justify-between hidden">
             <span className=" text-neutral-500">
-              All our cactus plants are guaranteed to arrive happy & healthy.
-              It’s our customer happiness guarantee!
+              New plants, new gifts, new sill, new you. Fresh picks drop
+              monthly.
             </span>
             <div className="lg:flex hidden items-center space-x-4">
               <div
@@ -144,8 +144,8 @@ const ProductFind: React.FC<ProductFind> = ({
           <>
             <div className="flex lg:hidden flex-col space-y-4">
               <span className="text-sm text-neutral-500">
-                All our cactus plants are guaranteed to arrive happy & healthy.
-                It’s our customer happiness guarantee!
+                New plants, new gifts, new sill, new you. Fresh picks drop
+                monthly.
               </span>
               <div className="border-t flex justify-between items-center space-x-6">
                 {/* Filter */}

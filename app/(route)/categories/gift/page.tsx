@@ -26,7 +26,7 @@ const Gift = async () => {
     <>
       <Billboard
         main="Live Plants"
-        href="/categories/plants"
+        href="/collections/live-plants"
         subtitle="Find A Store"
         link="/locations"
         data={billboard}
