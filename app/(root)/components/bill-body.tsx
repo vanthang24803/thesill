@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
 import Button from "@/components/ui/button";
 import { MoveRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const BillBody = () => {
-    const router = useRouter();
+  const router = useRouter();
   return (
     <div className="mt-8 w-full lg:h-[90vh] md:flex mb-6">
       <div className="basis-1/2 md:block hidden lg:px-12 lg:py-36 py-8 px-4">
@@ -50,28 +50,26 @@ const BillBody = () => {
             plant.
           </span>
         </div>
-          <div className="mt-8">
-            <div className="flex items-center space-x-4">
-              <MoveRight size={20} className="text-[#009a7b]" />
-              <span className="italic">Answer three quick questions</span>
-            </div>
-            <div className="flex items-center space-x-4">
-              <MoveRight size={20} className="text-[#009a7b]" />
-              <span className="italic">
-                Get matched with your perfect plant
-              </span>
-            </div>
-
-            <Button
-              className="mt-8 w-1/2 h-[50px]"
-              onClick={() => router.push("/")}
-            >
-              Take The Quiz
-            </Button>
+        <div className="mt-8">
+          <div className="flex items-center space-x-4">
+            <MoveRight size={20} className="text-[#009a7b]" />
+            <span className="italic">Answer three quick questions</span>
           </div>
+          <div className="flex items-center space-x-4">
+            <MoveRight size={20} className="text-[#009a7b]" />
+            <span className="italic">Get matched with your perfect plant</span>
+          </div>
+
+          <Button
+            className="mt-8 w-1/2 h-[50px]"
+            onClick={() => router.push("/")}
+          >
+            Take The Quiz
+          </Button>
+        </div>
       </div>
     </div>
   );
-}
+};
 
-export default BillBody
+export default BillBody;
