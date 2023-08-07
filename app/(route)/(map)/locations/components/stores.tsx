@@ -20,7 +20,7 @@ const newyork = [
         name: "Williamsburg",
         local: "Brooklyn",
         address: "190 Berry Street, Brooklyn, NY 11249",
-        href: "/",
+        href: "/williamsburg",
       },
       {
         imgUrl:
@@ -28,7 +28,7 @@ const newyork = [
         name: "Cobble Hill",
         local: "Brooklyn",
         address: "195 Pacific Street, Brooklyn, NY 11201",
-        href: "/",
+        href: "/cobble-hill",
       },
       {
         imgUrl:
@@ -36,7 +36,7 @@ const newyork = [
         name: "Park Slope",
         local: "Brooklyn",
         address: "461 6th Avenue, Brooklyn, NY 11215",
-        href: "/",
+        href: "/park-slope",
       },
     ],
   },
@@ -52,7 +52,7 @@ const store = [
         name: "San Francisco",
         local: "Cow Hollow",
         address: "2181A Union St, San Francisco, CA 94123",
-        href: "/",
+        href: "/cow-hollow",
       },
     ],
   },
@@ -65,7 +65,7 @@ const store = [
         name: "Chicago",
         local: "Southport Corridor",
         address: "1351 W Roscoe St, Chicago, IL 60657",
-        href: "/",
+        href: "/illinois",
       },
     ],
   },
@@ -79,7 +79,7 @@ const store = [
         name: "Bethesda Row",
         local: "Bethesda Row",
         address: "4816 Bethesda Avenue, Bethesda, MD 20814 ",
-        href: "/",
+        href: "/maryland",
       },
     ],
   },
