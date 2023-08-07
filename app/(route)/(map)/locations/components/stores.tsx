@@ -12,7 +12,7 @@ const newyork = [
         name: "Upper West Side",
         local: "New York City",
         address: "448 Amsterdam Avenue New York, NY 10024",
-        href: "/",
+        href: "/upper-west-side",
       },
       {
         imgUrl:
