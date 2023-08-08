@@ -1,7 +1,7 @@
 import getCurrentUser from "@/actions/getCurrentUser";
 import { redirect } from "next/navigation";
 
-const Account = async () => {
+const Orders = async () => {
   const currentUser = await getCurrentUser();
   if (!currentUser) {
     redirect("/login");
@@ -15,4 +15,4 @@ const Account = async () => {
   );
 };
 
-export default Account;
+export default Orders;
