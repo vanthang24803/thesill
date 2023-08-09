@@ -11,30 +11,76 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Button from "@/components/ui/button";
+import { FormEvent } from "react";
+import { toast } from "react-hot-toast";
+import { SafeUser } from "@/types";
+import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
+import { signOut } from "next-auth/react";
 
-const Label = () => {
+interface LabelProps {
+  currentUser?: SafeUser | null;
+}
+
+const Label: React.FC<LabelProps> = ({ currentUser }) => {
   const router = useRouter();
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    toast.error("Developing!");
+  };
+
   return (
-    <div className="lg:w-3/4 flex flex-col space-y-5">
+    <form className="lg:w-3/4 flex flex-col space-y-5" onSubmit={handleSubmit}>
       <div className="border-t w-full py-4 flex flex-col space-y-4">
         <div className="flex items-center justify-between">
           <span className="font-medium">Contact</span>
-          <div className="flex items-center space-x-1 text-sm">
-            <p>Have an account?</p>
-            <p
-              className="text-[#009a7b] hover:cursor-pointer"
-              onClick={() => router.push("/login")}
-            >
-              Login
-            </p>
-          </div>
+          {currentUser ? (
+            <></>
+          ) : (
+            <div className="flex items-center space-x-1 text-sm">
+              <p>Have an account?</p>
+              <p
+                className="text-[#009a7b] hover:cursor-pointer"
+                onClick={() => router.push("/login")}
+              >
+                Login
+              </p>
+            </div>
+          )}
         </div>
-        <Input
-          placeholder="Email"
-          className="rounded-md h-12"
-          required
-          id="1"
-        />
+        {currentUser ? (
+          <div className="flex flex-row space-x-2 items-center hover:cursor-pointer">
+            <Avatar>
+              {currentUser.image != null ? (
+                <AvatarImage
+                  src={currentUser.image}
+                  className="w-14 h-14 rounded-full"
+                  onClick={() => router.push("/account")}
+                />
+              ) : (
+                <AvatarImage
+                  src="https://static.vecteezy.com/system/resources/thumbnails/001/181/782/small/cute-shiba-inu-dog-paws-up-over-wall.jpg"
+                  onClick={() => router.push("/account")}
+                  className="w-14 h-14 rounded-full"
+                />
+              )}
+            </Avatar>
+            <div className="flex flex-col">
+              <span>{currentUser.email}</span>
+              <p className="text-[#009a7b] text-sm" onClick={() => signOut()}>
+                Sign out
+              </p>
+            </div>
+          </div>
+        ) : (
+          <Input
+            placeholder="Email"
+            type="email"
+            className="rounded-md h-12"
+            required
+            id="1"
+          />
+        )}
         <div className="flex items-center space-x-2">
           <Checkbox className="w-5 h-5" />
           <p className="text-sm">
@@ -62,12 +108,14 @@ const Label = () => {
             placeholder="First name"
             className="h-12 rounded-md"
             id="2"
+            value={currentUser?.firstname || ""}
             required
           />
           <Input
             placeholder="Last name"
             className="h-12 rounded-md"
             required
+            value={currentUser?.lastname || ""}
             id="3"
           />
         </div>
@@ -153,7 +201,7 @@ const Label = () => {
       >
         Continue to Shipping
       </Button>
-    </div>
+    </form>
   );
 };
 

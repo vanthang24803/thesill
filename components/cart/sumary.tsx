@@ -2,11 +2,12 @@ import useCart from "@/hooks/use-cart";
 import { toast } from "react-hot-toast";
 import Button from "@/components/ui/button";
 import { useEffect } from "react";
-import router, { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
 const Sumary = () => {
   const router = useRouter();
+  const cart = useCart();
   const searchParams: any = useSearchParams();
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
@@ -37,6 +38,7 @@ const Sumary = () => {
 
   const onCheckOut = (e: React.MouseEvent<HTMLButtonElement>) => {
     router.push("/checkouts");
+    cart.onClose();
   };
 
   return (

@@ -1,3 +1,4 @@
+"use client"
 
 import useCart from "@/hooks/use-cart";
 import Card from "./card";

@@ -1,5 +1,4 @@
 
-import useCart from "@/hooks/use-cart";
 import { Product } from "@/types";
 import React from "react";
 
@@ -9,7 +8,6 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ item, quantity }) => {
-  const cart = useCart();
   const price = Number(item.price) * quantity;
   const priceSale = (
     (Number(item.price) - (Number(item.price) * Number(item.sale)) / 100) *
@@ -24,7 +22,10 @@ const Card: React.FC<CardProps> = ({ item, quantity }) => {
         className="w-20 h-28 object-cover"
       />
       <div className="flex flex-col space-y-3">
-        <p className="font-semibold md:text-xl">{item.name}</p>
+        <div className="flex items-center space-x-2">
+          <p className="font-semibold md:text-xl">{item.name}</p>
+          <p className="font-medium">x {quantity}</p>
+        </div>
         <p className="text-neutral-500 italic md:text-sm text-[12px]">
           {item.size.name} / {item.benefit.name} / {item.color.name}
         </p>

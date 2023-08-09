@@ -1,8 +1,13 @@
 "use client";
 
+import { SafeUser } from "@/types";
 import Label from "./label";
 
-const Express = () => {
+interface ExpressProps {
+  currentUser?: SafeUser | null;
+}
+
+const Express: React.FC<ExpressProps> = ({ currentUser }) => {
   return (
     <div className="lg:w-1/2 flex items-center flex-col space-x-4 lg:py-8 py-4">
       <span className="absolute z-10 font-semibold bg-white">
@@ -18,9 +23,9 @@ const Express = () => {
         </div>
         <div className="w-full h-11 bg-black rounded-md flex items-center justify-center">
           <img
-            src="https://assets.stickpng.com/images/60e7f964711cf700048b6a6a.png"
+            src="/images/store/google.png"
             alt="logo"
-            className="object-fill w-1/3 md:w-1/6 lg:w-1/3"
+            className="object-fill w-1/3 md:w-1/6 lg:w-1/4"
           />
         </div>
         <div className="w-full h-11 bg-yellow-400 rounded-md flex items-center justify-center">
@@ -31,7 +36,7 @@ const Express = () => {
           />
         </div>
       </div>
-      <Label />
+      <Label currentUser={currentUser} />
     </div>
   );
 };
