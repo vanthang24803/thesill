@@ -20,3 +20,22 @@ export async function POST(request: Request) {
 
   return NextResponse.json(user);
 }
+
+export async function UPDATE(request: Request) {
+  const body = await request.json();
+  const { id, image, firstname, lastname, email, numberPhone, address } = body;
+
+  const user = await prisma.user.update({
+    where: { id },
+    data: {
+      image,
+      firstname,
+      lastname,
+      email,
+      numberPhone,
+      address,
+    },
+  });
+
+  return NextResponse.json(user);
+}

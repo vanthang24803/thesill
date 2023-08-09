@@ -10,7 +10,6 @@ import Modal from "@/components/ui/modal-sm";
 import Button from "@/components/ui/button";
 import { SafeUser } from "@/types";
 
-
 const label = [
   {
     title: "Rewards Program",
@@ -38,15 +37,24 @@ interface LogginProps {
   currentUser?: SafeUser | null;
 }
 
-const Loggin : React.FC<LogginProps> = ({currentUser}) => {
+const Loggin: React.FC<LogginProps> = ({ currentUser }) => {
   const router = useRouter();
   const logginModal = useLogginModal();
   return (
     <Modal isOpen={logginModal.isOpen} onClose={logginModal.onClose}>
       <div className="flex flex-col">
-        <span className="text-2xl font-medium py-4">
-          Welcome Back, {currentUser?.lastname}
-        </span>
+        <div className="flex items-center">
+          <span className="text-2xl font-medium py-4">
+            Welcome Back, {currentUser?.lastname}
+          </span>
+          {currentUser?.role == "admin" && (
+            <img
+              src="https://fullstack.edu.vn/static/media/crown.8edf462029b3c37a7f673303d8d3bedc.svg"
+              alt="crown"
+              className="object-fill w-4 h-4 mb-4"
+            />
+          )}
+        </div>
         <span className="text-sm font-medium">
           The Sill customer since 2023
         </span>

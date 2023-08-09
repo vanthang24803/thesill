@@ -1,5 +1,7 @@
 import getCurrentUser from "@/actions/getCurrentUser";
+import Body from "@/components/ui/body";
 import { redirect } from "next/navigation";
+import Details from "./components/detailts";
 
 const Account = async () => {
   const currentUser = await getCurrentUser();
@@ -7,10 +9,8 @@ const Account = async () => {
     redirect("/login");
   }
   return (
-    <div className="text-3xl font-medium flex space-x-4">
-      <p>
-        {currentUser.firstname} {currentUser.lastname}
-      </p>
+    <div className="bg-[#e8f8fa]">
+      <Details currentUser={currentUser} />
     </div>
   );
 };

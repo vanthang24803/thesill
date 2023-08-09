@@ -22,10 +22,6 @@ interface LabelProps {
   currentUser?: SafeUser | null;
 }
 
-type FormData = {
-  firstname: string;
-  lastname: string;
-};
 
 const Label: React.FC<LabelProps> = ({ currentUser }) => {
   const router = useRouter();
