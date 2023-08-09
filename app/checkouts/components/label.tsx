@@ -16,21 +16,45 @@ import { toast } from "react-hot-toast";
 import { SafeUser } from "@/types";
 import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
 import { signOut } from "next-auth/react";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 interface LabelProps {
   currentUser?: SafeUser | null;
 }
 
+type FormData = {
+  firstname: string;
+  lastname: string;
+};
+
 const Label: React.FC<LabelProps> = ({ currentUser }) => {
   const router = useRouter();
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    toast.error("Developing!");
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      firstname: currentUser?.firstname || "",
+      mail: currentUser?.email || "",
+      lastname: currentUser?.lastname || "",
+    },
+  });
+
+  const handleInputChange =
+    (field: "firstname" | "lastname") => (e: React.ChangeEvent<HTMLInputElement>) => {
+      setValue(field, e.target.value);
+    };
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    console.log(data);
+    toast.success("Developing !");
   };
 
   return (
-    <form className="lg:w-3/4 flex flex-col space-y-5" onSubmit={handleSubmit}>
+    <form className="lg:w-3/4 flex flex-col space-y-5">
       <div className="border-t w-full py-4 flex flex-col space-y-4">
         <div className="flex items-center justify-between">
           <span className="font-medium">Contact</span>
@@ -51,19 +75,11 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
         {currentUser ? (
           <div className="flex flex-row space-x-2 items-center hover:cursor-pointer">
             <Avatar>
-              {currentUser.image != null ? (
-                <AvatarImage
-                  src={currentUser.image}
-                  className="w-14 h-14 rounded-full"
-                  onClick={() => router.push("/account")}
-                />
-              ) : (
-                <AvatarImage
-                  src="https://static.vecteezy.com/system/resources/thumbnails/001/181/782/small/cute-shiba-inu-dog-paws-up-over-wall.jpg"
-                  onClick={() => router.push("/account")}
-                  className="w-14 h-14 rounded-full"
-                />
-              )}
+              <AvatarImage
+                src={currentUser?.image || "/images/user/avt.png"}
+                onClick={() => router.push("/account")}
+                className="w-12 h-12 rounded-full object-cover"
+              />
             </Avatar>
             <div className="flex flex-col">
               <span>{currentUser.email}</span>
@@ -77,6 +93,7 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
             placeholder="Email"
             type="email"
             className="rounded-md h-12"
+            {...register("mail")}
             required
             id="1"
           />
@@ -108,14 +125,16 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
             placeholder="First name"
             className="h-12 rounded-md"
             id="2"
-            value={currentUser?.firstname || ""}
             required
+            {...register("firstname")}
+            onChange={handleInputChange("firstname")}
           />
           <Input
             placeholder="Last name"
             className="h-12 rounded-md"
             required
-            value={currentUser?.lastname || ""}
+            {...register("lastname")}
+            onChange={handleInputChange("lastname")}
             id="3"
           />
         </div>
@@ -196,7 +215,7 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
 
       <Button
         className="md:w-1/2 w-full rounded-md"
-        onClick={() => {}}
+        onClick={handleSubmit(onSubmit)}
         type="submit"
       >
         Continue to Shipping
