@@ -1,12 +1,11 @@
 "use client";
 
-import { AvatarImage } from "@/components/ui/avatar";
 import Button from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ImageUpload from "@/components/ui/upload";
 import { SafeUser } from "@/types";
-import { Avatar } from "@radix-ui/react-avatar";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -16,6 +15,7 @@ interface Props {
 }
 
 const Edit: React.FC<Props> = ({ currentUser }) => {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const {
@@ -36,6 +36,7 @@ const Edit: React.FC<Props> = ({ currentUser }) => {
   });
 
   const image = watch("image");
+  const { firstname, lastname, email, address, numberPhone } = watch();
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
       shouldDirty: true,
@@ -50,8 +51,27 @@ const Edit: React.FC<Props> = ({ currentUser }) => {
       setValue(field, e.target.value);
     };
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    setLoading(true);
+    const id = currentUser?.id;
+    axios
+      .patch("/api/update", {
+        id: id,
+        data,
+      })
+      .then(() => {
+        toast.success("Updated!");
+        router.refresh();
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Something went wrong !");
+      })
+      .finally(() => {
+        setLoading(false);
+        router.refresh();
+
+      });
   };
 
   return (
@@ -71,25 +91,27 @@ const Edit: React.FC<Props> = ({ currentUser }) => {
         </div>
 
         <div className="flex flex-col space-y-3">
-          <div className="flex flex-col space-y-2">
-            <span className="font-semibold">First name</span>
-            <Input
-              placeholder="First name..."
-              className="rounded-lg"
-              required
-              {...register("firstname")}
-              onChange={handleInputChange("firstname")}
-            />
-          </div>
-          <div className="flex flex-col space-y-2">
-            <span className="font-semibold">Last name</span>
-            <Input
-              placeholder="Last name..."
-              className="rounded-lg"
-              required
-              {...register("lastname")}
-              onChange={handleInputChange("lastname")}
-            />
+          <div className="flex md:items-center md:flex-row flex-col md:justify-between md:space-x-3">
+            <div className="flex flex-col space-y-2">
+              <span className="font-semibold">First name</span>
+              <Input
+                placeholder="First name..."
+                className="rounded-lg"
+                required
+                {...register("firstname")}
+                onChange={handleInputChange("firstname")}
+              />
+            </div>
+            <div className="flex flex-col space-y-2">
+              <span className="font-semibold">Last name</span>
+              <Input
+                placeholder="Last name..."
+                className="rounded-lg"
+                required
+                {...register("lastname")}
+                onChange={handleInputChange("lastname")}
+              />
+            </div>
           </div>
           <div className="flex flex-col space-y-2">
             <span className="font-semibold">Email</span>

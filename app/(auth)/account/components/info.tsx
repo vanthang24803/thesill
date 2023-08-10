@@ -1,5 +1,3 @@
-"use client"
-
 import { SafeUser } from "@/types";
 import { CheckCircle2, Contact2, MapPin } from "lucide-react";
 
