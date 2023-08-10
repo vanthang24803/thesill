@@ -36,11 +36,13 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
       firstname: currentUser?.firstname || "",
       mail: currentUser?.email || "",
       lastname: currentUser?.lastname || "",
+      address : currentUser?.address || "",
+      numberPhone : currentUser?.numberPhone || "",
     },
   });
 
   const handleInputChange =
-    (field: "firstname" | "lastname") => (e: React.ChangeEvent<HTMLInputElement>) => {
+    (field: "firstname" | "lastname" | "address" | "numberPhone") => (e: React.ChangeEvent<HTMLInputElement>) => {
       setValue(field, e.target.value);
     };
 
@@ -144,6 +146,8 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
           placeholder="Address"
           className="h-12 rounded-md"
           required
+          {...register("address")}
+          onChange={handleInputChange("address")}
           id="5"
         />
         <Input
@@ -195,6 +199,8 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
 
         <Input
           id="9"
+          {...register("numberPhone")}
+          onChange={handleInputChange("numberPhone")}
           placeholder="Phone"
           className="h-12 rounded-md"
           type="number"

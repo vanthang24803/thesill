@@ -10,7 +10,7 @@ import Modal from "@/components/ui/modal-sm";
 import Button from "@/components/ui/button";
 import { SafeUser } from "@/types";
 
-const label = [
+const labelMember = [
   {
     title: "Rewards Program",
     desc: "Earn & redeem rewards",
@@ -28,8 +28,36 @@ const label = [
   },
   {
     title: "Account Settings",
-    desc: "Update email address or reset password",
+    desc: "Update my profile",
     href: "/account",
+  },
+];
+
+const labelAdmin = [
+  {
+    title: "Rewards Program",
+    desc: "Earn & redeem rewards",
+    href: "/",
+  },
+  {
+    title: "Online Courses",
+    desc: "Free, self-guided plant care lessons",
+    href: "/",
+  },
+  {
+    title: "Purchase History",
+    desc: "View order history & track shipments",
+    href: "/",
+  },
+  {
+    title: "Account Settings",
+    desc: "Update my profile",
+    href: "/account",
+  },
+  {
+    title: "API Settings",
+    desc: "Dashboard & API Control",
+    href: "/settings",
   },
 ];
 
@@ -59,31 +87,59 @@ const Loggin: React.FC<LogginProps> = ({ currentUser }) => {
           The Sill customer since 2023
         </span>
 
-        <div
-          className="flex flex-col mt-12 space-y-4"
-          onClick={logginModal.onClose}
-        >
-          {label.map((item) => (
-            <div
-              className="flex justify-between items-center  hover:cursor-pointer"
-              key={item.href}
-            >
-              <Link href={item.href}>
-                <span className="font-medium text-[17px]">{item.title}</span>
-                <br />
-                <span className="md:text-[14px] text-[12px] italic font-light">
-                  {item.desc}
-                </span>
-              </Link>
+        {currentUser?.role == "admin" ? (
+          <div
+            className="flex flex-col mt-12 space-y-4"
+            onClick={logginModal.onClose}
+          >
+            {labelAdmin.map((item) => (
+              <div
+                className="flex justify-between items-center  hover:cursor-pointer"
+                key={item.href}
+              >
+                <Link href={item.href}>
+                  <span className="font-medium text-[17px]">{item.title}</span>
+                  <br />
+                  <span className="md:text-[14px] text-[12px] italic font-light">
+                    {item.desc}
+                  </span>
+                </Link>
 
-              <MoveRight
-                onClick={() => router.push(item.href)}
-                size={20}
-                className="hover:translate-x-2 transition-all ease-in-out"
-              />
-            </div>
-          ))}
-        </div>
+                <MoveRight
+                  onClick={() => router.push(item.href)}
+                  size={20}
+                  className="hover:translate-x-2 transition-all ease-in-out"
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div
+            className="flex flex-col mt-12 space-y-4"
+            onClick={logginModal.onClose}
+          >
+            {labelMember.map((item) => (
+              <div
+                className="flex justify-between items-center  hover:cursor-pointer"
+                key={item.href}
+              >
+                <Link href={item.href}>
+                  <span className="font-medium text-[17px]">{item.title}</span>
+                  <br />
+                  <span className="md:text-[14px] text-[12px] italic font-light">
+                    {item.desc}
+                  </span>
+                </Link>
+
+                <MoveRight
+                  onClick={() => router.push(item.href)}
+                  size={20}
+                  className="hover:translate-x-2 transition-all ease-in-out"
+                />
+              </div>
+            ))}
+          </div>
+        )}
 
         <div onClick={logginModal.onClose}>
           <Button
