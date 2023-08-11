@@ -180,10 +180,10 @@ const Description: React.FC<DescriptionProp> = ({ product }) => {
               </p>
               <p>
                 You can also let your gift recipient know something is on the
-                way from yours truly by filling out{" "}
+                way from yours truly by filling out 
                 <a href="/" className="text-[#009a7b]">
                   this form
-                </a>{" "}
+                </a> 
                 – also linked in your order confirmation email. (Don’t worry, we
                 won’t spoil what the surprise is or send them any marketing
                 emails.)
@@ -211,7 +211,7 @@ const Description: React.FC<DescriptionProp> = ({ product }) => {
               </p>
               <p>
                 Simply reach out to us with a photo within 30 days of receiving
-                your order.{" "}
+                your order.  
                 <a href="/" className="text-[#009a7b]">
                   Learn More.
                 </a>
@@ -241,7 +241,7 @@ const Description: React.FC<DescriptionProp> = ({ product }) => {
             packages ship <b>FREE</b> via UPS® carbon neutral shipping. This
             means we (not you) pay a contractual rate per package that ensures
             we offset our shipping footprint and reduce our annual emissions as
-            a company. View our full{" "}
+            a company. View our full 
             <a href="/" className="text-[#009a7b]">
               shipping policy.
             </a>

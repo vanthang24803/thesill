@@ -22,18 +22,23 @@ const FAQ = () => {
         className="md:text-lg text-xl hover:cursor-pointer flex items-center justify-between"
         onClick={() => setOpenWhy(!openWhy)}
       >
-        <span className={`text-base ${openWhy && "text-[#009a7b] italic"}`}>
+        <span className={`text-base ${openWhy && "text-[#009a7b] italic"} `}>
           Why faux plants
         </span>
-        {openWhy ? <Minus className="text-[#009a7b]" size={26} /> : <Plus size={26} />}
+        {openWhy ? (
+          <Minus className="text-[#009a7b]" size={26} />
+        ) : (
+          <Plus size={26} />
+        )}
       </div>
       {openWhy ? (
         <div className="border-b pb-4">
           <p>
             We have customers who simply have restrictions—be it low light, busy
             schedules, small children, or curious pets. Faux plants give them
-            the ability to bring greenery and joy into their space, minus className="text-[#009a7b]" the
-            headache. We believe that plants, in all forms, make people happy.
+            the ability to bring greenery and joy into their space, minus
+            className="text-[#009a7b]" the headache. We believe that plants, in
+            all forms, make people happy.
           </p>
         </div>
       ) : (
@@ -47,7 +52,11 @@ const FAQ = () => {
         <span className={`text-base ${openWhere && "text-[#009a7b] italic"}`}>
           Where can I put a faux plant?
         </span>
-        {openWhere ? <Minus className="text-[#009a7b]" size={26} /> : <Plus size={26} />}
+        {openWhere ? (
+          <Minus className="text-[#009a7b]" size={26} />
+        ) : (
+          <Plus size={26} />
+        )}
       </div>
       {openWhere ? (
         <div className="border-b pb-4">
@@ -68,7 +77,11 @@ const FAQ = () => {
         <span className={`text-base ${openHow && "text-[#009a7b] italic"}`}>
           How do you clean a faux plant?
         </span>
-        {openHow ? <Minus className="text-[#009a7b]" size={26} /> : <Plus size={26} />}
+        {openHow ? (
+          <Minus className="text-[#009a7b]" size={26} />
+        ) : (
+          <Plus size={26} />
+        )}
       </div>
       {openHow ? (
         <div className="border-b pb-4">
@@ -89,7 +102,11 @@ const FAQ = () => {
         <span className={`text-base ${openWhat && "text-[#009a7b] italic"}`}>
           What are they made of?
         </span>
-        {openWhat ? <Minus className="text-[#009a7b]" size={26} /> : <Plus size={26} />}
+        {openWhat ? (
+          <Minus className="text-[#009a7b]" size={26} />
+        ) : (
+          <Plus size={26} />
+        )}
       </div>
       {openWhat ? (
         <div className="border-b pb-4">
@@ -110,7 +127,11 @@ const FAQ = () => {
         <span className={`text-base ${openWhy2 && "text-[#009a7b] italic"}`}>
           Why do you also offer faux plants?
         </span>
-        {openWhy2 ? <Minus className="text-[#009a7b]" size={26} /> : <Plus size={26} />}
+        {openWhy2 ? (
+          <Minus className="text-[#009a7b]" size={26} />
+        ) : (
+          <Plus size={26} />
+        )}
       </div>
       {openWhy2 ? (
         <div className="border-b pb-4">
@@ -132,7 +153,11 @@ const FAQ = () => {
         <span className={`text-base ${openHow2 && "text-[#009a7b] italic"}`}>
           How do I dispose of a faux plant?
         </span>
-        {openHow2 ? <Minus className="text-[#009a7b]" size={26} /> : <Plus size={26} />}
+        {openHow2 ? (
+          <Minus className="text-[#009a7b]" size={26} />
+        ) : (
+          <Plus size={26} />
+        )}
       </div>
       {openHow2 ? (
         <div className="border-b pb-4">
@@ -156,7 +181,11 @@ const FAQ = () => {
         <span className={`text-base ${open && "text-[#009a7b] italic"}`}>
           But plastic?
         </span>
-        {open ? <Minus className="text-[#009a7b]" size={26} /> : <Plus size={26} />}
+        {open ? (
+          <Minus className="text-[#009a7b]" size={26} />
+        ) : (
+          <Plus size={26} />
+        )}
       </div>
       {open ? (
         <div className="border-b pb-4 flex flex-col space-y-4">
