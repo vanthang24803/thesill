@@ -1,7 +1,7 @@
-
 import Button from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import useCart from "@/hooks/use-cart";
+
 
 const Sumary = () => {
   const items = useCart((state) => state.items);

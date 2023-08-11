@@ -5,12 +5,8 @@ import BodyFooter from "@/components/body-footer";
 import Billboard from "@/components/ui/billboard";
 import Body from "@/components/ui/body";
 import Help from "./components/help";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: `Gift The Sill`,
-  description: "Buy a flower every day to make life more beautiful. 😊",
-};
+
 
 const Gift = async () => {
   const billboard = await getBillboard("aa408fcd-bb29-4d07-aa6a-43f4a86db70c");

@@ -25,6 +25,7 @@ model User {
   updatedAt      DateTime  @updatedAt
 
   accounts Account[]
+  orders   Order[]
 }
 
 model Account {
@@ -44,4 +45,38 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+}
+
+model Order {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String      @db.ObjectId
+  firstname   String?
+  lastname    String?
+  email       String?
+  address     String?
+  numberPhone String?
+  company     String?
+  city        String?
+  zip         Int
+  total       Float
+  status      String      @default("ordered")
+  createdAt   DateTime    @default(now())
+  updateAt    DateTime
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items       OrderItem[]
+}
+
+model OrderItem {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  orderId   String  @db.ObjectId
+  productId String
+  name      String
+  image     String?
+  sale      Int
+  price     String
+  size      String?
+  color     String?
+  quantity  Int
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
 }

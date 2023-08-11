@@ -5,12 +5,7 @@ import Billboard from "@/components/ui/billboard";
 import Body from "@/components/ui/body";
 import Collection from "./components/collection";
 import BodyFooter from "@/components/body-footer";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: `Plants The Sill`,
-  description: "Buy a flower every day to make life more beautiful. 😊",
-};
 
 const Plants = async () => {
   const products = await getProducts({ isFeatured: true });

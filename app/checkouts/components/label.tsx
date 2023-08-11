@@ -11,21 +11,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Button from "@/components/ui/button";
-import { FormEvent } from "react";
 import { toast } from "react-hot-toast";
 import { SafeUser } from "@/types";
 import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
 import { signOut } from "next-auth/react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import useCart from "@/hooks/use-cart";
 
 interface LabelProps {
   currentUser?: SafeUser | null;
 }
 
-
 const Label: React.FC<LabelProps> = ({ currentUser }) => {
   const router = useRouter();
-
+  const items = useCart((state) => state.items);
   const {
     register,
     setValue,
@@ -34,15 +33,19 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
   } = useForm({
     defaultValues: {
       firstname: currentUser?.firstname || "",
-      mail: currentUser?.email || "",
+      email: currentUser?.email || "",
       lastname: currentUser?.lastname || "",
-      address : currentUser?.address || "",
-      numberPhone : currentUser?.numberPhone || "",
+      address: currentUser?.address || "",
+      numberPhone: currentUser?.numberPhone || "",
+      company: "",
+      city: "",
+      zip: "",
     },
   });
 
   const handleInputChange =
-    (field: "firstname" | "lastname" | "address" | "numberPhone") => (e: React.ChangeEvent<HTMLInputElement>) => {
+    (field: "firstname" | "lastname" | "address" | "numberPhone") =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
       setValue(field, e.target.value);
     };
 
@@ -91,7 +94,7 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
             placeholder="Email"
             type="email"
             className="rounded-md h-12"
-            {...register("mail")}
+            {...register("email")}
             required
             id="1"
           />
@@ -140,6 +143,7 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
         <Input
           placeholder="Company (optional)"
           className="h-12 rounded-md"
+          {...register("company")}
           id="4"
         />
         <Input
@@ -160,6 +164,7 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
           <Input
             placeholder="City"
             className="h-12 rounded-md"
+            {...register("city")}
             required
             id="7"
           />
@@ -193,6 +198,7 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
             placeholder="Zip Code"
             className="h-12 rounded-md"
             type="number"
+            {...register("zip")}
             required
           />
         </div>

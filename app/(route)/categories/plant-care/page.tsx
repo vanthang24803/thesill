@@ -5,12 +5,7 @@ import BodyFooter from "@/components/body-footer";
 import ProductList from "@/components/product-list-category";
 import Billboard from "@/components/ui/billboard";
 import Body from "@/components/ui/body";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: `Plant Care The Sill`,
-  description: "Buy a flower every day to make life more beautiful. 😊",
-};
 
 const PlantCare = async () => {
   const billboard = await getBillboard("d5d8adfa-f3f5-4483-ad22-50e062101f5e");

@@ -5,12 +5,8 @@ import getProducts from "@/actions/get-products";
 import Billboard from "./components/billboard-faux";
 import Body from "@/components/ui/body";
 import Infomation from "./components/infomation";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: `Faux The Sill`,
-  description: "Buy a flower every day to make life more beautiful. 😊",
-};
+
 
 const Faux = async () => {
   const products = await getProducts({ isFeatured: true });

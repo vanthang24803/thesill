@@ -11,9 +11,9 @@ export async function PATCH(request: Request) {
   // Update the user in the database using Prisma
   const updatedUser = await prisma.user.update({
     where: {
-      id: id, // The id of the user to update
+      id: id,
     },
-    data: data, // The new data of the user
+    data: data,
   });
 
   return NextResponse.json(updatedUser);

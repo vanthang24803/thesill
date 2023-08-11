@@ -3,13 +3,8 @@ import getProducts from "@/actions/get-products";
 import BodyFooter from "@/components/body-footer";
 import Billboard from "@/components/ui/billboard";
 import Body from "@/components/ui/body";
-import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
-export const metadata: Metadata = {
-  title: `Planters The Sill`,
-  description: "Buy a flower every day to make life more beautiful. 😊",
-};
 
 
 const Planters = async () => {
