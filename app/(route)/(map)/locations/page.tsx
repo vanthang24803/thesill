@@ -4,16 +4,12 @@ import SwipperLg from "@/app/(root)/components/swipper-lg";
 import SwipperMd from "@/app/(root)/components/swipper-md";
 import SwipperSm from "@/app/(root)/components/swipper-sm";
 import Body from "@/components/ui/body";
-import { Metadata } from "next";
 import Card from "../../(pages)/workshops/components/card";
 import Button from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import Store from "./components/stores";
 
-export const metadata: Metadata = {
-  title: `Locations The Sill`,
-  description: "Buy a flower every day to make life more beautiful. 😊",
-};
+
 
 const Locations = () => {
   const router = useRouter();
