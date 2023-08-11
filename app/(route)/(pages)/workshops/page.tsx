@@ -4,7 +4,7 @@ import getBillboard from "@/actions/get-billboard";
 import Billboard from "@/components/ui/billboard";
 import Body from "@/components/ui/body";
 
-export const data = [
+const data = [
   {
     imgUrl:
       "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F541239079%2F218194620125%2F1%2Foriginal.20230622-182750?h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C47%2C1024%2C512&s=6b86e9e314e80bce738950868752f8bb",
