@@ -92,7 +92,12 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
           <>
             <div className="cursor-pointer" onClick={loginModal.onOpen}>
               <div className="block lg:hidden lg:gap-x-4 ">
-                <User2Icon size={24} />
+                <Image
+                  alt="login"
+                  src="/images/navbar/User.svg"
+                  width={20}
+                  height={20}
+                />
               </div>
               <div className="hidden lg:block text-[13px] gap-x-6">
                 <span className="font-semibold">Hello, Sign In</span>
