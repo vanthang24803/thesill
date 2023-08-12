@@ -120,13 +120,13 @@ const copyright = [
 ];
 
 const social = [
-  { imgUrl: "/images/social/facebook.svg", url: "/" },
-  { imgUrl: "/images/social/twitter.svg", url: "/" },
-  { imgUrl: "/images/social/instagram.svg", url: "/" },
-  { imgUrl: "/images/social/pinterest.svg", url: "/" },
-  { imgUrl: "/images/social/youtube.svg", url: "/" },
-  { imgUrl: "/images/social/tiktok.svg", url: "/" },
-  { imgUrl: "/images/social/linked.svg", url: "/" },
+  { imgUrl: "/images/social/Facebook.svg", url: "/" },
+  { imgUrl: "/images/social/Twitter.svg", url: "/" },
+  { imgUrl: "/images/social/Instagram.svg", url: "/" },
+  { imgUrl: "/images/social/Pinterest.svg", url: "/" },
+  { imgUrl: "/images/social/Youtube.svg", url: "/" },
+  { imgUrl: "/images/social/Tiktok.svg", url: "/" },
+  { imgUrl: "/images/social/Linked.svg", url: "/" },
 ];
 
 const Footer = () => {
