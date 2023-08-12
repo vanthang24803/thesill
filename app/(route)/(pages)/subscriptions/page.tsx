@@ -19,9 +19,9 @@ const Subscriptions = async () => {
     <>
       <Billboard
         main="Subcribe"
-        href="/"
-        subtitle="Gilf"
-        link="/"
+        href="/product/da683815-bbb6-4c58-967e-8d1143502d63"
+        subtitle="Gift"
+        link="/categories/gift"
         data={billboard}
       />
       <Body>
