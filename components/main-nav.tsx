@@ -9,18 +9,18 @@ import useLogginModal from "@/hooks/use-loggin";
 import useLoginModal from "@/hooks/use-login";
 import useSearchModal from "@/hooks/use-search";
 import useCart from "@/hooks/use-cart";
+import { SearchIcon , ShoppingCartIcon,  User2Icon } from "lucide-react";
 
 interface MainNavProps {
-   currentUser?: SafeUser | null;
+  currentUser?: SafeUser | null;
 }
 
 const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
-
   const logginModal = useLogginModal();
   const loginModal = useLoginModal();
   const searchModal = useSearchModal();
   const cartModal = useCart();
-  
+
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -50,15 +50,10 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
 
       {/* SEARCH */}
       <div
-        className="flex flex-row gap-2 hover:cursor-pointer"
+        className="flex flex-row items-center gap-2 hover:cursor-pointer"
         onClick={searchModal.onOpen}
       >
-        <Image
-          height={24}
-          width={24}
-          src="/images/navbar/search.svg"
-          alt="map"
-        />
+        <SearchIcon size={24} />
         <div className="lg:block hidden text-[13px]">
           <span className="font-semibold">Find Product</span>
           <br />
@@ -80,7 +75,9 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
                 />
               </div>
               <div className="hidden lg:block text-[13px] gap-x-4">
-                <span className="font-semibold">Hello, {currentUser?.lastname}</span>
+                <span className="font-semibold">
+                  Hello, {currentUser?.lastname}
+                </span>
                 <br />
                 <span className="italic text-neutral-500">My Account</span>
               </div>
@@ -90,12 +87,7 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
           <>
             <div className="cursor-pointer" onClick={loginModal.onOpen}>
               <div className="block lg:hidden lg:gap-x-4 ">
-                <Image
-                  alt="login"
-                  src="/images/navbar/user.svg"
-                  width={24}
-                  height={24}
-                />
+               <User2Icon size={24} />
               </div>
               <div className="hidden lg:block text-[13px] gap-x-6">
                 <span className="font-semibold">Hello, Sign In</span>
@@ -112,12 +104,7 @@ const MainNav: React.FC<MainNavProps> = ({ currentUser }) => {
         className="flex flex-row gap-2 hover:cursor-pointer"
         onClick={cartModal.onOpen}
       >
-        <Image
-          height={24}
-          width={24}
-          src="/images/navbar/cart.svg"
-          alt="cart"
-        />
+       <ShoppingCartIcon size={24} />
         <div className="text-[14px]">
           <span className="text-center"> ({cartModal.items.length})</span>
         </div>

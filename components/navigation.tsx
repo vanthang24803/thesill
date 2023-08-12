@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import { Menu, MoreHorizontal } from "lucide-react";
 
 import useResourcesModal from "@/hooks/use-resources";
 import useMenuModal from "@/hooks/use-menu-mobile";
@@ -546,20 +546,8 @@ const Navigation = () => {
             className="flex basis-1/2 items-center justify-center space-x-2 border-l-[1px] border-neutral-500 font-semibold"
             onClick={resourcesModal.onOpen}
           >
-            <Image
-              className="space-x-2 hidden md:block"
-              width={24}
-              height={24}
-              alt="Menu"
-              src="/images/category/tree.svg"
-            />
-            <Image
-              className="space-x-2 block md:hidden"
-              width={18}
-              height={18}
-              alt="Menu"
-              src="/images/category/tree.svg"
-            />
+            <MoreHorizontal size={24} className="space-x-3 hidden md:block" />
+            <MoreHorizontal size={18} className="space-x-3 block md:hidden" />
             <span>Resources</span>
           </div>
         </>

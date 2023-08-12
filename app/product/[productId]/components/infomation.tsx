@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { MouseEventHandler, useState } from "react";
 import { Product } from "@/types";
-import { Info, Minus, Plus } from "lucide-react";
+import { Info, Minus, Plus, ShieldCheck } from "lucide-react";
 import Currency from "@/components/ui/currency";
 import { CreditCard } from "lucide-react";
 import Button from "@/components/ui/button";
@@ -177,12 +177,7 @@ const Infomation: React.FC<InfomationProps> = ({ product }) => {
           </div>
         </div>
         <div className="flex items-center mt-8 space-x-2">
-          <Image
-            src="/images/category/check.svg"
-            width={30}
-            height={30}
-            alt="Check"
-          />
+          <ShieldCheck size={30} />
           <span className="md:text-lg text-base font-medium underline hover:cursor-pointer">
             30-Day Customer Happiness Guarantee
           </span>

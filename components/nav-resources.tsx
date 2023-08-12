@@ -23,14 +23,14 @@ const plants = [
     alt: "oclock",
   },
   {
-    img: "/images/category/tree.svg",
+    img: "/images/category/Tree.svg",
     title: "Plant Care Library",
     desc: "Care guides for all your plants, A to Z",
     href: "/",
     alt: "tree",
   },
   {
-    img: "/images/category/blog.svg",
+    img: "/images/category/Blog.svg",
     title: "Blog & Resources",
     desc: "Plants 101, common care questions, & more",
     href: "/",

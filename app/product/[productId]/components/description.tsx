@@ -10,7 +10,8 @@ import {
   Sun,
   Droplet,
   Cat,
-  Glasses
+  Glasses,
+  InfoIcon
 } from "lucide-react";
 import { Product } from "@/types";
 
@@ -73,12 +74,7 @@ const Description: React.FC<DescriptionProp> = ({ product }) => {
             onClick={() => setCare(!care)}
           >
             <div className="flex items-center space-x-2">
-              <Image
-                width={22}
-                height={22}
-                alt="tree"
-                src="/images/category/tree.svg"
-              />
+            <InfoIcon size={22} />
               <span className="text-xl font-medium">Care Guide</span>
             </div>
             {care ? <ChevronUp size={28} /> : <ChevronDown size={28} />}
