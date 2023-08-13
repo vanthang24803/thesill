@@ -181,7 +181,7 @@ const Settings = async () => {
 
       <div className="flex items-center flex-col space-y-6 justify-center md:hidden">
         <img
-          src="/images/user/Cat.svg"
+          src="/images/user/cat.svg"
           className="w-1/2 object-cover"
           alt="logo"
         />

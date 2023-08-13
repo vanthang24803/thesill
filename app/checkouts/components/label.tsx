@@ -17,6 +17,9 @@ import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
 import { signOut } from "next-auth/react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import useCart from "@/hooks/use-cart";
+import axios from "axios";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface LabelProps {
   currentUser?: SafeUser | null;
@@ -24,7 +27,22 @@ interface LabelProps {
 
 const Label: React.FC<LabelProps> = ({ currentUser }) => {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const items = useCart((state) => state.items);
+  const searchParams = useSearchParams();
+  const removeAll = useCart((state) => state.removeAll);
+
+  useEffect(() => {
+    if (searchParams?.get("Success")) {
+      toast.success("Payment completed.");
+      removeAll();
+    }
+
+    if (searchParams?.get("canceled")) {
+      toast.error("Something went wrong.");
+    }
+  }, [searchParams, removeAll]);
+
   const {
     register,
     setValue,
@@ -49,9 +67,27 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
       setValue(field, e.target.value);
     };
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
-    toast.success("Developing !");
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    try {
+      setLoading(true);
+      axios
+        .post("/api/order", {
+          ...data,
+          items,
+        })
+        .then(() => {
+          toast.success("Success!");
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("Something went wrong !");
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -223,6 +259,7 @@ const Label: React.FC<LabelProps> = ({ currentUser }) => {
 
       <Button
         className="md:w-1/2 w-full rounded-md"
+        disabled={loading}
         onClick={handleSubmit(onSubmit)}
         type="submit"
       >

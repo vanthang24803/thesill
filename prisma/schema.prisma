@@ -41,6 +41,7 @@ model Account {
   scope             String?
   id_token          String? @db.String
   session_state     String?
+  updatedAt         DateTime @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -58,17 +59,17 @@ model Order {
   company     String?
   city        String?
   zip         Int
-  total       Float
   status      String      @default("ordered")
+  paymentId   String?     // The id of the payment transaction
   createdAt   DateTime    @default(now())
-  updateAt    DateTime
-  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  updateAt    DateTime    @updatedAt
+  user        User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
   items       OrderItem[]
 }
 
 model OrderItem {
-  id        String  @id @default(auto()) @map("_id") @db.ObjectId
-  orderId   String  @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  orderId   String   @db.ObjectId
   productId String
   name      String
   image     String?
@@ -77,6 +78,8 @@ model OrderItem {
   size      String?
   color     String?
   quantity  Int
+  status    String   @default("pending") // The status of the product in the order
+  createdAt DateTime @default(now())     // The time when the product was added to the order
 
   order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
 }

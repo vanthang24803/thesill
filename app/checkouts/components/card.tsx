@@ -35,6 +35,7 @@ const Card: React.FC<CardProps> = ({ item, quantity }) => {
           ) : (
             <p className="font-medium text-xl">${priceSale}</p>
           )}
+
         </div>
       </div>
     </div>
