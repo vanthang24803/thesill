@@ -23,7 +23,7 @@ const navigations = [
       },
       {
         title: "30-Day Guarantee",
-        link: "/",
+        link: "/guarantee",
       },
       {
         title: "Contact Us",
@@ -57,11 +57,11 @@ const navigations = [
     subnav: [
       {
         title: "My Account",
-        link: "/",
+        link: "/account",
       },
       {
         title: "Workshops",
-        link: "/",
+        link: "/workshops",
       },
       {
         title: "Rewards Program",
@@ -69,7 +69,7 @@ const navigations = [
       },
       {
         title: "Track My Order",
-        link: "/",
+        link: "/order",
       },
     ],
   },
@@ -78,7 +78,7 @@ const navigations = [
     subnav: [
       {
         title: "Our Story",
-        link: "/",
+        link: "/about-us",
       },
       {
         title: "Locations",
@@ -86,11 +86,11 @@ const navigations = [
       },
       {
         title: "Careers",
-        link: "/",
+        link: "/careers",
       },
       {
         title: "Corporate Gifting",
-        link: "/",
+        link: "/corporate-gifting",
       },
     ],
   },
