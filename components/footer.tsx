@@ -19,7 +19,7 @@ const navigations = [
       },
       {
         title: "Shipping & Handling",
-        link: "/",
+        link: "/shipping-and-handling",
       },
       {
         title: "30-Day Guarantee",
@@ -27,7 +27,7 @@ const navigations = [
       },
       {
         title: "Contact Us",
-        link: "/",
+        link: "/contact",
       },
     ],
   },
