@@ -15,7 +15,7 @@ const navigations = [
     subnav: [
       {
         title: "FAQ",
-        link: "/",
+        link: "/faq",
       },
       {
         title: "Shipping & Handling",
