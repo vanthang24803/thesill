@@ -1,8 +1,11 @@
 "use client";
 
+import { MoveRight } from "lucide-react";
 import Video from "./video";
+import { useRouter } from "next/navigation";
 
 const Content = () => {
+  const router = useRouter();
   return (
     <div className="flex flex-col items-center justify-center lg:space-y-6 space-y-4 lg:py-8 py-6">
       <img
@@ -142,7 +145,7 @@ const Content = () => {
 
       <Video />
 
-      <div className="flex flex-col space-y-4 lg:w-2/3 lg:px-12">
+      <div className="flex flex-col space-y-4 lg:w-2/3 lg:px-12 pt-4 pb-8 border-b">
         <span className="text-3xl">Simple Steps to Repot Your Plant</span>
         <div className="flex flex-col">
           <span className="font-semibold">
@@ -200,6 +203,38 @@ const Content = () => {
             Even out the potting soil on top and water well! It's worth noting
             that a freshly repotted plant does not need to be fed fertilizer.
           </p>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-center">
+        <div className="flex md:space-x-8 space-x-0 md:space-y-0 space-y-4 items-center justify-center flex-col md:flex-row ">
+          <img
+            src="https://cdn.sanity.io/images/y346iw48/production/5697ee7627ddf79b0bbda1acf462932b13dced48-363x364.jpg?w=200&auto=format"
+            alt="img"
+            className="rounded-full object-cover hidden md:block"
+          />
+          <div className="flex flex-col space-y-3">
+            <span className="text-3xl font-medium font-serif">
+              Pots & Planters
+            </span>
+            <p className="md:w-[250px] text-xs">
+              Meet your next favorite planter. Discover planters, cachepots,
+              propagation vessels, and more in a wide range of styles, sizes, &
+              colors.
+            </p>
+            <div
+              className="flex items-center space-x-2 group hover:cursor-pointer"
+              onClick={() => router.push("/collections/planters")}
+            >
+              <span className="text-xl group-hover:text-[#009a7b] hover:font-medium">
+                Shop Now
+              </span>
+              <MoveRight
+                size={24}
+                className="group-hover:text-[#009a7b] hover:font-medium group-hover:translate-x-2 transition-all ease-in-out"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
